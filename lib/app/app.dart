@@ -1,0 +1,54 @@
+// ignore_for_file: must_be_immutable
+
+import 'package:flutter/material.dart';
+import 'package:flutter_localization/flutter_localization.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:pt_platform/presentation/trainee/home/home_view.dart';
+
+import '../resources/language_manger.dart';
+import '../resources/routes_manager.dart';
+import '../resources/theme_manager.dart';
+import 'app_controller.dart';
+import 'custom_navigator_observer.dart';
+
+class MyApp extends StatelessWidget {
+  MyApp._internal(); // private named constructor
+  int appState = 0;
+  static final MyApp instance =
+      MyApp._internal(); // single instance -- singleton
+
+  factory MyApp() => instance; // factory for the class instance
+
+  bool light = true;
+  final FlutterLocalization localization = FlutterLocalization.instance;
+
+  @override
+  Widget build(BuildContext context) {
+    return ScreenUtilInit(
+        designSize: const Size(430, 932), //1800
+        minTextAdapt: true,
+        splitScreenMode: false,
+        builder: (BuildContext context, Widget? child) {
+          return GetMaterialApp(
+            title: 'Flutter Demo',
+            getPages: AppPages.pages,
+            debugShowCheckedModeBanner: false,
+            initialRoute: Routes.splashRoute,
+            translations: LocalizationService(),
+            theme: getDarkTheme(),
+            locale: LocalizationService.getLocaleFromLanguage(Get.find<AppController>().lang),
+            localizationsDelegates: localization.localizationsDelegates,
+            supportedLocales: const [
+              Locale('en'),
+              Locale('ar'),
+            ],
+            // navigatorObservers: [
+            //   CustomNavigatorObserver(
+            //     screenName: const HomeView(),
+            //   )
+            // ],
+          );
+        });
+  }
+}

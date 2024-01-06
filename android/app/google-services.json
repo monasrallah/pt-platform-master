@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "1065042722156",
+    "firebase_url": "https://pt-platform-686d1-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "pt-platform-686d1",
+    "storage_bucket": "pt-platform-686d1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1065042722156:android:862ff20c5c491041d54749",
+        "android_client_info": {
+          "package_name": "com.smartedge.ptapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzGPbLU4RWC1TjT0EzeRLF2EWlr3fbvnE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1065042722156:android:055cbb660c89f805d54749",
+        "android_client_info": {
+          "package_name": "com.smartedge.ptapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzGPbLU4RWC1TjT0EzeRLF2EWlr3fbvnE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

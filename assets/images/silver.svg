@@ -1,0 +1,39 @@
+<svg id="Group_16229" data-name="Group 16229" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="227.167" height="387.711" viewBox="0 0 227.167 387.711">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#727272"/>
+      <stop offset="1" stop-color="#ddd"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="4.688" y1="-7.656" x2="4.688" y2="-6.656" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#662d8c"/>
+      <stop offset="1" stop-color="#8d8d8d"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="4.688" y1="-7.967" x2="4.688" y2="-6.967" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#656565"/>
+      <stop offset="1" stop-color="#606060"/>
+    </linearGradient>
+  </defs>
+  <g id="banner_BG" data-name="banner BG" transform="translate(0)">
+    <path id="Path_11585" data-name="Path 11585" d="M-1102.325,283.7a16.3,16.3,0,0,0-16.3,16.3V655.11a16.3,16.3,0,0,0,16.3,16.3h194.3a16.3,16.3,0,0,0,16.3-16.3V300a16.3,16.3,0,0,0-16.3-16.3Z" transform="translate(1118.76 -283.697)" fill="url(#linear-gradient)"/>
+    <path id="Path_11586" data-name="Path 11586" d="M-1102.618,1016.3h194.57a16.3,16.3,0,0,0,16.3-16.3V938.115c-13.8-4.74-29.05-8.963-56.234-8.963-61.943,0-61.943,21.926-123.887,21.926-21.35,0-35.34-2.6-47.046-6.019V1000A16.3,16.3,0,0,0-1102.618,1016.3Z" transform="translate(1118.916 -628.59)" opacity="0.7" fill="url(#linear-gradient-2)"/>
+    <path id="Path_11587" data-name="Path 11587" d="M-1102.618,1019.773h194.57a16.3,16.3,0,0,0,16.3-16.3v-55.64c-21.856,7.663-42.116,15.893-85.623,15.893-73.621,0-80.676-23.563-141.543-28.078v67.825A16.3,16.3,0,0,0-1102.618,1019.773Z" transform="translate(1118.916 -632.062)" fill="url(#linear-gradient-3)"/>
+    <rect id="Rectangle_956" data-name="Rectangle 956" width="226.894" height="78.58" transform="translate(0.136 96.23)" opacity="0.1"/>
+  </g>
+  <g id="buy_now_button" data-name="buy now button" transform="translate(55.358 348.784)">
+    <rect id="Rectangle_957" data-name="Rectangle 957" width="116.45" height="23.532" rx="11.766" fill="#fff" opacity="0.2"/>
+  </g>
+  <g id="title" transform="translate(53.305 16.674)">
+    <g id="Group_16225" data-name="Group 16225" transform="translate(3)">
+      <text id="SI" transform="translate(0 33)" fill="#fff" font-size="34" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">SI</tspan></text>
+    </g>
+    <g id="Group_16226" data-name="Group 16226" transform="translate(35.315)">
+      <text id="L" transform="translate(0 33)" fill="#fff" font-size="34" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">L</tspan></text>
+    </g>
+    <g id="Group_16227" data-name="Group 16227" transform="translate(55.767)">
+      <text id="V" transform="translate(0 33)" fill="#fff" font-size="34" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">V</tspan></text>
+    </g>
+    <g id="Group_16228" data-name="Group 16228" transform="translate(82.365)">
+      <text id="ER" transform="translate(0 33)" fill="#fff" font-size="34" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">ER</tspan></text>
+    </g>
+  </g>
+</svg>

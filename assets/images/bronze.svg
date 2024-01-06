@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="249.105" height="387.711" viewBox="0 0 249.105 387.711">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#524141"/>
+      <stop offset="0.069" stop-color="#583333"/>
+      <stop offset="0.131" stop-color="#713f3f"/>
+      <stop offset="0.279" stop-color="#774242"/>
+      <stop offset="0.403" stop-color="#9f6662"/>
+      <stop offset="1" stop-color="#835052"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="7.732" y1="-8.692" x2="7.732" y2="-7.692" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#006fba"/>
+      <stop offset="0.512" stop-color="#64be64"/>
+      <stop offset="0.597" stop-color="#6bbf5f"/>
+      <stop offset="0.721" stop-color="#7ec554"/>
+      <stop offset="0.869" stop-color="#9dcc43"/>
+      <stop offset="1" stop-color="#b16565"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="7.732" y1="-9.041" x2="7.732" y2="-8.041" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#006fba"/>
+      <stop offset="0.512" stop-color="#64be64"/>
+      <stop offset="0.597" stop-color="#6bbf5f"/>
+      <stop offset="0.721" stop-color="#7ec554"/>
+      <stop offset="0.869" stop-color="#9ece42"/>
+      <stop offset="1" stop-color="#7c4747"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_16230" data-name="Group 16230" transform="translate(1309.071 -406.544)">
+    <g id="Group_16229" data-name="Group 16229" transform="translate(-1303.549 284.697)">
+      <g id="buy_now_button" data-name="buy now button" transform="translate(55.358 348.784)">
+        <rect id="Rectangle_957" data-name="Rectangle 957" width="116.45" height="23.532" rx="11.766" fill="#fff" opacity="0.2"/>
+      </g>
+      <g id="Group_16299" data-name="Group 16299" transform="translate(-128.522 118.221)">
+        <g id="banner_BG" data-name="banner BG" transform="translate(123 3.626)">
+          <path id="Path_11577" data-name="Path 11577" d="M-1446.339,365.984c-9.873,0-17.878,7.3-17.878,16.3V737.4c0,9,8,16.3,17.878,16.3h213.131c9.874,0,17.877-7.3,17.877-16.3V382.282c0-9-8-16.3-17.877-16.3Z" transform="translate(1464.326 -365.984)" fill="url(#linear-gradient)"/>
+          <path id="Path_11578" data-name="Path 11578" d="M-1446.579,953.78h213.361c9.87,0,17.872-5.855,17.872-13.077V891.048c-15.128-3.8-31.855-7.191-61.665-7.191-67.926,0-67.926,17.593-135.851,17.593-23.412,0-38.753-2.09-51.589-4.829V940.7C-1464.451,947.925-1456.449,953.78-1446.579,953.78Z" transform="translate(1464.451 -566.069)" opacity="0.7" fill="url(#linear-gradient-2)"/>
+          <path id="Path_11579" data-name="Path 11579" d="M-1446.579,956.566h213.361c9.87,0,17.872-5.855,17.872-13.077V898.847c-23.968,6.149-46.184,12.752-93.893,12.752-80.731,0-88.468-18.905-155.213-22.528v54.418C-1464.451,950.711-1456.449,956.566-1446.579,956.566Z" transform="translate(1464.451 -568.855)" fill="url(#linear-gradient-3)"/>
+          <rect id="Rectangle_954" data-name="Rectangle 954" width="248.887" height="63.048" transform="translate(0.109 101.066)" opacity="0.1"/>
+        </g>
+        <g id="buy_now_button-2" data-name="buy now button" transform="translate(69.818 213.183)">
+          <path id="Path_11580" data-name="Path 11580" d="M-1369.069,976.384h0a9.44,9.44,0,0,0,9.44,9.44h74.552a9.441,9.441,0,0,0,9.441-9.44h0a9.441,9.441,0,0,0-9.441-9.44h-74.552A9.44,9.44,0,0,0-1369.069,976.384Z" transform="translate(1496.64 -819.944)" fill="#fff" opacity="0.2"/>
+        </g>
+        <g id="title" transform="translate(193.605 30.474)">
+          <g id="Group_16181" data-name="Group 16181">
+            <text id="BRONZE" transform="translate(0 29)" fill="#fff" font-size="27" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">BRONZE</tspan></text>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
