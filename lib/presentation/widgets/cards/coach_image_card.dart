@@ -40,7 +40,7 @@ class CoachImageCard extends StatelessWidget {
             title,
             textAlign: TextAlign.center,
             style: titleStyle ??
-                Get.textTheme.bodySmall!.copyWith(fontSize: 15.sp),
+                Get.textTheme.bodySmall!.copyWith(fontSize: 14.sp),
           ),
         ),
       ],

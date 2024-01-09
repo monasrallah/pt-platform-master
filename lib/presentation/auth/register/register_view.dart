@@ -227,6 +227,15 @@ class RegisterView extends GetView<RegisterController> {
                           ),
                         ),
                       ),
+                      30.verticalSpace,
+                      Padding(
+                        padding: EdgeInsetsDirectional.only(start: 10.w),
+                        child: Text(
+                          AppStrings.passwordRoles.tr,
+                          style: Get.textTheme.bodySmall!
+                              .copyWith(fontSize: 17.sp),
+                        ),
+                      ),
                       if (controller.userType.value == "Coach") ...[
                         30.verticalSpace,
                         Padding(

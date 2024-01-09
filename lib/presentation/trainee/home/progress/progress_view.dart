@@ -500,7 +500,7 @@ class ProgressView extends GetView<ProgressController> {
             return Obx(
               () => buildBorderContainer(
                   first: controller.measurementsList[index],
-                  second: title == "BEFORE"
+                  second: title == "before"
                       ? controller.measurementsBeforeAmount[index]
                       : controller.measurementsAfterAmount[index]),
             );
@@ -522,15 +522,15 @@ class ProgressView extends GetView<ProgressController> {
         child: Row(
           children: [
             Text(
-              "$first : ",
-              style: Get.textTheme.bodySmall!.copyWith(fontSize: 12.sp),
+              "${first.tr} : ",
+              style: Get.textTheme.bodySmall!.copyWith(fontSize: 11.sp),
             ),
             SizedBox(
               width: first == "DATE" ? 70.w : 45.w,
               child: Text(
                 second,
                 overflow: TextOverflow.ellipsis,
-                style: Get.textTheme.bodySmall!.copyWith(fontSize: 12.sp),
+                style: Get.textTheme.bodySmall!.copyWith(fontSize: 11.sp),
               ),
             ),
           ],

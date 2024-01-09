@@ -78,7 +78,7 @@ Map<String, String> en = {
   "addLunch": "Add Lunch",
   "dinner": "Dinner",
   "addDinner": "Add Dinner",
-  "snacks": "Snacks",
+  "snack": "Snack",
   "addSnacks": "Add Snacks",
   "supplements": "Supplements",
   "addSupplements": "Add Supplements",
@@ -210,5 +210,21 @@ Map<String, String> en = {
   "areYouSureYouWantToDeleteTheAccount":
       "Are you sure you want to delete the account?",
   "enterYouPassword": "Please, enter your password",
-  "ok": "Ok"
+  "ok": "Ok",
+  "passwordRoles":
+      "The password most contain upper latter, lower latter, number and special character",
+      "DATE":"Date",
+    "NECK":"Neck",
+    "CHEST":"Chest",
+    "LEFT ARM" : "Left Arm",
+    "RIGHT ARM":"Right Arm",
+    "WAIST" : "Waist",
+    "BELLY" : "Belly",
+    "LOWER BELLY" : "Lower Belly",
+    "UPPER BELLY" : "Upper Belly",
+    "HIPS" : "Hips",
+    "LEFT THIGH" : "Left Thigh",
+    "RIGHT THIGH" : "Right Thigh",
+    "LEFT CALF" : "Left Calf",
+    "RIGHT CALF" : "Right Calf",
 };

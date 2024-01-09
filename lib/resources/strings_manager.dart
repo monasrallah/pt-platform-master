@@ -77,7 +77,7 @@ class AppStrings {
   static String addLunch = "addLunch";
   static String dinner = "dinner";
   static String addDinner = "addDinner";
-  static String snacks = "snacks";
+  static String snacks = "snack";
   static String addSnacks = "addSnacks";
   static String supplements = "supplements";
   static String addSupplements = "addSupplements";
@@ -201,7 +201,10 @@ class AppStrings {
   static String pleaseEnterTheNextSetValue = "pleaseEnterTheNextSetValue";
   static String pleaseEnterTheValues = "pleaseEnterTheValues";
   static String alert = "alert";
-  static String areYouSureYouWantToDeleteTheAccount = "areYouSureYouWantToDeleteTheAccount";
+  static String areYouSureYouWantToDeleteTheAccount =
+      "areYouSureYouWantToDeleteTheAccount";
   static String enterYouPassword = "enterYouPassword";
   static String ok = "ok";
+  static String passwordRoles =
+      "The password most contain upper latter, lower latter, number and special character";
 }

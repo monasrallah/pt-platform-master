@@ -22,7 +22,7 @@ class CoachView extends GetView<CoachController> {
       },
       child: MainBottomNavigationBar(
         bodyWidget: buildBody(),
-        backgroundColor: ColorManager.grey,
+        backgroundColor: ColorManager.black,
         appBarWidget: buildSpecialStore(),
       ),
     );

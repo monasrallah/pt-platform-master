@@ -20,7 +20,7 @@ class AddFoodWidget extends GetView<FoodController> {
           : Column(
               children: [
                 buildTextFieldWithTitle(
-                  title: AppStrings.breakfast.tr,
+                  title: AppStrings.breakfast,
                   addText: AppStrings.addBreakfast.tr,
                   foods: controller.foodEntity.value.food.breakfast,
                   onDelete: (index) async {
@@ -33,7 +33,7 @@ class AddFoodWidget extends GetView<FoodController> {
                   },
                 ),
                 buildTextFieldWithTitle(
-                  title: AppStrings.lunch.tr,
+                  title: AppStrings.lunch,
                   addText: AppStrings.addLunch.tr,
                   foods: controller.foodEntity.value.food.lunch,
                   onDelete: (index) async {
@@ -45,7 +45,7 @@ class AddFoodWidget extends GetView<FoodController> {
                   },
                 ),
                 buildTextFieldWithTitle(
-                  title: AppStrings.dinner.tr,
+                  title: AppStrings.dinner,
                   addText: AppStrings.addDinner.tr,
                   foods: controller.foodEntity.value.food.dinner,
                   onDelete: (index) async {
@@ -57,7 +57,7 @@ class AddFoodWidget extends GetView<FoodController> {
                   },
                 ),
                 buildTextFieldWithTitle(
-                  title: AppStrings.snacks.tr,
+                  title: AppStrings.snacks,
                   addText: AppStrings.addSnacks.tr,
                   foods: controller.foodEntity.value.food.snack,
                   onDelete: (index) async {
@@ -69,7 +69,7 @@ class AddFoodWidget extends GetView<FoodController> {
                   },
                 ),
                 buildTextFieldWithTitle(
-                  title: AppStrings.supplements.tr,
+                  title: AppStrings.supplements,
                   addText: AppStrings.addSupplements.tr,
                   foods: controller.foodEntity.value.food.supplements,
                   onDelete: (index) async {
@@ -105,7 +105,7 @@ class AddFoodWidget extends GetView<FoodController> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  title,
+                  title.tr,
                   style: Get.textTheme.bodyMedium!.copyWith(fontSize: 20.sp),
                 ),
                 6.verticalSpace,

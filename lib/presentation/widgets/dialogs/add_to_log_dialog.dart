@@ -124,7 +124,7 @@ class AddToLogDialog extends StatelessWidget {
                   backgroundColor: ColorManager.white,
                   onTap: () {
                     bool valid = true;
-                    for (int i = 0; i < textController.length; i++) {
+                    for (int i = 0; i < textController.length - 1; i++) {
                       if (textController[i].text.isEmpty) {
                         valid = false;
                         break;

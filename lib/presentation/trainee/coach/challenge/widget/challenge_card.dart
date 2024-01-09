@@ -37,8 +37,7 @@ class ChallengeCard extends StatelessWidget {
           padding: EdgeInsetsDirectional.only(start: 20.w, bottom: 25.h),
           child: Text(
             description,
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
+            // overflow: TextOverflow.ellipsis,
             style: Get.textTheme.bodySmall!.copyWith(fontSize: 15.sp),
           ),
         ),

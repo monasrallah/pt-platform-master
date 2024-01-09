@@ -21,6 +21,7 @@ class ChallengeDetailsPage extends GetView<ChallengeController> {
 
   @override
   Widget build(BuildContext context) {
+    controller.newChallengeAcceptedId.clear();
     return MainBottomNavigationBar(
       appBarWidget: appBackBar(title: AppStrings.challenges.tr),
       bodyWidget: buildBody(),
@@ -151,16 +152,17 @@ class ChallengeDetailsPage extends GetView<ChallengeController> {
                 return ColorManager.primary;
               }),
               onChanged: (bool? value) {
-                check.value = true;
-                check.value
+                
+                check.value = value!;
+                value
                     ? {
-                        controller.newChallengeAcceptedId.add(id),
+                        // controller.newChallengeAcceptedId.add(id),
                         controller.challengeAcceptedId.contains(id)
                             ? null
                             : controller.challengeAcceptedId.add(id)
                       }
                     : {
-                        controller.newChallengeAcceptedId.remove(id),
+                        // controller.newChallengeAcceptedId.remove(id),
                         controller.challengeAcceptedId.remove(id)
                       };
               },

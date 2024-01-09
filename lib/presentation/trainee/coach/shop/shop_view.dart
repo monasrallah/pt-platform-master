@@ -58,16 +58,16 @@ class ShopView extends GetView<ShopController> {
                       children: [
                         20.verticalSpace,
 
+                        if (controller.shop.subscription.isNotEmpty)
+                          ...buildSubscriptions(),
+                        30.verticalSpace,
+
                         if (controller.shop.premium.isNotEmpty)
                           ...buildPremium(),
                         30.verticalSpace,
 
                         if (controller.shop.personalTraining.isNotEmpty)
                           ...buildPT(),
-                        30.verticalSpace,
-
-                        if (controller.shop.subscription.isNotEmpty)
-                          ...buildSubscriptions(),
                         30.verticalSpace,
 
                         // Text(
