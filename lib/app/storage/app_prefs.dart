@@ -1,4 +1,3 @@
-import 'package:pt_platform/domain/entities/auth_entities/coach_entity.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../enum.dart';

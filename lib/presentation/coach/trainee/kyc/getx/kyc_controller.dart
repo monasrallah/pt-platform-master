@@ -5,7 +5,6 @@ import '../../../../../app/dependency_injection.dart';
 import '../../../../../data/coach_app/coach_app_repo/coach_app_repository.dart';
 import '../../../../../domain/entities/home_entities/faqs_entity.dart';
 import '../../../../widgets/toasts_messages.dart';
-import '../../../getx/coach_home_controller.dart';
 import '../../getx/trainee_controller.dart';
 
 class KycCoachController extends GetxController {

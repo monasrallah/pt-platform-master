@@ -1,4 +1,3 @@
-import 'package:pt_platform/data/auth/models/trainee_model.dart';
 
 class AllChatsModel {
   List<ChatModel> chats;

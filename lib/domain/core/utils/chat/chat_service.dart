@@ -1,10 +1,8 @@
 import 'dart:async';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 
-import '../../../entities/coach_entities/message_entity.dart';
 
 class ChatService {
   // final databaseReference = FirebaseDatabase.instance.ref();

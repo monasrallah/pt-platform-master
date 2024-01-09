@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pinput/pinput.dart';
 import 'package:pt_platform/app/extensions.dart';
 
 import '../../../../app/dependency_injection.dart';

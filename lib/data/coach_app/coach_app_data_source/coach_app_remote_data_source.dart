@@ -1,5 +1,4 @@
 import '../../../domain/parameters/coach_params/challenge_video_params.dart';
-import '../../../domain/parameters/coach_params/date_coach_id_params.dart';
 import '../../coach/models/challenge_model.dart';
 import '../../coach/models/chat_model.dart';
 import '../../coach/models/exercise_log_model.dart';

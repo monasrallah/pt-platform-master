@@ -1,4 +1,3 @@
-import '../category_params/category_parameter.dart';
 import 'device_params.dart';
 
 class RegisterTraineeParams {

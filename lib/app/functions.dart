@@ -20,10 +20,9 @@ bool checkPasswordValidity(String password) {
 getTime(startTime, endTime) {
   bool result = false;
   int startTimeInt = (startTime.hour * 60 + startTime.minute) * 60;
-  int EndTimeInt = (endTime.hour * 60 + endTime.minute) * 60;
-  int dif = EndTimeInt - startTimeInt;
+  int endTimeInt = (endTime.hour * 60 + endTime.minute) * 60;
 
-  if (EndTimeInt < startTimeInt) {
+  if (endTimeInt < startTimeInt) {
     result = false;
   } else {
     result = true;

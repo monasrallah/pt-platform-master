@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart' as d;
-import 'package:pt_platform/data/home/models/home_model.dart';
 
 import '../../auth/models/auth_model.dart';
 import '../models/base_response/base_response.dart';

@@ -17,6 +17,7 @@ class LiveChatCoachController extends GetxController {
   RxList<MessageEntity> messageEntity = <MessageEntity>[].obs;
 
   void handleSubmitted(int coachId, int traineeId) async {
+    // ignore: unused_local_variable
     var user = auth.currentUser;
     chatService.sendMessage(
         senderId: coachId,

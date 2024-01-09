@@ -12,7 +12,6 @@ import '../../../../data/auth/auth_repo/auth_repository.dart';
 import '../../../../domain/parameters/auth_parameter/device_params.dart';
 import '../../../../domain/parameters/auth_parameter/register_params.dart';
 import '../../../../resources/local_messages_strings_manager.dart';
-import '../../../../resources/routes_manager.dart';
 import '../../../widgets/toasts_messages.dart';
 
 class RegisterController extends GetxController {

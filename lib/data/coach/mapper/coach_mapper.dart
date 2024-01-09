@@ -1,4 +1,3 @@
-import 'package:pt_platform/data/auth/mapper/auth_mapper.dart';
 import 'package:pt_platform/data/home/mapper/home_mapper.dart';
 import 'package:pt_platform/domain/entities/coach_entities/personalized_entity.dart';
 import 'package:pt_platform/domain/entities/coach_entities/video_entity.dart';

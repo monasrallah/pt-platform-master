@@ -4,13 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localization/flutter_localization.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:pt_platform/presentation/trainee/home/home_view.dart';
 
 import '../resources/language_manger.dart';
 import '../resources/routes_manager.dart';
 import '../resources/theme_manager.dart';
 import 'app_controller.dart';
-import 'custom_navigator_observer.dart';
 
 class MyApp extends StatelessWidget {
   MyApp._internal(); // private named constructor

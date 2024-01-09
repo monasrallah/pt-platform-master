@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pt_platform/resources/color_manager.dart';
 
+// ignore: must_be_immutable
 class AboutYouCard extends StatelessWidget {
    AboutYouCard({required this.title, required this.selected, Key? key})
       : super(key: key);
