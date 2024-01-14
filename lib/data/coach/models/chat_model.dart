@@ -1,4 +1,3 @@
-
 class AllChatsModel {
   List<ChatModel> chats;
 
@@ -19,7 +18,7 @@ class ChatModel {
   String username;
   String time;
   int isAutoAccept;
-  DateTime date;
+  String date;
   DateTime? deletedAt;
   DateTime createdAt;
   DateTime updatedAt;
@@ -44,7 +43,7 @@ class ChatModel {
         username: json["username"],
         time: json["time"],
         isAutoAccept: json["is_auto_accept"],
-        date: DateTime.parse(json["date"]),
+        date: json["date"],
         deletedAt: json["deleted_at"],
         createdAt: DateTime.parse(json["created_at"]),
         updatedAt: DateTime.parse(json["updated_at"]),
@@ -122,6 +121,7 @@ class ZoomDataModel {
   String h323Password;
   String pstnPassword;
   String encryptedPassword;
+
   // Settings settings;
   bool preSchedule;
 

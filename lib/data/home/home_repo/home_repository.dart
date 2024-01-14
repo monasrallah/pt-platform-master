@@ -66,7 +66,8 @@ abstract class BaseHomeRepository {
 
   Future<Either<Failure, FoodEntity>> getFoodHistory(String dateTime);
 
-  Future<Either<Failure, List<AddFoodEntity>>> getFood(GetFoodsParams getFoodsParams);
+  Future<Either<Failure, List<AddFoodEntity>>> getFood(
+      GetFoodsParams getFoodsParams);
 
   Future<Either<Failure, bool>> addFood(AddFoodsParams addFoodsParams);
 
@@ -205,7 +206,8 @@ class HomeRepositoryImpl extends BaseHomeRepository {
   }
 
   @override
-  Future<Either<Failure, List<AddFoodEntity>>> getFood(GetFoodsParams getFoodsParams) async {
+  Future<Either<Failure, List<AddFoodEntity>>> getFood(
+      GetFoodsParams getFoodsParams) async {
     if (await _networkInfo.isConnected) {
       try {
         final response = await _homeRemoteDataSource.getFood(getFoodsParams);

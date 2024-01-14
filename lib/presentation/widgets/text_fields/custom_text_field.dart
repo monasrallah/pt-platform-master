@@ -82,9 +82,9 @@ class CustomTextField extends StatelessWidget {
     print(MediaQuery.textScaleFactorOf(context));
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(
-          textScaler: TextScaler.linear(
-              getSuitableBigScale(MediaQuery.textScaleFactorOf(context)))
-          // textScaleFactor: 0.8 * MediaQuery.textScaleFactorOf(context),
+          // textScaler: TextScaler.linear(
+          //     getSuitableBigScale(MediaQuery.textScaleFactorOf(context)))
+          textScaleFactor: 0.8 * MediaQuery.textScaleFactorOf(context),
           ),
       child: Padding(
         padding: EdgeInsets.all(1.5.h),

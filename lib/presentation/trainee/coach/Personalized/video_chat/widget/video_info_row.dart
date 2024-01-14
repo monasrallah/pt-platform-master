@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:pt_platform/app/extensions.dart';
 import 'package:pt_platform/presentation/widgets/buttons/custom_elevated_button.dart';
-import 'package:pt_platform/resources/functions/date_format_function.dart';
 import 'package:pt_platform/resources/strings_manager.dart';
 
 import '../../../../../../app/functions.dart';
@@ -23,10 +21,10 @@ class VideoInfoRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TimeOfDay t = TimeOfDay(
-        hour: int.parse(chat.time.split(":")[0]),
-        minute: int.parse(chat.time.split(":")[1]));
-    TimeOfDay t2 = t.plusMinutes(-15); // t2 is 10:15
+    // TimeOfDay t = TimeOfDay(
+    //     hour: int.parse(chat.time.split(":")[0]),
+    //     minute: int.parse(chat.time.split(":")[1]));
+    // TimeOfDay t2 = t.plusMinutes(-15); // t2 is 10:15
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 20.h),
       child: Row(
@@ -48,21 +46,21 @@ class VideoInfoRow extends StatelessWidget {
             ),
           ),
           10.horizontalSpace,
-          if (!getTime(t2, TimeOfDay.now()))
+          if (isGreaterThanQuarterHour(chat.time, chat.date))
             Expanded(
               flex: 2,
               child: CustomElevatedButton(
                 title: AppStrings.cancel.tr,
                 height: 40,
                 borderRadius: BorderRadius.circular(40.r),
-                textStyle: Get.textTheme.titleSmall,
+                textStyle: Get.textTheme.bodySmall,
                 onTap: () {
                   onTapCancel();
                 },
               ),
             ),
-          10.horizontalSpace,
-          if (getTime(t2, TimeOfDay.now()))
+          // 10.horizontalSpace,
+          if (!isGreaterThanQuarterHour(chat.time, chat.date))
             Expanded(
               flex: 2,
               child: CustomElevatedButton(

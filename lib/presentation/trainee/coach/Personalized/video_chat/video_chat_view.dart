@@ -7,6 +7,7 @@ import 'package:pt_platform/resources/color_manager.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../../resources/strings_manager.dart';
+import '../../../../widgets/dialogs/confirm_choice_dialog.dart';
 import '../../../main_bottom_navigation_bar/main_bottom_navigation_bar.dart';
 import 'getx/video_chat_controller.dart';
 import 'widget/video_info_row.dart';
@@ -114,9 +115,16 @@ class VideoChatView extends GetView<VideoChatController> {
                             .toString()));
                       },
                       onTapCancel: () async {
-                        await controller
-                            .deleteVideoChat(controller.chats[index].id);
-                        controller.getVideoChat();
+                        Get.dialog(ConfirmChoiceDialog(
+                          title: AppStrings.cancelVideoChat.tr,
+                          message: AppStrings.confirmCancelVideoChat.tr,
+                          toDoButton: AppStrings.ok.tr,
+                          toDo: () async {
+                            await controller
+                                .deleteVideoChat(controller.chats[index].id);
+                            controller.getVideoChat();
+                          },
+                        ));
                       },
                     );
                   },

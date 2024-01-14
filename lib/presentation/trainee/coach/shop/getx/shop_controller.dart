@@ -64,6 +64,23 @@ class ShopController extends GetxController {
     isLoading = false;
   }
 
+  checkoutFree(int id, String paymentMethod) async {
+    isLoading = true;
+    (await baseCoachRepository.checkoutFree(PackagePaymentParams(
+            id: id,
+            paymentMethod: paymentMethod,
+            code: codeController.text,
+            coachId: coachId.value)))
+        .fold(
+            (failure) => showFlutterToast(message: failure.message.orEmpty()),
+            (data) => {
+                  // Get.find<AppController>().onItemTapped(1),
+                  showFlutterToast(message: "success"),
+                  Get.find<AppController>().onItemTapped(1),
+                });
+    isLoading = false;
+  }
+
   DiscountEntity discountEntity =
       DiscountEntity(discount: '', old_price: "", price: 0);
 

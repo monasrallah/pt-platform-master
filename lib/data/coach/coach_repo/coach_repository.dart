@@ -98,7 +98,10 @@ abstract class BaseCoachRepository {
   Future<Either<Failure, StripeEntity>> checkout(
       PackagePaymentParams packagePaymentParams);
 
-  Future<Either<Failure, bool>> checkoutTips(
+  Future<Either<Failure, bool>> checkoutFree(
+      PackagePaymentParams packagePaymentParams);
+
+  Future<Either<Failure, StripeEntity>> checkoutTips(
       TipsPaymentParams packagePaymentParams);
 
   Future<Either<Failure, DiscountEntity>> checkPromoCode(
@@ -356,7 +359,7 @@ class CoachRepositoryImpl extends BaseCoachRepository {
   Future<Either<Failure, List<VideoEntity>>> getExerciseVideo(
       String coachId, int exerciseId) async {
     if (await _networkInfo.isConnected) {
-      // try {
+      try {
         final response =
             await _coachRemoteDataSource.getExerciseVideo(coachId, exerciseId);
 
@@ -366,9 +369,9 @@ class CoachRepositoryImpl extends BaseCoachRepository {
           return Left(Failure(ApiInternalStatus.FAILURE,
               response.message ?? ResponseMessage.DEFAULT));
         }
-      // } catch (error) {
-      //   return Left(ErrorHandler.handle(error).failure);
-      // }
+      } catch (error) {
+        return Left(ErrorHandler.handle(error).failure);
+      }
     } else {
       return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
     }
@@ -717,7 +720,29 @@ class CoachRepositoryImpl extends BaseCoachRepository {
   }
 
   @override
-  Future<Either<Failure, bool>> checkoutTips(
+  Future<Either<Failure, bool>> checkoutFree(
+      PackagePaymentParams packagePaymentParams) async {
+    if (await _networkInfo.isConnected) {
+      try {
+        final response =
+            await _coachRemoteDataSource.checkoutFree(packagePaymentParams);
+
+        if (response.status!) {
+          return const Right(true);
+        } else {
+          return Left(Failure(ApiInternalStatus.FAILURE,
+              response.message ?? ResponseMessage.DEFAULT));
+        }
+      } catch (error) {
+        return Left(ErrorHandler.handle(error).failure);
+      }
+    } else {
+      return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failure, StripeEntity>> checkoutTips(
       TipsPaymentParams packagePaymentParams) async {
     if (await _networkInfo.isConnected) {
       try {
@@ -725,7 +750,7 @@ class CoachRepositoryImpl extends BaseCoachRepository {
             await _coachRemoteDataSource.checkoutTips(packagePaymentParams);
 
         if (response.status!) {
-          return const Right(true);
+          return Right(response.data!.toDomain());
         } else {
           return Left(Failure(ApiInternalStatus.FAILURE,
               response.message ?? ResponseMessage.DEFAULT));

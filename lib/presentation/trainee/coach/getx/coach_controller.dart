@@ -8,6 +8,7 @@ import 'package:pt_platform/domain/entities/coach_entities/personalized_entity.d
 import 'package:pt_platform/resources/strings_manager.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../../app/app_controller.dart';
 import '../../../../app/dependency_injection.dart';
 import '../../../../app/storage/app_prefs.dart';
 import '../../../../data/home/home_repo/home_repository.dart';
@@ -18,6 +19,7 @@ import '../../../../domain/parameters/coach_params/packege_payment_params.dart';
 import '../../../../resources/assets_manager.dart';
 import '../../../../resources/routes_manager.dart';
 import '../../../widgets/toasts_messages.dart';
+import '../shop/widget/web_view_page.dart';
 
 class CoachController extends GetxController {
   final CarouselController carouselController = CarouselController();
@@ -113,11 +115,11 @@ class CoachController extends GetxController {
                   coachName.value.isEmpty
                       ? coachName.value = coaches[0].lastName.orEmpty()
                       : coachName.value,
-                  coachId.value.isEmpty
-                      ? coachId.value = coaches[0].id.toString()
-                      : coachId.value,
+                  // coachId.value.isEmpty ?
+                  coachId.value = coaches[0].id.toString(),
+                      // : coachId.value,
                   coachAvatar.value.isEmpty
-                      ? coachAvatar.value = coaches[0].avatar.toString()
+                      ? coachAvatar.value = coaches[0].logo.toString()
                       : coachAvatar.value,
                   instance<AppPreferences>().setCoachEntity([
                     coachId.value,
@@ -186,8 +188,14 @@ class CoachController extends GetxController {
     isLoading = true;
     (await baseCoachRepository.checkoutTips(TipsPaymentParams(
             id: id, paymentMethod: paymentMethod, coachId: coachId.value)))
-        .fold((failure) => showFlutterToast(message: failure.message.orEmpty()),
-            (data) => {showFlutterToast(message: "Thanks")});
+        .fold(
+            (failure) => showFlutterToast(message: failure.message.orEmpty()),
+            (data) => {
+                  paymentMethod == "stripe"
+                      ? Get.to(() => WebViewApp(url: data.url))
+                      : Get.find<AppController>().onItemTapped(1),
+                });
+    Get.back();
     isLoading = false;
   }
 

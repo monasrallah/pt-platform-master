@@ -119,9 +119,9 @@ class ChallengeController extends GetxController {
     isButtonLoading = false;
   }
 
-
   @override
   void onInit() async {
+    newChallengeAcceptedId.clear();
     await getChallenges();
     super.onInit();
   }

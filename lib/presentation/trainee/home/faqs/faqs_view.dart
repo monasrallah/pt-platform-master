@@ -29,7 +29,7 @@ class FAQsView extends GetView<FAQsController> {
         children: [
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 20.w),
-            child: Text(AppStrings.enterYourDetails),
+            child: const SizedBox.shrink(),
           ),
           20.verticalSpace,
           Obx(

@@ -60,15 +60,15 @@ class AssignedCoachView extends GetView<AssignedCoachController> {
                                 instance<AppPreferences>().setCoachEntity([
                                   controller.coaches[index].id.toString(),
                                   controller.coaches[index].lastName.toString(),
-                                  controller.coaches[index].avatar.toString(),
+                                  controller.coaches[index].logo.toString(),
                                 ]);
                                 Get.find<AppController>().onItemTapped(1);
                               },
                               child: AssignedCoachCard(
                                 title:
                                     "${controller.coaches[index].lastName}",
-                                image: controller.coaches[index].avatar != null
-                                    ? controller.coaches[index].avatar!
+                                image: controller.coaches[index].logo != null
+                                    ? controller.coaches[index].logo!
                                     : Get.find<AppController>().defaultImage,
                               ),
                             );

@@ -19,6 +19,7 @@ class CoachModel {
   String? email;
   String? description;
   String avatar;
+  String? logo;
   String phoneNumber;
   String? role;
   bool? isSubscription;
@@ -33,6 +34,7 @@ class CoachModel {
     required this.description,
     required this.phoneNumber,
     this.isSubscription,
+    this.logo,
     required this.role,
     required this.categories,
   });
@@ -46,6 +48,7 @@ class CoachModel {
         description: json["description"] ?? "",
         phoneNumber: json["phone_number"],
         role: json["role"],
+        logo: json["logo"] as String?,
         isSubscription: json["is_subscription"] as bool?,
         categories: List<CategoryModel>.from(
             json["categories"].map((x) => CategoryModel.fromJson(x))),

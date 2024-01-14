@@ -39,6 +39,7 @@ extension CoachModelMapper on CoachModel {
         lastName: nickName,
         email: email,
         avatar: avatar,
+        logo: logo,
         phoneNumber: phoneNumber,
         description: description,
         isSubscription:isSubscription,

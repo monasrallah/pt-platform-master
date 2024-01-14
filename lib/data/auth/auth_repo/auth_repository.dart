@@ -107,7 +107,7 @@ class AuthRepositoryImpl extends BaseAuthRepository {
         instance<AppPreferences>().setCoachEntity([
           response.data!.user!.id.toString(),
           response.data!.user!.nickName.toString(),
-          response.data!.user!.avatar.toString(),
+          response.data!.user!.logo.toString(),
         ]);
         return Right(response.data!.toDomainCoach());
       } else {

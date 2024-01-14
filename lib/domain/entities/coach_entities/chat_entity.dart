@@ -5,7 +5,7 @@ class ChatEntity {
   String username;
   String time;
   int isAutoAccept;
-  DateTime date;
+  String date;
   DateTime? deletedAt;
   DateTime createdAt;
   DateTime updatedAt;

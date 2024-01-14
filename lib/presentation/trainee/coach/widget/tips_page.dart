@@ -23,7 +23,7 @@ class TipsPage extends GetView<CoachController> {
 
   Widget buildBody() {
     return SingleChildScrollView(
-      physics: const NeverScrollableScrollPhysics(),
+      physics: const AlwaysScrollableScrollPhysics(),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: Obx(
@@ -48,7 +48,7 @@ class TipsPage extends GetView<CoachController> {
                       height: 1.sh,
                       width: 1.sw,
                       child: GridView.builder(
-                        physics: const AlwaysScrollableScrollPhysics(),
+                        physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         itemCount: controller.tips.length,
                         // scrollDirection: Axis.horizontal,

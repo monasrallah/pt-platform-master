@@ -129,7 +129,7 @@ class ShopCard extends GetView<ShopController> {
             borderRadius: BorderRadius.circular(22.r),
             onTap: () {
               return personalTraining.isFree
-                  ? controller.checkout(personalTraining.id, "free")
+                  ? controller.checkoutFree(personalTraining.id, "free")
                   : Get.to(
                       () => ShopDetailsPage(personalTraining: personalTraining),
                     );

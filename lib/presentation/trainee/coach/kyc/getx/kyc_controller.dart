@@ -30,6 +30,7 @@ class KycController extends GetxController {
   List<QuestionnaireParams> questionnaire = [];
 
   List<QuestionnaireParams> convertEntityToParams() {
+    questionnaire.clear();
     kyc
         .map((element) => questionnaire.add(QuestionnaireParams(
             question_id: element.id, answer: element.answer)))

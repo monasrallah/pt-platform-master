@@ -189,6 +189,7 @@ class AppStrings {
   static String questionnaire = "questionnaire";
   static String coachInformation = "coachInformation";
   static String chooseYourCoach = "chooseYourCoach";
+  static String chooseYour = "chooseYour";
   static String categoryFilter = "categoryFilter";
   static String coach = "coach";
   static String profile = "profile";
@@ -205,6 +206,8 @@ class AppStrings {
       "areYouSureYouWantToDeleteTheAccount";
   static String enterYouPassword = "enterYouPassword";
   static String ok = "ok";
+  static String cancelVideoChat = "cancelVideoChat";
+  static String confirmCancelVideoChat = "confirmCancelVideoChat";
   static String passwordRoles =
       "The password most contain upper latter, lower latter, number and special character";
 }

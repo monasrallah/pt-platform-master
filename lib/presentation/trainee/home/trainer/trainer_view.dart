@@ -58,13 +58,27 @@ class TrainerView extends GetView<TrainerController> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      SizedBox(
-                        width: 0.5.sw,
-                        child: Text(
-                          AppStrings.chooseYourCoach.tr,
-                          style: Get.textTheme.bodyLarge!
-                              .copyWith(fontSize: 35.sp),
-                        ),
+                      Column(
+                        children: [
+                          SizedBox(
+                            width: 0.5.sw,
+                            child: Text(
+                              AppStrings.chooseYour.tr,
+                              maxLines: 2,
+                              style: Get.textTheme.bodyLarge!
+                                  .copyWith(fontSize: 35.sp),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 0.5.sw,
+                            child: Text(
+                              AppStrings.coach.tr,
+                              maxLines: 2,
+                              style: Get.textTheme.bodyLarge!
+                                  .copyWith(fontSize: 35.sp),
+                            ),
+                          ),
+                        ],
                       ),
                       Padding(
                         padding:
@@ -159,7 +173,7 @@ class TrainerView extends GetView<TrainerController> {
                             instance<AppPreferences>().setCoachEntity([
                               controller.coaches[index].id.toString(),
                               controller.coaches[index].lastName.toString(),
-                              controller.coaches[index].avatar.toString(),
+                              controller.coaches[index].logo.toString(),
                             ]);
                             print(
                                 instance<AppPreferences>().getCoachEntity()[0]);

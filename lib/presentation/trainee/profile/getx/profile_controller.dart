@@ -42,6 +42,7 @@ class ProfileController extends GetxController {
   setSelectedProductImage(File file) {
     productImageFile.value = file;
     isFileProductImage.value = true;
+    editImage();
     update();
   }
 

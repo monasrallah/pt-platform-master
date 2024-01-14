@@ -61,7 +61,7 @@ class TipsCard extends GetView<CoachController> {
               borderRadius: BorderRadius.circular(22.r),
               onTap: () {
                 Get.dialog(PickPaymentMethodDialog(
-                  onTapCreditCard: () => controller.checkout(tip.id, "credit"),
+                  onTapCreditCard: () => controller.checkout(tip.id, "stripe"),
                   onTapAppPurchase: () =>
                       controller.checkout(tip.id, "purchase"),
                 ));

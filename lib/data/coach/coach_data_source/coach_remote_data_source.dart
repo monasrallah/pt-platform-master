@@ -93,7 +93,10 @@ abstract class BaseCoachRemoteDataSource {
   Future<BaseResponse<StripeModel>> checkout(
       PackagePaymentParams packagePaymentParams);
 
-  Future<BaseResponse<EmptyModel>> checkoutTips(
+  Future<BaseResponse<EmptyModel>> checkoutFree(
+      PackagePaymentParams packagePaymentParams);
+
+  Future<BaseResponse<StripeModel>> checkoutTips(
       TipsPaymentParams packagePaymentParams);
 
   Future<BaseResponse<DiscountModel>> checkPromoCode(
@@ -321,10 +324,19 @@ class CoachRemoteDataSourceImpl implements BaseCoachRemoteDataSource {
   }
 
   @override
-  Future<BaseResponse<EmptyModel>> checkoutTips(
+  Future<BaseResponse<EmptyModel>> checkoutFree(
+      PackagePaymentParams packagePaymentParams) async {
+    final data = packagePaymentParams.toJson();
+    data.removeWhere((key, value) => value == null || value == '');
+    return await _appApiHelper.performPostRequest(
+        AppUrls.baseShopUrl, data, EmptyModel.fromJson);
+  }
+
+  @override
+  Future<BaseResponse<StripeModel>> checkoutTips(
       TipsPaymentParams packagePaymentParams) async {
     return await _appApiHelper.performPostRequest(AppUrls.tipsShopUrl,
-        packagePaymentParams.toJson(), EmptyModel.fromJson);
+        packagePaymentParams.toJson(), StripeModel.fromJson);
   }
 
   @override

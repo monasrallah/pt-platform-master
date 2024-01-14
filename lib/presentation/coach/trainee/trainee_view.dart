@@ -53,13 +53,28 @@ class TraineeCoachView extends GetView<TraineeCoachController> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
-                      width: 0.5.sw,
-                      child: Text(
-                        AppStrings.chooseYourTrainees.tr,
-                        style:
-                            Get.textTheme.bodyLarge!.copyWith(fontSize: 35.sp),
-                      )),
+                  Column(
+                    children: [
+                      SizedBox(
+                        width: 0.5.sw,
+                        child: Text(
+                          AppStrings.chooseYour.tr,
+                          maxLines: 2,
+                          style: Get.textTheme.bodyLarge!
+                              .copyWith(fontSize: 35.sp),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 0.5.sw,
+                        child: Text(
+                          AppStrings.trainee.tr,
+                          maxLines: 2,
+                          style: Get.textTheme.bodyLarge!
+                              .copyWith(fontSize: 35.sp),
+                        ),
+                      ),
+                    ],
+                  ),
                   20.verticalSpace,
                   CustomTextField(
                     hint: AppStrings.search.tr,

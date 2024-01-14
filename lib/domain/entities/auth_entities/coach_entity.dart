@@ -7,6 +7,7 @@ class CoachEntity {
   String? email;
   String? status;
   String? avatar;
+  String? logo;
   String? phoneNumber;
   String? description;
   String? linkSocialMedia;
@@ -23,6 +24,7 @@ class CoachEntity {
     this.email,
     this.status,
     this.avatar,
+    this.logo,
     this.phoneNumber,
     this.description,
     this.isSubscription,
