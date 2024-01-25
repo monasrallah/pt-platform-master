@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pt_platform/app/debug/log.dart';
 import 'package:pt_platform/app/extensions.dart';
 import 'package:pt_platform/data/coach/coach_repo/coach_repository.dart';
 import 'package:pt_platform/domain/core/entities/failure.dart';
@@ -117,7 +118,7 @@ class CoachController extends GetxController {
                       : coachName.value,
                   // coachId.value.isEmpty ?
                   coachId.value = coaches[0].id.toString(),
-                      // : coachId.value,
+                  // : coachId.value,
                   coachAvatar.value.isEmpty
                       ? coachAvatar.value = coaches[0].logo.toString()
                       : coachAvatar.value,
@@ -185,19 +186,49 @@ class CoachController extends GetxController {
   }
 
   checkout(int id, String paymentMethod) async {
-    isLoading = true;
-    (await baseCoachRepository.checkoutTips(TipsPaymentParams(
-            id: id, paymentMethod: paymentMethod, coachId: coachId.value)))
-        .fold(
-            (failure) => showFlutterToast(message: failure.message.orEmpty()),
-            (data) => {
-                  paymentMethod == "stripe"
-                      ? Get.to(() => WebViewApp(url: data.url))
-                      : Get.find<AppController>().onItemTapped(1),
-                });
     Get.back();
+    isLoading = true;
+
+    (await baseCoachRepository.checkoutTips(
+      TipsPaymentParams(
+        id: id,
+        paymentMethod: paymentMethod,
+        coachId: coachId.value,
+      ),
+    ))
+        .fold((failure) => showFlutterToast(message: failure.message.orEmpty()),
+            (data) {
+      if (paymentMethod == "stripe") {
+        Route route =
+            MaterialPageRoute(builder: (_) => WebViewApp(url: data.url));
+
+        Navigator.push(Get.context!, route);
+      } else {
+        Get.find<AppController>().onItemTapped(1);
+      }
+    });
+
     isLoading = false;
   }
+
+  //   checkout(int id, String paymentMethod) async {
+  //   isLoading = true;
+  //   (await baseCoachRepository.checkout(PackagePaymentParams(
+  //           id: id,
+  //           paymentMethod: paymentMethod,
+  //           code: codeController.text,
+  //           coachId: coachId.value)))
+  //       .fold(
+  //           (failure) => showFlutterToast(message: failure.message.orEmpty()),
+  //           (StripeEntity data) => {
+  //                 // Get.find<AppController>().onItemTapped(1),
+  //                 showFlutterToast(message: "success"),
+  //                 paymentMethod == "stripe"
+  //                     ? Get.to(() => WebViewApp(url: data.url))
+  //                     : Get.find<AppController>().onItemTapped(1),
+  //               });
+  //   isLoading = false;
+  // }
 
   RxString userId = "".obs;
   RxString coachId = "".obs;

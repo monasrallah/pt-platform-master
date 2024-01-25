@@ -43,7 +43,7 @@ class CustomWheelScrollWidget extends StatelessWidget {
                   Get.textTheme.labelLarge!.copyWith(fontSize: 17.sp),
               unSelectTextStyle:
                   Get.textTheme.headlineMedium!.copyWith(fontSize: 15.sp),
-              onValueChanged: (value,) {
+              onValueChanged: (value) {
                 data.value = value;
                 // this.index != null ? this.index!.value = index : null;
               },

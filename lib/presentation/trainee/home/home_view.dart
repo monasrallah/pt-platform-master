@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -141,6 +142,36 @@ class HomeView extends GetView<HomeController> {
     );
   }
 
+  // PreferredSizeWidget buildSpecialStore() {
+  //   return PreferredSize(
+  //     preferredSize: Size.fromHeight(0.29.sh),
+  //     child: AppBar(
+  //       automaticallyImplyLeading: false,
+  //       flexibleSpace: Stack(
+  //         children: [
+  //           InkWell(
+  //             onTap: () async {
+  //               await launchUrl(Uri.parse(controller.banners[0].url));
+  //             },
+  //             child: SizedBox(
+  //               width: Get.width,
+  //               height: 0.4.sh,
+  //               child: Obx(
+  //                 () => Image.network(
+  //                   controller.isLoading || controller.banners.isEmpty
+  //                       ? Get.find<AppController>().defaultImage
+  //                       : controller.banners[0].image,
+  //                   fit: BoxFit.cover,
+  //                 ),
+  //               ),
+  //             ),
+  //           ),
+  //         ],
+  //       ),
+  //     ),
+  //   );
+  // }
+
   PreferredSizeWidget buildSpecialStore() {
     return PreferredSize(
       preferredSize: Size.fromHeight(0.29.sh),
@@ -148,21 +179,71 @@ class HomeView extends GetView<HomeController> {
         automaticallyImplyLeading: false,
         flexibleSpace: Stack(
           children: [
-            InkWell(
-              onTap: () async {
-                await launchUrl(Uri.parse(controller.banners[0].url));
-              },
-              child: SizedBox(
-                width: Get.width,
-                height: 0.4.sh,
-                child: Obx(
-                  () => Image.network(
-                    controller.isLoading || controller.banners.isEmpty
-                        ? Get.find<AppController>().defaultImage
-                        : controller.banners[0].image,
-                    fit: BoxFit.cover,
-                  ),
-                ),
+            SizedBox(
+              width: Get.width,
+              child: Obx(
+                () {
+                  if (controller.isLoading) {
+                    return SizedBox(
+                      height: 0.4.sh,
+                      child: Image.network(
+                        Get.find<AppController>().defaultImage,
+                        fit: BoxFit.cover,
+                        width: Get.width,
+                      ),
+                    );
+                  } else {
+                    return Stack(
+                      alignment: Alignment.bottomCenter,
+                      children: [
+                        CarouselSlider(
+                          items: controller.imageSliders,
+                          carouselController: controller.carouselController,
+                          options: CarouselOptions(
+                              height: 0.4.sh,
+                              autoPlay: true,
+                              viewportFraction: 1.0,
+                              onPageChanged: (index, _) {
+                                controller.indexSpecialStore.value = index;
+                              }),
+                        ),
+                        Obx(
+                          () => Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children:
+                                controller.banners.asMap().entries.map((entry) {
+                              return GestureDetector(
+                                onTap: () => controller.carouselController
+                                    .animateToPage(entry.key),
+                                child: Obx(
+                                  () => Container(
+                                    width: 11.w,
+                                    height: 11.h,
+                                    margin: EdgeInsets.symmetric(
+                                        vertical: 8.h, horizontal: 8.w),
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: (Get.theme.brightness ==
+                                                  Brightness.dark
+                                              ? Colors.grey
+                                              : Colors.white)
+                                          .withOpacity(controller
+                                                      .indexSpecialStore
+                                                      .value ==
+                                                  entry.key
+                                              ? 0.9
+                                              : 0.4),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            }).toList(),
+                          ),
+                        ),
+                      ],
+                    );
+                  }
+                },
               ),
             ),
           ],

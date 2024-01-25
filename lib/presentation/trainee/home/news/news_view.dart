@@ -42,7 +42,7 @@ class NewsView extends GetView<NewsController> {
                   child: SvgPicture.asset(IconsAssets.noData),
                 )
               : ListView.builder(
-                  itemCount: 4,
+                  itemCount: controller.news.length,
                   itemBuilder: (context, index) {
                     return InkWell(
                       onTap: () => Get.to(() => NewsDetailsPage(

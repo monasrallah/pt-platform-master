@@ -135,7 +135,7 @@ class ProfileView extends GetView<ProfileController> {
               () => Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  50.horizontalSpace,
+                  // 50.horizontalSpace,
                   SizedBox(
                     width: 0.6.sw,
                     child: Obx(
@@ -207,7 +207,7 @@ class ProfileView extends GetView<ProfileController> {
                       size: 30.w,
                     ),
                   ),
-                  30.horizontalSpace,
+                  // 30.horizontalSpace,
                 ],
               ),
             ),

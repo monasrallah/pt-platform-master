@@ -141,7 +141,9 @@ class ProgressCoachView extends GetView<ProgressCoachController> {
                   percent: controller.progressAmount[2].percentage.value / 100 >
                           1
                       ? 1
-                      : controller.progressAmount[2].percentage.value / 100),
+                      : (controller.progressAmount[2].percentage.value / 100)
+                          .clamp(0.0, 0.1),
+                ),
         ),
         30.horizontalSpace,
         Obx(
@@ -159,7 +161,9 @@ class ProgressCoachView extends GetView<ProgressCoachController> {
                   percent: controller.progressAmount[1].percentage.value / 100 >
                           1
                       ? 1
-                      : controller.progressAmount[1].percentage.value / 100),
+                      : (controller.progressAmount[1].percentage.value / 100)
+                          .clamp(0.0, 0.1),
+                ),
         ),
         30.horizontalSpace,
         Obx(
@@ -174,10 +178,12 @@ class ProgressCoachView extends GetView<ProgressCoachController> {
                       "${(controller.progressAmount[0].percentage.value).toStringAsFixed(1)} %",
                   iconType: controller.progressAmount[0].percentage.type,
                   progressColor: Colors.yellow,
-                  percent:
-                      controller.progressAmount[0].percentage.value / 100 > 1
-                          ? 1
-                          : controller.progressAmount[0].percentage.value),
+                  percent: controller.progressAmount[0].percentage.value / 100 >
+                          1
+                      ? 1
+                      : (controller.progressAmount[0].percentage.value / 100)
+                          .clamp(0.0, 0.1),
+                ),
         ),
         30.horizontalSpace,
         Obx(
@@ -195,7 +201,9 @@ class ProgressCoachView extends GetView<ProgressCoachController> {
                   percent: controller.progressAmount[3].percentage.value / 100 >
                           1
                       ? 1
-                      : controller.progressAmount[3].percentage.value / 100),
+                      : (controller.progressAmount[3].percentage.value / 100)
+                          .clamp(0.0, 0.1),
+                ),
         ),
       ],
     );
@@ -433,7 +441,9 @@ class ProgressCoachView extends GetView<ProgressCoachController> {
                   fit: BoxFit.fill,
                 ),
               ),
-              Expanded(flex: 3, child: buildMeasurementsColumn(title: AppStrings.after)),
+              Expanded(
+                  flex: 3,
+                  child: buildMeasurementsColumn(title: AppStrings.after)),
             ],
           ),
           12.verticalSpace,

@@ -3,7 +3,7 @@ name: pt_platform
 description: A new Flutter project.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 1.0.0+3
+version: 1.0.0+4
 
 environment:
   sdk: '>=3.1.2 <4.0.0'
@@ -66,19 +66,18 @@ dependencies:
   firebase_core: ^2.24.0
   cloud_firestore: ^4.13.3
   pull_to_refresh: ^2.0.0
-  add_2_calendar: ^3.0.1
+  add_2_calendar: ^2.2.5
+  onesignal_flutter: ^5.0.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  change_app_package_name: ^1.1.0
-  # to change app package name use this command
-  # flutter pub run change_app_package_name:main com.smartedge.pt-platform
 
   build_runner: ^2.1.10
   json_serializable: ^6.6.1
   flutter_lints: ^2.0.0
   flutter_launcher_icons: "^0.13.1"
+  rename: ^3.0.1
 
 flutter_launcher_icons:
     android: "launcher_icon"

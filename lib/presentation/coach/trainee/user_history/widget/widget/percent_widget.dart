@@ -20,81 +20,85 @@ class PercentWidget extends GetView<UserHistoryCoachController> {
         Row(
           children: [
             CustomCircularPercentIndicator(
-                centers: [
-                  Text(
-                    "${controller.foodEntity.value.carb}" "g",
-                    style: Get.textTheme.bodySmall,
+              centers: [
+                Text(
+                  "${controller.foodEntity.value.carb}" "g",
+                  style: Get.textTheme.bodySmall,
+                ),
+                Container(
+                  height: 0.5,
+                  width: 40,
+                  color: ColorManager.white,
+                ),
+                Text(
+                  AppStrings.carbs.tr,
+                  style: Get.textTheme.bodySmall!.copyWith(
+                    color: Colors.blue,
                   ),
-                  Container(
-                    height: 0.5,
-                    width: 40,
-                    color: ColorManager.white,
-                  ),
-                  Text(
-                    AppStrings.carbs.tr,
-                    style: Get.textTheme.bodySmall!.copyWith(
-                      color: Colors.blue,
-                    ),
-                  ),
-                ],
-                progressColor: Colors.blue,
-                percent: controller.foodEntity.value.carb >
-                    controller.foodEntity.value.user.targetProtein
-                        .toDouble()
-                    ? 1
-                    : controller.foodEntity.value.carb /
-                    controller.foodEntity.value.user.targetCarb.toDouble()),
+                ),
+              ],
+              progressColor: Colors.blue,
+              percent: controller.foodEntity.value.carb >
+                      controller.foodEntity.value.user.targetProtein.toDouble()
+                  ? 1
+                  : (controller.foodEntity.value.carb /
+                          controller.foodEntity.value.user.targetCarb
+                              .toDouble())
+                      .clamp(0.0, 0.1),
+            ),
             CustomCircularPercentIndicator(
-                centers: [
-                  Text(
-                    "${controller.foodEntity.value.fat}" "g",
-                    style: Get.textTheme.bodySmall,
+              centers: [
+                Text(
+                  "${controller.foodEntity.value.fat}" "g",
+                  style: Get.textTheme.bodySmall,
+                ),
+                Container(
+                  height: 0.5,
+                  width: 40,
+                  color: ColorManager.white,
+                ),
+                Text(
+                  AppStrings.fat.tr,
+                  style: Get.textTheme.bodySmall!.copyWith(
+                    color: Colors.red,
                   ),
-                  Container(
-                    height: 0.5,
-                    width: 40,
-                    color: ColorManager.white,
-                  ),
-                  Text(
-                    AppStrings.fat.tr,
-                    style: Get.textTheme.bodySmall!.copyWith(
-                      color: Colors.red,
-                    ),
-                  ),
-                ],
-                progressColor: Colors.red,
-                percent: controller.foodEntity.value.fat >
-                    controller.foodEntity.value.user.targetProtein
-                        .toDouble()
-                    ? 1
-                    : controller.foodEntity.value.fat /
-                    controller.foodEntity.value.user.targetFat.toDouble()),
+                ),
+              ],
+              progressColor: Colors.red,
+              percent: controller.foodEntity.value.fat >
+                      controller.foodEntity.value.user.targetProtein.toDouble()
+                  ? 1
+                  : (controller.foodEntity.value.fat /
+                          controller.foodEntity.value.user.targetFat.toDouble())
+                      .clamp(0.0, 0.1),
+            ),
             CustomCircularPercentIndicator(
-                centers: [
-                  Text(
-                    "${controller.foodEntity.value.protein}" "g",
-                    style: Get.textTheme.bodySmall,
+              centers: [
+                Text(
+                  "${controller.foodEntity.value.protein}" "g",
+                  style: Get.textTheme.bodySmall,
+                ),
+                Container(
+                  height: 0.5,
+                  width: 40,
+                  color: ColorManager.white,
+                ),
+                Text(
+                  AppStrings.protein.tr,
+                  style: Get.textTheme.bodySmall!.copyWith(
+                    color: ColorManager.primary,
                   ),
-                  Container(
-                    height: 0.5,
-                    width: 40,
-                    color: ColorManager.white,
-                  ),
-                  Text(
-                    AppStrings.protein.tr,
-                    style: Get.textTheme.bodySmall!.copyWith(
-                      color: ColorManager.primary,
-                    ),
-                  ),
-                ],
-                progressColor: ColorManager.primary,
-                percent: controller.foodEntity.value.protein >
-                    controller.foodEntity.value.user.targetProtein
-                        .toDouble()
-                    ? 1
-                    : controller.foodEntity.value.protein /
-                    controller.foodEntity.value.user.targetProtein
-                        .toDouble())
+                ),
+              ],
+              progressColor: ColorManager.primary,
+              percent: controller.foodEntity.value.protein >
+                      controller.foodEntity.value.user.targetProtein.toDouble()
+                  ? 1
+                  : (controller.foodEntity.value.protein /
+                          controller.foodEntity.value.user.targetProtein
+                              .toDouble())
+                      .clamp(0.0, 0.1),
+            )
           ],
         ),
       ],

@@ -61,7 +61,7 @@ class ShopController extends GetxController {
                       ? Get.to(() => WebViewApp(url: data.url))
                       : Get.find<AppController>().onItemTapped(1),
                 });
-    isLoading = false;
+    isLoading = false;//TODO
   }
 
   checkoutFree(int id, String paymentMethod) async {

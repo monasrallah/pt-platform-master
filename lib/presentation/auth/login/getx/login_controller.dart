@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:pt_platform/app/app_controller.dart';
 import 'package:pt_platform/app/extensions.dart';
 import 'package:pt_platform/domain/entities/auth_entities/auth_entity.dart';
+import 'package:pt_platform/main.dart';
+import 'package:pt_platform/providers/notifications_provider.dart';
 
 import '../../../../app/dependency_injection.dart';
 import '../../../../app/functions.dart';
@@ -15,13 +17,13 @@ import '../../../widgets/toasts_messages.dart';
 
 class LoginController extends GetxController {
   TextEditingController email =
-  // TextEditingController();
-  TextEditingController(text: "omar_zebdah@hotmail.com");
+      // TextEditingController();
+      TextEditingController(text: "omar_zebdah@hotmail.com");
   // TextEditingController(text: "yuri.fit@hotmail.com");
 
   TextEditingController password =
-  // TextEditingController();
-  TextEditingController(text: "OmarZebdah@123");
+      // TextEditingController();
+      TextEditingController(text: "OmarZebdah@123");
   // TextEditingController(text: "Yuri3112");
 
   RxString userType = "".obs;
@@ -70,7 +72,8 @@ class LoginController extends GetxController {
                 email: email.text,
                 password: password.text,
                 device: DeviceParams(
-                    playerId: 'playerId',
+                    playerId:
+                        Get.find<NotificationsProvider>().userNotificationToken,
                     platform: platform(),
                     timezone: Get.find<AppController>().timeZone,
                     appVersion: Get.find<AppController>().version))))
@@ -85,7 +88,8 @@ class LoginController extends GetxController {
                 email: email.text,
                 password: password.text,
                 device: DeviceParams(
-                    playerId: 'playerId',
+                    playerId:
+                        Get.find<NotificationsProvider>().userNotificationToken,
                     platform: platform(),
                     timezone: Get.find<AppController>().timeZone,
                     appVersion: Get.find<AppController>().version))))

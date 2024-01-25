@@ -21,21 +21,21 @@ class TrainerView extends GetView<TrainerController> {
   @override
   Widget build(BuildContext context) {
     return MainBottomNavigationBar(
-      appBarWidget: buildAppBar(),
+      appBarWidget: buildAppBar(context),
       bodyWidget: buildBody(),
     );
   }
 
-  PreferredSizeWidget buildAppBar() {
+  PreferredSizeWidget buildAppBar(BuildContext context) {
     return PreferredSize(
-      preferredSize: Size.fromHeight(0.26.sh),
+      preferredSize: Size.fromHeight(0.32.sh),
       child: AppBar(
         automaticallyImplyLeading: false,
         flexibleSpace: Stack(
           // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              // height: 0.35.sh,
+              height: 0.40.sh,
               width: 1.sw,
               child: ColorFiltered(
                 colorFilter: ColorFilter.mode(
@@ -58,51 +58,56 @@ class TrainerView extends GetView<TrainerController> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Column(
-                        children: [
-                          SizedBox(
-                            width: 0.5.sw,
-                            child: Text(
-                              AppStrings.chooseYour.tr,
-                              maxLines: 2,
-                              style: Get.textTheme.bodyLarge!
-                                  .copyWith(fontSize: 35.sp),
-                            ),
-                          ),
-                          SizedBox(
-                            width: 0.5.sw,
-                            child: Text(
-                              AppStrings.coach.tr,
-                              maxLines: 2,
-                              style: Get.textTheme.bodyLarge!
-                                  .copyWith(fontSize: 35.sp),
-                            ),
-                          ),
-                        ],
-                      ),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.only(end: 10.w, top: 50.h),
-                        child: IconButton(
-                          icon: Icon(
-                            Icons.filter_alt,
-                            size: 35.w,
-                            color: ColorManager.primary,
-                          ),
-                          onPressed: () {
-                            Get.dialog(
-                              FilterCategoryCoachDialog(
-                                header: AppStrings.categoryFilter.tr,
-                                buttonTitle: AppStrings.apply.tr,
-                                categories: controller.categories,
-                                onTapButton: (List<int> selectedId) {
-                                  controller.categoriesId.value = selectedId;
-                                  Get.back();
-                                  controller.getCoaches();
-                                },
+                      Expanded(
+                        flex: 8,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            FittedBox(
+                              child: Text(
+                                AppStrings.chooseYour.tr,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: Get.textTheme.bodyLarge!
+                                    .copyWith(fontSize: 30.sp),
                               ),
-                            );
-                          },
+                            ),
+                            FittedBox(
+                              child: Text(
+                                AppStrings.coach.tr,
+                                maxLines: 1,
+                                style: Get.textTheme.bodyLarge!
+                                    .copyWith(fontSize: 30.sp),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding:
+                              EdgeInsetsDirectional.only(end: 10.w, top: 50.h),
+                          child: IconButton(
+                            icon: Icon(
+                              Icons.filter_alt,
+                              size: 35.w,
+                              color: ColorManager.primary,
+                            ),
+                            onPressed: () {
+                              Get.dialog(
+                                FilterCategoryCoachDialog(
+                                  header: AppStrings.categoryFilter.tr,
+                                  buttonTitle: AppStrings.apply.tr,
+                                  categories: controller.categories,
+                                  onTapButton: (List<int> selectedId) {
+                                    controller.categoriesId.value = selectedId;
+                                    Get.back();
+                                    controller.getCoaches();
+                                  },
+                                ),
+                              );
+                            },
+                          ),
                         ),
                       ),
                     ],

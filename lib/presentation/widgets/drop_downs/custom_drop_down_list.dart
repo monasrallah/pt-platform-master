@@ -7,7 +7,7 @@ class CustomDropDownList extends StatelessWidget {
   final String hint;
   final String? value;
   final double? height;
-  final items;
+  final List<DropdownMenuItem<String>>? items;
   final EdgeInsets? contentPadding;
   final Function(String? value) onChanged;
 

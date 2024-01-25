@@ -23,10 +23,11 @@ class TipsPaymentParams {
   String paymentMethod;
   String? coachId;
 
-  TipsPaymentParams(
-      {required this.id,
-      required this.paymentMethod,
-      this.coachId});
+  TipsPaymentParams({
+    required this.id,
+    required this.paymentMethod,
+    this.coachId,
+  });
 
   Map<String, dynamic> toJson() => {
         "tip_id": id,

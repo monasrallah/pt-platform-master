@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localization/flutter_localization.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:pt_platform/providers/notifications_provider.dart';
 
 import '../resources/language_manger.dart';
 import '../resources/routes_manager.dart';
@@ -33,9 +34,11 @@ class MyApp extends StatelessWidget {
             getPages: AppPages.pages,
             debugShowCheckedModeBanner: false,
             initialRoute: Routes.splashRoute,
+            initialBinding: RootBinding(),
             translations: LocalizationService(),
             theme: getDarkTheme(),
-            locale: LocalizationService.getLocaleFromLanguage(Get.find<AppController>().lang),
+            locale: LocalizationService.getLocaleFromLanguage(
+                Get.find<AppController>().lang),
             localizationsDelegates: localization.localizationsDelegates,
             supportedLocales: const [
               Locale('en'),
@@ -48,5 +51,12 @@ class MyApp extends StatelessWidget {
             // ],
           );
         });
+  }
+}
+
+class RootBinding implements Bindings {
+  @override
+  void dependencies() {
+    Get.put(NotificationsProvider());
   }
 }

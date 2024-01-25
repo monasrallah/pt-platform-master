@@ -54,9 +54,9 @@ class TraineeCoachView extends GetView<TraineeCoachController> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
-                        width: 0.5.sw,
+                      FittedBox(
                         child: Text(
                           AppStrings.chooseYour.tr,
                           maxLines: 2,
@@ -64,8 +64,7 @@ class TraineeCoachView extends GetView<TraineeCoachController> {
                               .copyWith(fontSize: 35.sp),
                         ),
                       ),
-                      SizedBox(
-                        width: 0.5.sw,
+                      FittedBox(
                         child: Text(
                           AppStrings.trainee.tr,
                           maxLines: 2,

@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 class UpdateTargetParams {
   int target_calorie;
   int target_carb;

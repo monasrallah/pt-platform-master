@@ -68,10 +68,10 @@ class AppController extends GetxController {
     RegExp exp = RegExp(r'(?:(?:https?|ftp):\/\/)?[\w/\-?=%.]+\.[\w/\-?=%.]+');
     Iterable<RegExpMatch> matches = exp.allMatches(htmlText);
     String link = "";
-    matches.forEach((match) {
+    for (var match in matches) {
       link = htmlText.substring(match.start, match.end);
       // print(supplements[index].description.substring(match.start, match.end));
-    });
+    }
     return link;
   }
 

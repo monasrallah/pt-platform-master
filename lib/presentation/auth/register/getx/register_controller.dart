@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:pt_platform/app/extensions.dart';
 import 'package:pt_platform/domain/entities/auth_entities/auth_entity.dart';
 import 'package:pt_platform/domain/entities/auth_entities/category_entity.dart';
+import 'package:pt_platform/main.dart';
+import 'package:pt_platform/providers/notifications_provider.dart';
 
 import '../../../../app/app_controller.dart';
 import '../../../../app/dependency_injection.dart';
@@ -146,7 +148,7 @@ class RegisterController extends GetxController {
                 password: password.text,
                 confirmPassword: confirmPassword.text,
                 device: DeviceParams(
-                    playerId: 'playerId',
+                    playerId: Get.find<NotificationsProvider>().userNotificationToken,
                     platform: platform(),
                     timezone: Get.find<AppController>().timeZone,
                     appVersion: Get.find<AppController>().version))))
@@ -173,7 +175,7 @@ class RegisterController extends GetxController {
                 socialMediaLink: socialMediaLink.text,
                 potentialTrainees: potentialClients.text,
                 device: DeviceParams(
-                    playerId: 'playerId',
+                    playerId: Get.find<NotificationsProvider>().userNotificationToken,
                     platform: platform(),
                     timezone: Get.find<AppController>().timeZone,
                     appVersion: Get.find<AppController>().version))))

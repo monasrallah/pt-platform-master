@@ -99,52 +99,57 @@ class CoachView extends GetView<CoachController> {
                       ),
                     );
                   } else {
-                    return CarouselSlider(
-                      items: controller.imageSliders,
-                      carouselController: controller.carouselController,
-                      options: CarouselOptions(
-                          height: 0.4.sh,
-                          autoPlay: true,
-                          viewportFraction: 1.0,
-                          onPageChanged: (index, _) {
-                            controller.indexSpecialStore.value = index;
-                          }),
+                    return Stack(
+                      alignment: Alignment.bottomCenter,
+                      children: [
+                        CarouselSlider(
+                          items: controller.imageSliders,
+                          carouselController: controller.carouselController,
+                          options: CarouselOptions(
+                              height: 0.4.sh,
+                              autoPlay: true,
+                              viewportFraction: 1.0,
+                              onPageChanged: (index, _) {
+                                controller.indexSpecialStore.value = index;
+                              }),
+                        ),
+                        Obx(
+                          () => Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children:
+                                controller.banners.asMap().entries.map((entry) {
+                              return GestureDetector(
+                                onTap: () => controller.carouselController
+                                    .animateToPage(entry.key),
+                                child: Obx(
+                                  () => Container(
+                                    width: 11.w,
+                                    height: 11.h,
+                                    margin: EdgeInsets.symmetric(
+                                        vertical: 8.h, horizontal: 8.w),
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: (Get.theme.brightness ==
+                                                  Brightness.dark
+                                              ? Colors.grey
+                                              : Colors.white)
+                                          .withOpacity(controller
+                                                      .indexSpecialStore
+                                                      .value ==
+                                                  entry.key
+                                              ? 0.9
+                                              : 0.4),
+                                    ),
+                                  ),
+                                ),
+                              );
+                            }).toList(),
+                          ),
+                        ),
+                      ],
                     );
                   }
                 },
-              ),
-            ),
-            Positioned(
-              bottom: 10,
-              left: 0.45.sw,
-              child: Obx(
-                () => Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: controller.banners.asMap().entries.map((entry) {
-                    return GestureDetector(
-                      onTap: () => controller.carouselController
-                          .animateToPage(entry.key),
-                      child: Obx(
-                        () => Container(
-                          width: 11.w,
-                          height: 11.h,
-                          margin: EdgeInsets.symmetric(
-                              vertical: 8.h, horizontal: 8.w),
-                          decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: (Get.theme.brightness == Brightness.dark
-                                      ? Colors.grey
-                                      : Colors.white)
-                                  .withOpacity(
-                                      controller.indexSpecialStore.value ==
-                                              entry.key
-                                          ? 0.9
-                                          : 0.4)),
-                        ),
-                      ),
-                    );
-                  }).toList(),
-                ),
               ),
             ),
           ],

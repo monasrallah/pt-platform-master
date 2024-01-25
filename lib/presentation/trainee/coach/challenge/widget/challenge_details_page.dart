@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -21,7 +23,6 @@ class ChallengeDetailsPage extends GetView<ChallengeController> {
 
   @override
   Widget build(BuildContext context) {
-
     return MainBottomNavigationBar(
       appBarWidget: appBackBar(title: AppStrings.challenges.tr),
       bodyWidget: buildBody(),
@@ -152,22 +153,25 @@ class ChallengeDetailsPage extends GetView<ChallengeController> {
                 return ColorManager.primary;
               }),
               onChanged: (bool? value) {
-                check.value = value!;
-                value
-                    ? {
-                        // controller.newChallengeAcceptedId.add(id),
-                        controller.challengeAcceptedId.contains(id)
-                            ? null
-                            : {
-                                controller.challengeAcceptedId.add(id),
-                                controller.newChallengeAcceptedId.add(id)
-                              }
-                      }
-                    : {
-                        // controller.newChallengeAcceptedId.remove(id),
-                        controller.challengeAcceptedId.remove(id),
-                        controller.newChallengeAcceptedId.remove(id)
-                      };
+                if (check.value == true) {
+                } else {
+                  check.value = value!;
+                  value
+                      ? {
+                          // controller.newChallengeAcceptedId.add(id),
+                          controller.challengeAcceptedId.contains(id)
+                              ? null
+                              : {
+                                  controller.challengeAcceptedId.add(id),
+                                  controller.newChallengeAcceptedId.add(id)
+                                }
+                        }
+                      : {
+                          // controller.newChallengeAcceptedId.remove(id),
+                          controller.challengeAcceptedId.remove(id),
+                          controller.newChallengeAcceptedId.remove(id)
+                        };
+                }
               },
             ),
           ),

@@ -154,7 +154,7 @@ class CustomImage extends StatelessWidget {
           ),
           child: Visibility(
             visible: isError,
-            child: Center(
+            child: const Center(
               child: Icon(Icons.error),
             ),
           ),
