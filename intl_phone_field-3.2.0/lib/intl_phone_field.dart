@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl_phone_field/country_picker_dialog.dart';
 import 'package:intl_phone_field/helpers.dart';
-import 'package:pt_platform/resources/color_manager.dart';
 
 import './countries.dart';
 import './phone_number.dart';
@@ -460,7 +459,7 @@ class _IntlPhoneFieldState extends State<IntlPhoneField> {
       margin: widget.flagsButtonMargin,
       padding: const EdgeInsets.symmetric(horizontal: 5),
       decoration: BoxDecoration(
-          border: Border.all(color: ColorManager.white),
+          border: Border.all(color: Colors.white),
           borderRadius: BorderRadius.circular(12)),
       child: DecoratedBox(
         decoration: widget.dropdownDecoration,
