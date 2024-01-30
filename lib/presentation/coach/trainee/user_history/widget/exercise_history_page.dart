@@ -49,12 +49,13 @@ class ExerciseUserHistoryCoachPage extends GetView<UserHistoryCoachController> {
                     itemCount: controller.videos.length,
                     itemBuilder: (context, index) {
                       return InkWell(
-                        onTap: () {
-                          controller.visible.value = false;
+                        onTap: () { controller.visible.value = false;
                           controller.visible.value = !controller.visible.value;
                           controller.selected.value = index;
-                          controller
-                              .getExerciseLogs(controller.videos[index].id);
+                          controller.getExercise(context, controller.videos[index].id);
+                         
+                          // controller
+                          //     .getExerciseLogs(controller.videos[index].id);
 
                           // showAdaptiveDialog(
                           //   barrierDismissible: false,
@@ -156,8 +157,8 @@ class ExerciseUserHistoryCoachPage extends GetView<UserHistoryCoachController> {
               backgroundColor: ColorManager.white,
               textStyle: Get.textTheme.displaySmall,
               onTap: () {
-                Get.dialog(
-                    InformationDialog(header: AppStrings.note.tr, coachDesc: note));
+                Get.dialog(InformationDialog(
+                    header: AppStrings.note.tr, coachDesc: note));
               },
             ),
           ),

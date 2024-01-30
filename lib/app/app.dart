@@ -4,6 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localization/flutter_localization.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:pt_platform/presentation/trainee/coach/Personalized/personal_training/getx/personal_training_controller.dart';
+import 'package:pt_platform/presentation/trainee/coach/getx/coach_controller.dart';
+import 'package:pt_platform/presentation/trainee/coach/shop/getx/shop_controller.dart';
+import 'package:pt_platform/presentation/trainee/home/news/getx/news_controller.dart';
+import 'package:pt_platform/presentation/trainee/home/trainer/getx/trainer_controller.dart';
 import 'package:pt_platform/providers/notifications_provider.dart';
 
 import '../resources/language_manger.dart';
@@ -58,5 +63,10 @@ class RootBinding implements Bindings {
   @override
   void dependencies() {
     Get.put(NotificationsProvider());
+    Get.put(CoachController());
+    Get.put(NewsController());
+    Get.put(PersonalTrainingController());
+    Get.put(ShopController());
+    Get.put(TrainerController());
   }
 }

@@ -1,17 +1,20 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pt_platform/app/extensions.dart';
 import 'package:pt_platform/data/coach_app/coach_app_repo/coach_app_repository.dart';
 import 'package:pt_platform/domain/core/entities/failure.dart';
-
+import 'package:http/http.dart' as http;
 import '../../../../../app/dependency_injection.dart';
 import '../../../../../app/storage/app_prefs.dart';
-import '../../../../../domain/entities/coach_entities/exercise_logs_entity.dart';
 import '../../../../../domain/entities/coach_entities/video_entity.dart';
 import '../../../../../domain/entities/home_entities/food_entity.dart';
 import '../../../../../resources/functions/date_format_function.dart';
 import '../../../../widgets/toasts_messages.dart';
 import '../../getx/trainee_controller.dart';
+import '../models/exercise_logs_model.dart';
 
 class UserHistoryCoachController extends GetxController {
   RxBool visible = false.obs;
@@ -69,15 +72,65 @@ class UserHistoryCoachController extends GetxController {
     isLoading = false;
   }
 
-  List<ExerciseLogsEntity> logs = [];
+  List<ExerciseLogsModel> logs = [];
 
-  getExerciseLogs(int exerciseLogId) async {
+  // getExerciseLogs(
+  //   int exerciseLogId,
+  // ) async {
+  //   isLoadingLogs = true;
+  //   (await baseCoachAppRepository.getExerciseLogs(
+  //     exerciseLogId,
+  //     '50',
+  //     Get.find<CoachController>().coachId.value,
+  //   ))
+  //       .fold((failure) => showFlutterToast(message: failure.message.orEmpty()),
+  //           (List<ExerciseLogsEntity> data) => {logs = data});
+  //   isLoadingLogs = false;
+  // }
+  // getExerciseLogs(int exerciseLogId) async {
+  //   isLoadingLogs = true;
+  //   (await baseCoachAppRepository.getExerciseLogs(268, '50'
+
+  //           // exerciseLogId,
+  //           // Get.find<TraineeCoachController>().traineeId.value,
+  //           ))
+  //       .fold((failure) => showFlutterToast(message: failure.message.orEmpty()),
+  //           (List<ExerciseLogsEntity> data) => {logs = data});
+  //   isLoadingLogs = false;
+  // }
+
+  ///------------------------------------///
+
+  Future<List<ExerciseLogsModel>> getExercise(BuildContext context, int exerciseLogId) async {
+    // await AppApiHelperImpl.getToken();
+    logs.clear();
     isLoadingLogs = true;
-    (await baseCoachAppRepository.getExerciseLogs(exerciseLogId)).fold(
-        (failure) => showFlutterToast(message: failure.message.orEmpty()),
-        (List<ExerciseLogsEntity> data) => {logs = data});
+    String url =
+        'https://ptplatform.smartedge.me/public/api/v1/video-logs/$exerciseLogId/show?type=exercise&user_id=${Get.find<TraineeCoachController>().traineeId.value}';
+
+    await http.get(
+      Uri.parse(url),
+      headers: {
+        // 'Content-Type': 'application/json; charset=UTF-8',
+        "Authorization":
+            "Bearer ${instance<AppPreferences>().getAccessToken()}",
+      },
+    ).then((response) {
+      final responseJson = json.decode(response.body) as Map<String, dynamic>;
+
+      responseJson['data']['logs'].forEach((item) {
+        logs.add(ExerciseLogsModel.fromMap(item));
+      });
+
+      log(response.body.toString());
+    });
+
     isLoadingLogs = false;
+
+    return logs;
   }
+
+  ///------------------------------------///
 
   getFoodHistory() async {
     isLoading = true;

@@ -28,7 +28,10 @@ abstract class BaseCoachAppRemoteDataSource {
   Future<BaseResponse<AllChallengesVideoModel>> challengeVideo(
       ChallengeVideoParams challengeVideoParams);
 
-  Future<BaseResponse<AllExerciseLogsModel>> getExerciseLogs(int exerciseLogs);
+  Future<BaseResponse<AllExerciseLogsModel>> getExerciseLogs(
+    int exerciseLogs,
+    String coachId,
+  );
 
   Future<BaseResponse<AllVideoModel>> getExerciseHistory(
       String userId, String coachId);
@@ -129,9 +132,8 @@ class CoachAppRemoteDataSourceImpl implements BaseCoachAppRemoteDataSource {
   @override
   Future<BaseResponse<AllUsersModel>> getUsers(String? search) async {
     return await _appApiHelper.performGetRequest(
-      AppUrls.basePersonalTrainingUrl, AllUsersModel.fromJson,
-      queryParameters: {/*"name": "choose me",*/ "name": search}
-    );
+        AppUrls.basePersonalTrainingUrl, AllUsersModel.fromJson,
+        queryParameters: {/*"name": "choose me",*/ "name": search});
   }
 
   @override
@@ -227,7 +229,7 @@ class CoachAppRemoteDataSourceImpl implements BaseCoachAppRemoteDataSource {
 
   @override
   Future<BaseResponse<AllExerciseLogsModel>> getExerciseLogs(
-      int exerciseLogs) async {
+      int exerciseLogs, coachId) async {
     return await _appApiHelper.performGetRequest(
         AppUrls.exerciseLogs(exerciseLogs), AllExerciseLogsModel.fromJson);
   }

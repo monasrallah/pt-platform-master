@@ -62,7 +62,7 @@ abstract class BaseCoachAppRepository {
       String userId, String coachId);
 
   Future<Either<Failure, List<ExerciseLogsEntity>>> getExerciseLogs(
-      int exerciseLogs);
+      int exerciseLogs, String coachId);
 
   Future<Either<Failure, FoodEntity>> getFoodHistory(
       String dateTime, String userId);
@@ -377,11 +377,13 @@ class CoachAppRepositoryImpl extends BaseCoachAppRepository {
 
   @override
   Future<Either<Failure, List<ExerciseLogsEntity>>> getExerciseLogs(
-      int exerciseLogs) async {
+    int exerciseLogs,
+    String coachId,
+  ) async {
     if (await _networkInfo.isConnected) {
       try {
-        final response =
-            await _coachAppRemoteDataSource.getExerciseLogs(exerciseLogs);
+        final response = await _coachAppRemoteDataSource.getExerciseLogs(
+            exerciseLogs, coachId);
 
         if (response.status!) {
           return Right(response.data!.toDomain());
