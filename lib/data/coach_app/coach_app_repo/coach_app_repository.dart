@@ -62,7 +62,7 @@ abstract class BaseCoachAppRepository {
       String userId, String coachId);
 
   Future<Either<Failure, List<ExerciseLogsEntity>>> getExerciseLogs(
-      int exerciseLogs);
+      int exerciseLogs,String userId, String coachId);
 
   Future<Either<Failure, FoodEntity>> getFoodHistory(
       String dateTime, String userId);
@@ -336,8 +336,10 @@ class CoachAppRepositoryImpl extends BaseCoachAppRepository {
   @override
   Future<Either<Failure, List<ChatEntity>>> getVideoChat(String coachId) async {
     if (await _networkInfo.isConnected) {
-      try {
+
+
         final response = await _coachAppRemoteDataSource.getVideoChat(coachId);
+        print("test responst else $response");
 
         if (response.status!) {
           return Right(response.data!.toDomain());
@@ -345,10 +347,9 @@ class CoachAppRepositoryImpl extends BaseCoachAppRepository {
           return Left(Failure(ApiInternalStatus.FAILURE,
               response.message ?? ResponseMessage.DEFAULT));
         }
-      } catch (error) {
-        return Left(ErrorHandler.handle(error).failure);
-      }
+
     } else {
+
       return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
     }
   }
@@ -377,11 +378,13 @@ class CoachAppRepositoryImpl extends BaseCoachAppRepository {
 
   @override
   Future<Either<Failure, List<ExerciseLogsEntity>>> getExerciseLogs(
-      int exerciseLogs) async {
+      int exerciseLogs,String userId, String coachId) async {
     if (await _networkInfo.isConnected) {
+      print("kos ");
+
       try {
         final response =
-            await _coachAppRemoteDataSource.getExerciseLogs(exerciseLogs);
+            await _coachAppRemoteDataSource.getExerciseLogs(exerciseLogs ,userId ,coachId);
 
         if (response.status!) {
           return Right(response.data!.toDomain());
@@ -390,6 +393,7 @@ class CoachAppRepositoryImpl extends BaseCoachAppRepository {
               response.message ?? ResponseMessage.DEFAULT));
         }
       } catch (error) {
+        print("kos $error");
         return Left(ErrorHandler.handle(error).failure);
       }
     } else {

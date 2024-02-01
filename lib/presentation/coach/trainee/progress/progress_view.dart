@@ -478,7 +478,7 @@ class ProgressCoachView extends GetView<ProgressCoachController> {
             return Obx(
               () => buildBorderContainer(
                   first: controller.measurementsList[index],
-                  second: title == "BEFORE"
+                  second: title == AppStrings.before
                       ? controller.measurementsBeforeAmount[index]
                       : controller.measurementsAfterAmount[index]),
             );

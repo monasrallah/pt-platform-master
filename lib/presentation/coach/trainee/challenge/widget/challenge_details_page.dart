@@ -30,10 +30,10 @@ class ChallengeCoachDetailsPage extends GetView<ChallengeCoachController> {
         padding: EdgeInsets.symmetric(horizontal: 10.w),
         child: Column(
           children: [
-            Obx(
-              () => Text(
-                  "${controller.challengeAcceptedId.length}-${controller.videos.length} Challenged Complete"),
-            ),
+            // Obx(
+            //   () => Text(
+            //       "${controller.challengeAcceptedId.length}-${controller.videos.length} Challenged Complete"),
+            // ),
             20.verticalSpace,
             Obx(
               () => controller.isLoading

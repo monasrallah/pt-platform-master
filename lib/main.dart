@@ -12,15 +12,12 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
   await init();
-
   runApp(MyApp());
 }
 
 Future<void> initOneSignal() async {
   OneSignal.Debug.setLogLevel(OSLogLevel.verbose);
   OneSignal.initialize('592316cd-ef7f-44c2-83af-00051ed3783f');
-
   OneSignal.Notifications.requestPermission(true);
 }

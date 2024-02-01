@@ -98,6 +98,9 @@ class AuthRepositoryImpl extends BaseAuthRepository {
   @override
   Future<Either<Failure, AuthCoachEntity>> loginCoach(
       LoginParams loginParams) async {
+    print("test loginParams${loginParams.device}");
+    print("test loginParams${loginParams.device.toJson()}");
+
     if (await _networkInfo.isConnected) {
       // try {
       final response = await _authRemoteDataSource.loginCoach(loginParams);

@@ -28,7 +28,7 @@ abstract class BaseCoachAppRemoteDataSource {
   Future<BaseResponse<AllChallengesVideoModel>> challengeVideo(
       ChallengeVideoParams challengeVideoParams);
 
-  Future<BaseResponse<AllExerciseLogsModel>> getExerciseLogs(int exerciseLogs);
+  Future<BaseResponse<AllExerciseLogsModel>> getExerciseLogs(int exerciseLogs ,String userId, String coachId);
 
   Future<BaseResponse<AllVideoModel>> getExerciseHistory(
       String userId, String coachId);
@@ -129,9 +129,8 @@ class CoachAppRemoteDataSourceImpl implements BaseCoachAppRemoteDataSource {
   @override
   Future<BaseResponse<AllUsersModel>> getUsers(String? search) async {
     return await _appApiHelper.performGetRequest(
-      AppUrls.basePersonalTrainingUrl, AllUsersModel.fromJson,
-      queryParameters: {/*"name": "choose me",*/ "name": search}
-    );
+        AppUrls.basePersonalTrainingUrl, AllUsersModel.fromJson,
+        queryParameters: {/*"name": "choose me",*/ "name": search});
   }
 
   @override
@@ -211,10 +210,20 @@ class CoachAppRemoteDataSourceImpl implements BaseCoachAppRemoteDataSource {
 
   @override
   Future<BaseResponse<AllChatsModel>> getVideoChat(String coachId) async {
-    return await _appApiHelper.performGetRequest(
-      AppUrls.videoChatCoachUrl, AllChatsModel.fromJson,
-      // queryParameters: {"user_id": coachId}
+    print("test responst else $coachId");
+    final response = await _appApiHelper.performGetRequest(
+        AppUrls.videoChatCoachUrl, AllChatsModel.fromJson,
+        // queryParameters: {"user_id": coachId}
     );
+    print("test responst else ${response.data}");
+
+    if (response.status == true) {
+      print("test responst ${response.data}");
+      return response;
+    } else {
+      print("test responst else ${response.data}");
+      return response;
+    }
   }
 
   @override
@@ -227,9 +236,9 @@ class CoachAppRemoteDataSourceImpl implements BaseCoachAppRemoteDataSource {
 
   @override
   Future<BaseResponse<AllExerciseLogsModel>> getExerciseLogs(
-      int exerciseLogs) async {
+      int exerciseLogs , String userId, String coachId) async {
     return await _appApiHelper.performGetRequest(
-        AppUrls.exerciseLogs(exerciseLogs), AllExerciseLogsModel.fromJson);
+        AppUrls.exerciseLogs(exerciseLogs,userId,coachId), AllExerciseLogsModel.fromJson);
   }
 
   @override

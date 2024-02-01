@@ -102,7 +102,8 @@ abstract class BaseCoachRemoteDataSource {
   Future<BaseResponse<DiscountModel>> checkPromoCode(
       CheckPromoCodeParams checkPromoCodeParams);
 
-  Future<BaseResponse<AllExerciseLogsModel>> getExerciseLogs(int exerciseLogs);
+  Future<BaseResponse<AllExerciseLogsModel>> getExerciseLogs(
+      int exerciseLogs, String userId, String coachId);
 
   Future<BaseResponse<AllVideoModel>> getExerciseHistory(String coachId);
 }
@@ -348,9 +349,10 @@ class CoachRemoteDataSourceImpl implements BaseCoachRemoteDataSource {
 
   @override
   Future<BaseResponse<AllExerciseLogsModel>> getExerciseLogs(
-      int exerciseLogs) async {
+      int exerciseLogs, String userId, String coachId) async {
     return await _appApiHelper.performGetRequest(
-        AppUrls.exerciseLogs(exerciseLogs), AllExerciseLogsModel.fromJson);
+        AppUrls.exerciseLogs(exerciseLogs, userId, coachId),
+        AllExerciseLogsModel.fromJson);
   }
 
   @override

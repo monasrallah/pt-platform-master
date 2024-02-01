@@ -71,9 +71,10 @@ class UserHistoryCoachController extends GetxController {
 
   List<ExerciseLogsEntity> logs = [];
 
-  getExerciseLogs(int exerciseLogId) async {
+  getExerciseLogs(int exerciseLogId ) async {
+    print("exerciseLogId $exerciseLogId");
     isLoadingLogs = true;
-    (await baseCoachAppRepository.getExerciseLogs(exerciseLogId)).fold(
+    (await baseCoachAppRepository.getExerciseLogs(exerciseLogId ,Get.find<TraineeCoachController>().traineeId.value ,coachId.value)).fold(
         (failure) => showFlutterToast(message: failure.message.orEmpty()),
         (List<ExerciseLogsEntity> data) => {logs = data});
     isLoadingLogs = false;
