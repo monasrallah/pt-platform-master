@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -44,8 +46,9 @@ class PercentWidget extends GetView<UserHistoryCoachController> {
                   : (controller.foodEntity.value.carb /
                           controller.foodEntity.value.user.targetCarb
                               .toDouble())
-                      .clamp(0.0, 0.1),
+                      .clamp(0.0, 1.0),
             ),
+
             CustomCircularPercentIndicator(
               centers: [
                 Text(
@@ -70,7 +73,7 @@ class PercentWidget extends GetView<UserHistoryCoachController> {
                   ? 1
                   : (controller.foodEntity.value.fat /
                           controller.foodEntity.value.user.targetFat.toDouble())
-                      .clamp(0.0, 0.1),
+                      .clamp(0.0, 1.0),
             ),
             CustomCircularPercentIndicator(
               centers: [
@@ -97,7 +100,7 @@ class PercentWidget extends GetView<UserHistoryCoachController> {
                   : (controller.foodEntity.value.protein /
                           controller.foodEntity.value.user.targetProtein
                               .toDouble())
-                      .clamp(0.0, 0.1),
+                      .clamp(0.0, 1.0),
             )
           ],
         ),

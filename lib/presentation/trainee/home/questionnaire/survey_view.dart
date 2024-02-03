@@ -56,6 +56,16 @@ class SurveyView extends GetView<QuestionnaireController> {
                             return Padding(
                               padding: EdgeInsets.symmetric(vertical: 10.h),
                               child: CustomElevatedButton(
+                                  height: controller.questionnaire[index]
+                                              .description.length >=
+                                          15
+                                      ? 80.h
+                                      : 60.h,
+                                  maxLines: controller.questionnaire[index]
+                                              .description.length >=
+                                          15
+                                      ? 2
+                                      : 1,
                                   title: controller
                                       .questionnaire[index].description,
                                   onTap: () => Get.to(

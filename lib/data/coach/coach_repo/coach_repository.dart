@@ -679,7 +679,7 @@ class CoachRepositoryImpl extends BaseCoachRepository {
   Future<Either<Failure, DiscountEntity>> checkPromoCode(
       CheckPromoCodeParams checkPromoCodeParams) async {
     if (await _networkInfo.isConnected) {
-      try {
+
         final response =
             await _coachRemoteDataSource.checkPromoCode(checkPromoCodeParams);
 
@@ -689,9 +689,7 @@ class CoachRepositoryImpl extends BaseCoachRepository {
           return Left(Failure(ApiInternalStatus.FAILURE,
               response.message ?? ResponseMessage.DEFAULT));
         }
-      } catch (error) {
-        return Left(ErrorHandler.handle(error).failure);
-      }
+
     } else {
       return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
     }

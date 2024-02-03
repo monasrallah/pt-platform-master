@@ -69,7 +69,7 @@ class PriceObjectEntity {
 class DiscountEntity {
   String discount;
   String old_price;
-  int price;
+  num price;
 
   DiscountEntity({
     required this.discount,

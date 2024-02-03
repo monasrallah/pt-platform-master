@@ -20,32 +20,32 @@ class _WebViewAppState extends State<WebViewApp> {
   void initState() {
     super.initState();
     controller = WebViewController()
-      ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..setJavaScriptMode(JavaScriptMode.unrestricted )
       ..setNavigationDelegate(
         NavigationDelegate(
           onProgress: (int progress) {
-            // print("ghina0");
+            print("ghina0");
           },
           onPageStarted: (String url) {
-            // print("ghina1");
+            print("ghina1");
           },
           onPageFinished: (String url) {
-            // print("ghina2");
+            print("ghina2");
           },
           onWebResourceError: (WebResourceError error) {
-            // print("ghina3");
+            print("ghina3");
           },
           onUrlChange: (UrlChange url) {
-            // print("ghina4");
+            print("ghina4");
             if (url.url!.contains('success')) {
               Get.find<AppController>().onItemTapped(1);
             }
           },
           onNavigationRequest: (NavigationRequest request) {
-            // print("ghina5");
-            // if (request.url.startsWith('')) {
-            //   return NavigationDecision.prevent;
-            // }
+            print("ghina5");
+            if (request.url.startsWith('')) {
+              return NavigationDecision.prevent;
+            }
             return NavigationDecision.navigate;
           },
         ),
@@ -57,6 +57,7 @@ class _WebViewAppState extends State<WebViewApp> {
 
   @override
   Widget build(BuildContext context) {
+    print("test url ${widget.url}");
     getUrl();
     return Scaffold(
       appBar: AppBar(
@@ -72,6 +73,7 @@ class _WebViewAppState extends State<WebViewApp> {
     // RxString ghina = "".obs;
     // ghina.value = await controller.currentUrl() ?? "";
     // print("ghina $ghina");
+
     controller.addJavaScriptChannel("name", onMessageReceived: (message) {
       print("ghina");
       print(message);

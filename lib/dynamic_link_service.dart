@@ -41,7 +41,7 @@ class DynamicLinkService {
   }
 
   Future<String> createStarLink(
-      {required String serviceId,
+      {
       String? title,
       String? description,
       Uri? uri}) async {
@@ -60,15 +60,6 @@ class DynamicLinkService {
         minimumVersion: '1',
         appStoreId: '123456789',
       ),
-      // googleAnalyticsParameters: const GoogleAnalyticsParameters(
-      //   campaign: 'example-promo',
-      //   medium: 'social',
-      //   source: 'orkut',
-      // ),
-      // itunesConnectAnalyticsParameters: ItunesConnectAnalyticsParameters(
-      //   providerToken: '123456',
-      //   campaignToken: 'example-promo',
-      // ),
       socialMetaTagParameters: SocialMetaTagParameters(
         title: title,
         imageUrl: uri,

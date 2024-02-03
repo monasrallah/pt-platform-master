@@ -125,7 +125,7 @@ class ShopDetailsPage extends GetView<ShopController> {
                     first: AppStrings.price.tr,
                     second: (!controller.discount.value)
                         ? personalTraining.priceObject.formatted
-                        : controller.discountEntity.price.toString(),
+                        : controller.discountEntity.price.toString().substring(0,5),
                   ),
                 ),
                 30.verticalSpace,
@@ -213,21 +213,24 @@ class ShopDetailsPage extends GetView<ShopController> {
             contentPadding: EdgeInsetsDirectional.symmetric(
                 horizontal: 1.5.h, vertical: 12.h),
             hint: "",
-            prefix: Obx(
-              () => controller.isLoading
-                  ? const CircularProgressIndicator()
-                  : SizedBox(
-                      width: 100.w,
-                      child: CustomElevatedButton(
-                        title: AppStrings.apply.tr,
-                        height: 30.h,
-                        textStyle: Get.textTheme.bodyMedium!
-                            .copyWith(fontSize: 17.sp, height: 0.5),
-                        onTap: () async {
-                          await controller.checkPromoCode(personalTraining.id);
-                        },
+            prefix: Padding(
+              padding: const EdgeInsets.all(1.5),
+              child: Obx(
+                () => controller.isLoading
+                    ? const CircularProgressIndicator()
+                    : SizedBox(
+                        width: 100.w,
+                        child: CustomElevatedButton(
+                          title: AppStrings.apply.tr,
+                          height: 30.h,
+                          textStyle: Get.textTheme.bodyMedium!
+                              .copyWith(fontSize: 17.sp, height: 0.5),
+                          onTap: () async {
+                            await controller.checkPromoCode(personalTraining.id);
+                          },
+                        ),
                       ),
-                    ),
+              ),
             ),
           ),
         ),

@@ -3,7 +3,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pt_platform/presentation/widgets/buttons/custom_elevated_button.dart';
 import 'package:pt_platform/resources/color_manager.dart';
+import 'package:share_plus/share_plus.dart';
 
+import '../../../../../dynamic_link_service.dart';
 import '../../../../../resources/strings_manager.dart';
 import '../../../../widgets/buttons/app_back_bar.dart';
 import '../../../main_bottom_navigation_bar/main_bottom_navigation_bar.dart';
@@ -26,6 +28,7 @@ class WorkoutDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return MainBottomNavigationBar(
       appBarWidget: appBackBar(title: ''),
       bodyWidget: buildBody(),
@@ -33,6 +36,8 @@ class WorkoutDetailsPage extends StatelessWidget {
   }
 
   Widget buildBody() {
+    final dynamicLinkService = DynamicLinkService();
+
     return Stack(
       children: [
         Column(
@@ -80,7 +85,11 @@ class WorkoutDetailsPage extends StatelessWidget {
           end: 15,
           top: 10,
           child: InkWell(
-            onTap: () {},
+            onTap: () async {
+              await dynamicLinkService.createStarLink(title: title,description:des ,uri:  image.isNotEmpty ? Uri.parse(image) : null,).then((value) async {
+                await Share.share(value, subject: 'pt');
+              });
+            },
             child: Container(
               height: 35,
               width: 35,

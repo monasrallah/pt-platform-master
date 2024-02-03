@@ -199,10 +199,11 @@ class CoachController extends GetxController {
         .fold((failure) => showFlutterToast(message: failure.message.orEmpty()),
             (data) {
       if (paymentMethod == "stripe") {
-        Route route =
-            MaterialPageRoute(builder: (_) => WebViewApp(url: data.url));
-
-        Navigator.push(Get.context!, route);
+        launchUrl(Uri.parse(data.url));
+        // Route route =
+        //     MaterialPageRoute(builder: (_) => WebViewApp(url: data.url));
+        //
+        // Navigator.push(Get.context!, route);
       } else {
         Get.find<AppController>().onItemTapped(1);
       }

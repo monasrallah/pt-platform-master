@@ -145,7 +145,7 @@ class PriceObjectModel {
 class DiscountModel {
   String discount;
   String old_price;
-  int price;
+  num price;
 
   DiscountModel({
     required this.discount,

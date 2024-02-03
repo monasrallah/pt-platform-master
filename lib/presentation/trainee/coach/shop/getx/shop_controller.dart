@@ -4,6 +4,7 @@ import 'package:pt_platform/app/extensions.dart';
 import 'package:pt_platform/app/storage/app_prefs.dart';
 import 'package:pt_platform/domain/entities/coach_entities/personalized_entity.dart';
 import 'package:pt_platform/domain/entities/coach_entities/shop_entity.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../../app/app_controller.dart';
 import '../../../../../app/dependency_injection.dart';
@@ -58,10 +59,10 @@ class ShopController extends GetxController {
                   // Get.find<AppController>().onItemTapped(1),
                   showFlutterToast(message: "success"),
                   paymentMethod == "stripe"
-                      ? Get.to(() => WebViewApp(url: data.url))
+                      ? launchUrl(Uri.parse(data.url))
                       : Get.find<AppController>().onItemTapped(1),
                 });
-    isLoading = false;//TODO
+    isLoading = false; //TODO
   }
 
   checkoutFree(int id, String paymentMethod) async {

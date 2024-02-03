@@ -4,8 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pt_platform/app/app_controller.dart';
 import 'package:pt_platform/resources/color_manager.dart';
-import 'package:url_launcher/url_launcher.dart';
-
 import '../../../resources/assets_manager.dart';
 import '../../widgets/cards/home_image_card.dart';
 import '../main_bottom_navigation_bar/main_bottom_navigation_bar.dart';
