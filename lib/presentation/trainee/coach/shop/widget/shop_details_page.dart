@@ -18,6 +18,7 @@ class ShopDetailsPage extends GetView<ShopController> {
 
   @override
   Widget build(BuildContext context) {
+   Get.put(CoachController());
     return WillPopScope(
       onWillPop: () async {
         controller.discount.value = false;

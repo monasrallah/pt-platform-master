@@ -72,7 +72,7 @@ class HistoryController extends GetxController {
     isLoadingLogs = true;
     (await baseCoachRepository.getExerciseLogs(
             exerciseLogId,
-            Get.find<TraineeCoachController>().traineeId.value,
+           null,
             Get.find<CoachController>().coachId.value))
         .fold((failure) => showFlutterToast(message: failure.message.orEmpty()),
             (List<ExerciseLogsEntity> data) => {logs = data});

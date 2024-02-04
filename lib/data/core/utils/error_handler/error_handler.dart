@@ -33,7 +33,7 @@ Failure _handleError(DioError error) {
       if (error.response != null &&
           error.response?.statusCode != null &&
           error.response?.statusMessage != null) {
-        print(error.response?.statusCode);
+        print("tsssss${error.response?.statusCode}");
         if (error.response?.statusCode == 403) {
           Get.offNamed(
             Routes.shopRoute,

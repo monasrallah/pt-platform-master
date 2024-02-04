@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:pt_platform/resources/assets_manager.dart';
 import 'package:pt_platform/resources/color_manager.dart';
-
 import '../../../app/app_controller.dart';
 import '../../widgets/cards/coach_image_card.dart';
 import '../main_bottom_navigation_bar/main_bottom_navigation_bar.dart';

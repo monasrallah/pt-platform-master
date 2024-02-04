@@ -52,7 +52,10 @@ class ChallengeCoachVideoPage extends GetView<ChallengeCoachController> {
                           child: Obx(
                             () => MyVideoPlayer(
                               fullScreen: false,
-                              videoUrl: controller.videoUrl.value,
+                              videoUrl: controller
+                                  .videos[controller.videoIndex.value]
+                                  .video
+                                  .video,
                               onVideoChanged: (newVideoUrl) {
                                 controller.videoUrl.value = controller
                                     .videos[controller.videoIndex.value]

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -27,6 +29,7 @@ class _MyVideoPlayerState extends State<MyVideoPlayer> {
   void initState() {
     super.initState();
     _initializeVideoPlayerController();
+    setState(() {});
   }
 
   @override
@@ -36,11 +39,11 @@ class _MyVideoPlayerState extends State<MyVideoPlayer> {
   }
 
   void _initializeVideoPlayerController() {
-    _videoPlayerController = VideoPlayerController.networkUrl(
-      Uri.parse(widget.videoUrl),
-    );
-
-    _chewieController = ChewieController(
+    _videoPlayerController = VideoPlayerController.network(widget.videoUrl);
+    _videoPlayerController.initialize().then((value) {
+      _videoPlayerController.play();
+      _videoPlayerController.setVolume(1);
+      });    _chewieController = ChewieController(
       videoPlayerController: _videoPlayerController,
       aspectRatio: 16 / 9,
       autoPlay: true,
@@ -90,10 +93,11 @@ class _MyVideoPlayerState extends State<MyVideoPlayer> {
 
   @override
   Widget build(BuildContext context) {
+    log("video url is ${widget.videoUrl}");
     return SizedBox(
       height: 250.h,
-      child: Chewie(
-        controller: _chewieController,
+      child: VideoPlayer(
+        _videoPlayerController,
       ),
     );
   }

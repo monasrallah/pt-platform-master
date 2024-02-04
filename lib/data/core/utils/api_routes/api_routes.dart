@@ -126,8 +126,8 @@ class AppUrls {
   /// history
   static const String exerciseHistory = "/video-logs";
 
-  static String exerciseLogs(int id, String userId, String coachId) =>
-      "/video-logs/$id/show?coach_id=$coachId&type=exercise&user_id=$userId";
+  static String exerciseLogs(int id, String? userId, String coachId) =>
+      "/video-logs/$id/show?type=exercise&coach_id=$coachId&user_id=$userId";
 
   /// Coach Application
 

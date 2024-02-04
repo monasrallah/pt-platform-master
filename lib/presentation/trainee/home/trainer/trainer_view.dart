@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:pt_platform/app/debug/log.dart';
 import 'package:pt_platform/presentation/widgets/text_fields/custom_text_field.dart';
 import 'package:pt_platform/resources/assets_manager.dart';
 import 'package:pt_platform/resources/color_manager.dart';
@@ -174,6 +175,7 @@ class TrainerView extends GetView<TrainerController> {
                     itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () {
+                          log(controller.coaches[index].isSubscription);
                           if (controller.coaches[index].isSubscription!) {
                             instance<AppPreferences>().setCoachEntity([
                               controller.coaches[index].id.toString(),
