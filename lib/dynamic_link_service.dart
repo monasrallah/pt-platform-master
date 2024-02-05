@@ -48,7 +48,7 @@ class DynamicLinkService {
     final DynamicLinkParameters parameters = DynamicLinkParameters(
       uriPrefix: 'https://ptplatform.page.link',
       //uriPrefix: 'https://nbeplatinumapp.page.link',
-      link: Uri.parse('https://ptplatform.page.link/ptapp'),
+      link: Uri.parse('https://com.smartedge.ptapp/'),
       // 'https://linkalintest.com/nbe_platinum/star/$starId?ofl=https://play.google.com/store'),
       androidParameters: const AndroidParameters(
         packageName: 'com.smartedge.ptapp',

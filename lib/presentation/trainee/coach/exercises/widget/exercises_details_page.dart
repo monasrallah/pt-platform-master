@@ -46,22 +46,24 @@ class ExercisesDetailsPage extends GetView<ExercisesController> {
                   : Stack(
                       children: [
                         100.verticalSpace,
-                        PositionedDirectional(
-                          top: 30.h,
-                          child: Obx(
-                            () => MyVideoPlayer(
-                              fullScreen: false,
-                              videoUrl: controller.videoUrl.value,
-                              onVideoChanged: (newVideoUrl) {
-                                controller.videoUrl.value = controller
-                                    .videos[controller.videoIndex.value].video;
-                              },
+                        SizedBox(
+                          child: PositionedDirectional(
+                            top: 30.h,
+                            child: Obx(
+                              () => MyVideoPlayer(
+                                fullScreen: false,
+                                videoUrl: controller.videoUrl.value,
+                                onVideoChanged: (newVideoUrl) {
+                                  controller.videoUrl.value = controller
+                                      .videos[controller.videoIndex.value].video;
+                                },
+                              ),
                             ),
                           ),
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              15.w, 0.31.sh, 15.w, 0),
+                              15.w, 0.36.sh, 15.w, 0),
                           child: Obx(
                             () => Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -114,6 +116,7 @@ class ExercisesDetailsPage extends GetView<ExercisesController> {
                                                   .copyWith(fontSize: 14.sp),
                                               maxLines: 2,
                                               onTap: () async {
+
                                                 await controller
                                                     .addTodayWorkOutVideo(
                                                         controller

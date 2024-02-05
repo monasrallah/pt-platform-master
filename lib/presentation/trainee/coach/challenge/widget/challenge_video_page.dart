@@ -52,28 +52,30 @@ class ChallengeVideoPage extends GetView<ChallengeController> {
                   : Stack(
                       children: [
                         100.verticalSpace,
-                        PositionedDirectional(
-                          top: 30.h,
-                          child: Obx(
-                            () => MyVideoPlayer(
-                              fullScreen: false,
-                              // videoUrl: controller
-                              //     .videos[controller.videoIndex.value]
-                              //     .video
-                              //     .video,
-                              videoUrl: controller.videoUrl.value,
-                              onVideoChanged: (newVideoUrl) {
-                                controller.videoUrl.value = controller
-                                    .videos[controller.videoIndex.value]
-                                    .video
-                                    .video;
-                              },
+                        SizedBox(
+                          child: PositionedDirectional(
+                            top: 30.h,
+                            child: Obx(
+                              () => MyVideoPlayer(
+                                fullScreen: false,
+                                // videoUrl: controller
+                                //     .videos[controller.videoIndex.value]
+                                //     .video
+                                //     .video,
+                                videoUrl: controller.videoUrl.value,
+                                onVideoChanged: (newVideoUrl) {
+                                  controller.videoUrl.value = controller
+                                      .videos[controller.videoIndex.value]
+                                      .video
+                                      .video;
+                                },
+                              ),
                             ),
                           ),
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              15.w, 0.31.sh, 15.w, 0),
+                              15.w, 0.36.sh, 15.w, 0),
                           child: Obx(
                             () => Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -194,7 +196,7 @@ class ChallengeVideoPage extends GetView<ChallengeController> {
   Widget buildBody() {
     return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsetsDirectional.symmetric(horizontal: 15.w),
+        padding: EdgeInsetsDirectional.symmetric(horizontal: 15.w ,vertical: 25.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

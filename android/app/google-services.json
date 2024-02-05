@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:1065042722156:android:862ff20c5c491041d54749",
         "android_client_info": {
-          "package_name": "com.smartedge.ptapp"
+          "package_name": "com.example.pt_platform"
         }
       },
       "oauth_client": [],

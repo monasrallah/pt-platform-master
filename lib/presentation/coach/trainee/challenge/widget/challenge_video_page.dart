@@ -47,21 +47,23 @@ class ChallengeCoachVideoPage extends GetView<ChallengeCoachController> {
                   : Stack(
                       children: [
                         100.verticalSpace,
-                        PositionedDirectional(
-                          top: 30.h,
-                          child: Obx(
-                            () => MyVideoPlayer(
-                              fullScreen: false,
-                              videoUrl: controller
-                                  .videos[controller.videoIndex.value]
-                                  .video
-                                  .video,
-                              onVideoChanged: (newVideoUrl) {
-                                controller.videoUrl.value = controller
+                        SizedBox(
+                          child: PositionedDirectional(
+                            top: 30.h,
+                            child: Obx(
+                              () => MyVideoPlayer(
+                                fullScreen: false,
+                                videoUrl: controller
                                     .videos[controller.videoIndex.value]
                                     .video
-                                    .video;
-                              },
+                                    .video,
+                                onVideoChanged: (newVideoUrl) {
+                                  controller.videoUrl.value = controller
+                                      .videos[controller.videoIndex.value]
+                                      .video
+                                      .video;
+                                },
+                              ),
                             ),
                           ),
                         ),
@@ -106,7 +108,7 @@ class ChallengeCoachVideoPage extends GetView<ChallengeCoachController> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Obx(
-                  () => Text(
+              () => Text(
                 controller
                     .videos[controller.videoIndex.value].video.description,
                 style: Get.textTheme.bodySmall!.copyWith(fontSize: 15.sp),

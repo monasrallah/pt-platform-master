@@ -68,7 +68,7 @@ dependencies:
   pull_to_refresh: ^2.0.0
   add_2_calendar: ^2.2.5
   onesignal_flutter: ^5.0.3
-  firebase_dynamic_links: ^5.4.9
+  firebase_dynamic_links: ^5.4.12
   share_plus: ^7.2.2
   fijkplayer: ^0.11.0
 
