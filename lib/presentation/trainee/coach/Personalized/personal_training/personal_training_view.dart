@@ -250,12 +250,13 @@ class PersonalTrainingView extends GetView<PersonalTrainingController> {
                             ),
                           ),
                           PersonalisedListWidget(
-image: ImageAssets.videoPlaceHolder,
+                            image: ImageAssets.videoPlaceHolder,
                             data: controller.personalized.video,
                             onTap: (index) {
                               Get.to(() => MyVideoPlayer(
                                     fullScreen: true,
-                                    videoUrl: controller.personalized.video[index].value,
+                                    videoUrl: controller
+                                        .personalized.video[index].value,
                                     onVideoChanged: (newVideoUrl) {
                                       // controller.videoUrl.value = controller
                                       //     .videos[controller.videoIndex.value].video;

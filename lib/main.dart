@@ -22,7 +22,6 @@ void main() async {
       await FirebaseDynamicLinks.instance.getInitialLink();
   if (initialLink != null) {
     final Uri deepLink = initialLink.link;
-    // Example of using the dynamic link to push the user to a different screen
   }
   FirebaseDynamicLinks.instance.onLink.listen(
     (pendingDynamicLinkData) {

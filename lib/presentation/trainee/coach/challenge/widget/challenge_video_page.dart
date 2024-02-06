@@ -19,14 +19,14 @@ class ChallengeVideoPage extends GetView<ChallengeController> {
   @override
   Widget build(BuildContext context) {
     return MainBottomNavigationBar(
-      appBarWidget: buildAppBar(),
+      appBarWidget: buildAppBar(context),
       bodyWidget: Obx(() => controller.isLoading
           ? const CircularProgressIndicator()
           : buildBody()),
     );
   }
 
-  PreferredSizeWidget buildAppBar() {
+  PreferredSizeWidget buildAppBar(BuildContext context) {
     return PreferredSize(
       preferredSize: Size.fromHeight(0.38.sh),
       child: AppBar(
@@ -52,30 +52,28 @@ class ChallengeVideoPage extends GetView<ChallengeController> {
                   : Stack(
                       children: [
                         100.verticalSpace,
-                        SizedBox(
-                          child: PositionedDirectional(
-                            top: 30.h,
-                            child: Obx(
-                              () => MyVideoPlayer(
-                                fullScreen: false,
-                                // videoUrl: controller
-                                //     .videos[controller.videoIndex.value]
-                                //     .video
-                                //     .video,
-                                videoUrl: controller.videoUrl.value,
-                                onVideoChanged: (newVideoUrl) {
-                                  controller.videoUrl.value = controller
-                                      .videos[controller.videoIndex.value]
-                                      .video
-                                      .video;
-                                },
-                              ),
+                        Positioned(
+                          top: 30.h,
+                          child: Obx(
+                            () => MyVideoPlayer(
+                              fullScreen: false,
+                              // videoUrl: controller
+                              //     .videos[controller.videoIndex.value]
+                              //     .video
+                              //     .video,
+                              videoUrl: controller.videoUrl.value,
+                              onVideoChanged: (newVideoUrl) {
+                                controller.videoUrl.value = controller
+                                    .videos[controller.videoIndex.value]
+                                    .video
+                                    .video;
+                              },
                             ),
                           ),
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              15.w, 0.36.sh, 15.w, 0),
+                              15.w, 0.33.sh, 15.w, 0),
                           child: Obx(
                             () => Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -196,7 +194,8 @@ class ChallengeVideoPage extends GetView<ChallengeController> {
   Widget buildBody() {
     return SingleChildScrollView(
       child: Padding(
-        padding: EdgeInsetsDirectional.symmetric(horizontal: 15.w ,vertical: 25.h),
+        padding:
+            EdgeInsetsDirectional.symmetric(horizontal: 15.w, vertical: 25.h),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

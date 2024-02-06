@@ -46,24 +46,22 @@ class ExercisesDetailsPage extends GetView<ExercisesController> {
                   : Stack(
                       children: [
                         100.verticalSpace,
-                        SizedBox(
-                          child: PositionedDirectional(
-                            top: 30.h,
-                            child: Obx(
-                              () => MyVideoPlayer(
-                                fullScreen: false,
-                                videoUrl: controller.videoUrl.value,
-                                onVideoChanged: (newVideoUrl) {
-                                  controller.videoUrl.value = controller
-                                      .videos[controller.videoIndex.value].video;
-                                },
-                              ),
+                        PositionedDirectional(
+                          top: 30.h,
+                          child: Obx(
+                            () => MyVideoPlayer(
+                              fullScreen: false,
+                              videoUrl: controller.videoUrl.value,
+                              onVideoChanged: (newVideoUrl) {
+                                controller.videoUrl.value = controller
+                                    .videos[controller.videoIndex.value].video;
+                              },
                             ),
                           ),
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              15.w, 0.36.sh, 15.w, 0),
+                              15.w, 0.33.sh, 15.w, 0),
                           child: Obx(
                             () => Column(
                               crossAxisAlignment: CrossAxisAlignment.start,

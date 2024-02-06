@@ -27,6 +27,7 @@ class _MyVideoPlayerState extends State<MyVideoPlayer> {
   void initState() {
     super.initState();
     _initializeVideoPlayerController();
+
     setState(() {});
   }
 
@@ -58,13 +59,7 @@ class _MyVideoPlayerState extends State<MyVideoPlayer> {
       ),
       placeholder: SizedBox(
         width: 1.sw,
-        child: const Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            CircularProgressIndicator(),
-          ],
-        ),
+        child: const Center(child: CircularProgressIndicator()),
       ),
       autoInitialize: true,
     );
@@ -89,11 +84,19 @@ class _MyVideoPlayerState extends State<MyVideoPlayer> {
     super.dispose();
   }
 
+
   @override
   Widget build(BuildContext context) {
     print("test ${widget.videoUrl}");
-    return Chewie(
-      controller: _chewieController,
+    return SizedBox(
+      height: 250.h,
+      width: MediaQuery.of(context).size.width,
+      child: AspectRatio(
+        aspectRatio: _chewieController.videoPlayerController.value.aspectRatio,
+        child: Chewie(
+          controller: _chewieController,
+        ),
+      ),
     );
   }
 }
