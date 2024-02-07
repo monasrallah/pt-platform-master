@@ -67,6 +67,7 @@ import '../presentation/trainee/coach/live_chat/getx/live_chat_binding.dart';
 import '../presentation/trainee/coach/live_chat/live_chat_view.dart';
 import '../presentation/trainee/coach/shop/getx/shop_binding.dart';
 import '../presentation/trainee/coach/shop/shop_view.dart';
+import '../presentation/trainee/coach/shop/widget/shop_details_page.dart';
 import '../presentation/trainee/coach/today_work_out/getx/today_work_out_binding.dart';
 import '../presentation/trainee/coach/today_work_out/today_work_out_view.dart';
 import '../presentation/trainee/coach/workouts/getx/workout_binding.dart';
@@ -144,6 +145,8 @@ class Routes {
   static const String calenderRoute = "/calenderRoute";
   static const String todayWorkOutRoute = "/todayWorkOutRoute";
   static const String shopRoute = "/shopRoute";
+  static const String shopDetailsRoute = "/shopRoute";
+
   static const String videoChatRoute = "/videoChatRoute";
   static const String liveChatRoute = "/liveChatRoute";
 
@@ -236,6 +239,7 @@ class AppPages {
         binding: CoachBinding(),
         transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 500)),
+
     GetPage(
         name: Routes.profileRoute,
         page: () => const ProfileView(),
@@ -438,6 +442,7 @@ class AppPages {
         binding: CalenderCoachBinding(),
         transition: Transition.fadeIn,
         transitionDuration: const Duration(milliseconds: 500)),
+
     GetPage(
         name: Routes.videoChatCoachRoute,
         page: () => const VideoChatCoachView(),

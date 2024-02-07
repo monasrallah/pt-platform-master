@@ -18,6 +18,7 @@ class ShopDetailsPage extends GetView<ShopController> {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(CoachController());
     return WillPopScope(
       onWillPop: () async {
         controller.discount.value = false;
@@ -109,6 +110,7 @@ class ShopDetailsPage extends GetView<ShopController> {
                 30.verticalSpace,
                 buildPromoCode(),
                 30.verticalSpace,
+
                 buildRow(
                     first: AppStrings.duration.tr,
                     second: '${personalTraining.date} ${AppStrings.months.tr}'),
@@ -125,7 +127,11 @@ class ShopDetailsPage extends GetView<ShopController> {
                     first: AppStrings.price.tr,
                     second: (!controller.discount.value)
                         ? personalTraining.priceObject.formatted
-                        : controller.discountEntity.price.toString().substring(0,5),
+                        : controller.discountEntity.price.toString().length >= 5
+                            ? controller.discountEntity.price
+                                .toString()
+                                .substring(0, 5)
+                            : controller.discountEntity.price.toString(),
                   ),
                 ),
                 30.verticalSpace,
@@ -226,7 +232,8 @@ class ShopDetailsPage extends GetView<ShopController> {
                           textStyle: Get.textTheme.bodyMedium!
                               .copyWith(fontSize: 17.sp, height: 0.5),
                           onTap: () async {
-                            await controller.checkPromoCode(personalTraining.id);
+                            await controller
+                                .checkPromoCode(personalTraining.id);
                           },
                         ),
                       ),

@@ -61,7 +61,7 @@ class ExercisesDetailsPage extends GetView<ExercisesController> {
                         ),
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              15.w, 0.31.sh, 15.w, 0),
+                              15.w, 0.33.sh, 15.w, 0),
                           child: Obx(
                             () => Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -114,6 +114,7 @@ class ExercisesDetailsPage extends GetView<ExercisesController> {
                                                   .copyWith(fontSize: 14.sp),
                                               maxLines: 2,
                                               onTap: () async {
+
                                                 await controller
                                                     .addTodayWorkOutVideo(
                                                         controller

@@ -28,7 +28,6 @@ class WorkoutDetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return MainBottomNavigationBar(
       appBarWidget: appBackBar(title: ''),
       bodyWidget: buildBody(),
@@ -86,7 +85,13 @@ class WorkoutDetailsPage extends StatelessWidget {
           top: 10,
           child: InkWell(
             onTap: () async {
-              await dynamicLinkService.createStarLink(title: title,description:des ,uri:  image.isNotEmpty ? Uri.parse(image) : null,).then((value) async {
+              await dynamicLinkService
+                  .createStarLink(
+                title: title,
+                description: des,
+                uri: image.isNotEmpty ? Uri.parse(image) : null,
+              )
+                  .then((value) async {
                 await Share.share(value, subject: 'pt');
               });
             },

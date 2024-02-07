@@ -23,6 +23,7 @@ class ImageAssets {
   static const String darkBackground = "$IMAGE_PATH/dark_background.png";
   static const String pdf = "$IMAGE_PATH/pdf.png";
   static const String note = "$IMAGE_PATH/note.png";
+  static const String videoPlaceHolder = "$IMAGE_PATH/video_placeholder.webp";
 
   // static const String logo = "$IMAGE_PATH/logo.png";
 

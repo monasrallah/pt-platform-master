@@ -50,12 +50,16 @@ class ChallengeController extends GetxController {
 
   completeChallenges() async {
     isLoading = true;
-    (await baseCoachRepository.completeChallengeVideo(
-            CompleteChallengeVideoParams(
-                challenge_video_ids: newChallengeAcceptedId,
-                coachId: Get.find<CoachController>().coachId.value)))
-        .fold((failure) => showFlutterToast(message: failure.message.orEmpty()),
-            (data) => {});
+    newChallengeAcceptedId.isNotEmpty
+        ? (await baseCoachRepository.completeChallengeVideo(
+                CompleteChallengeVideoParams(
+                    challenge_video_ids: newChallengeAcceptedId!,
+                    coachId: Get.find<CoachController>().coachId.value)))
+            .fold(
+                (failure) =>
+                    showFlutterToast(message: failure.message.orEmpty()),
+                (data) => {})
+        : null;
     isLoading = false;
   }
 
@@ -105,6 +109,8 @@ class ChallengeController extends GetxController {
   addTodayWorkOutVideo(int videoId) async {
     isButtonLoading = true;
     (await baseCoachRepository.addTodayWorkOutVideo(VideoCoachIdParams(
+
+            date:"${DateTime.now().year}-${DateTime.now().month}-${(DateTime.now().day)}" ,
             videoId: videoId,
             coachId: Get.find<CoachController>().coachId.value)))
         .fold((failure) => showFlutterToast(message: failure.message.orEmpty()),
@@ -121,7 +127,7 @@ class ChallengeController extends GetxController {
 
   @override
   void onInit() async {
-    newChallengeAcceptedId.clear();
+    newChallengeAcceptedId?.clear();
     await getChallenges();
     super.onInit();
   }
