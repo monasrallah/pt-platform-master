@@ -1,10 +1,15 @@
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pt_platform/resources/color_manager.dart';
 import 'package:wheel_chooser/wheel_chooser.dart';
 
-class CustomWheelScrollWidget extends StatelessWidget {
+import '../../../app/dependency_injection.dart';
+import '../../../app/storage/app_prefs.dart';
+import '../../trainee/coach/getx/coach_controller.dart';
+
+class CustomWheelScrollWidget extends GetView<CoachController> {
   const CustomWheelScrollWidget(
       {Key? key, required this.data, required this.dataList, this.index})
       : super(key: key);
@@ -43,9 +48,33 @@ class CustomWheelScrollWidget extends StatelessWidget {
                   Get.textTheme.labelLarge!.copyWith(fontSize: 17.sp),
               unSelectTextStyle:
                   Get.textTheme.headlineMedium!.copyWith(fontSize: 15.sp),
-              onValueChanged: (value) {
+              onValueChanged: (value) async{
+                print("test onValueChanged $value");
+                for (var i = 0; i < dataList.length; i++) {
+                  if (controller.coaches[i].lastName == value) {
+                    print("heeeeeh");
+                    controller.coachId.value = controller
+                        .coaches[i].id
+                        .toString();
+                    controller.coachAvatar.value = controller
+                        .coaches[i].avatar.toString();
+
+                controller.getBanner();
+                  } else {
+                    print("heeeee h");
+                  }
+                }
+
+                print("test onValueChanged ${controller.coachId}");
+                print("Test ${controller.coaches.map((e) => e.id).toList()}");
+                instance<AppPreferences>().setCoachEntity([
+                  controller.coaches[controller.coachIndex.value].id.toString(),
+                  controller.coaches[controller.coachIndex.value].lastName.toString(),
+                  controller.coaches[controller.coachIndex.value].logo.toString(),
+                  controller.coaches[controller.coachIndex.value].avatar.toString(),
+
+                ]);
                 data.value = value;
-                // this.index != null ? this.index!.value = index : null;
               },
               datas: dataList,
             ),

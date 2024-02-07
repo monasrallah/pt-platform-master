@@ -16,6 +16,7 @@ class CoachView extends GetView<CoachController> {
 
   @override
   Widget build(BuildContext context) {
+
     return WillPopScope(
       onWillPop: () async {
         return Get.find<AppController>().openConfirmationDialog();
@@ -29,6 +30,7 @@ class CoachView extends GetView<CoachController> {
   }
 
   Widget buildBody() {
+    Get.put(CoachController());
     return SingleChildScrollView(
       physics: const AlwaysScrollableScrollPhysics(),
       child: Stack(

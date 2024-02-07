@@ -9,8 +9,10 @@ import 'package:pt_platform/resources/routes_manager.dart';
 
 import '../../../../app/dependency_injection.dart';
 import '../../../../app/storage/app_prefs.dart';
+import '../../../../main.dart';
 import '../../../../resources/strings_manager.dart';
 import '../../../widgets/dialogs/filter_category_coach/filter_category_coach_dialog.dart';
+import '../../coach/getx/coach_controller.dart';
 import '../../main_bottom_navigation_bar/main_bottom_navigation_bar.dart';
 import 'getx/trainer_controller.dart';
 import 'widget/trainer_card.dart';
@@ -173,19 +175,22 @@ class TrainerView extends GetView<TrainerController> {
                     itemCount: controller.coaches.length,
                     itemBuilder: (context, index) {
                       return InkWell(
-                        onTap: () {
+                        onTap: () async {
+                          print("tessss ${controller.coaches[index].isSubscription}");
+                          print("tessss ${controller.coaches[index].id.toString()}");
+
                           if (controller.coaches[index].isSubscription!) {
-                            instance<AppPreferences>().setCoachEntity([
+                            selectCaptain(index);
+
+                            await instance<AppPreferences>().setCoachEntity([
                               controller.coaches[index].id.toString(),
                               controller.coaches[index].lastName.toString(),
                               controller.coaches[index].logo.toString(),
                             ]);
-                            print(
-                                instance<AppPreferences>().getCoachEntity()[0]);
-                            print(
-                                instance<AppPreferences>().getCoachEntity()[1]);
-                            print(
-                                instance<AppPreferences>().getCoachEntity()[2]);
+
+                            print("tessss ${instance<AppPreferences>().getCoachEntity()[0]}");
+                            print("tessss ${instance<AppPreferences>().getCoachEntity()[1]}");
+                            print("tessss ${instance<AppPreferences>().getCoachEntity()[2]}");
                             controller.appController.onItemTapped(1);
                           } else {
                             instance<AppPreferences>().setCoachEntity([

@@ -9,7 +9,13 @@ import 'package:pt_platform/presentation/splash/splash_view.dart';
 import 'app/app.dart';
 import 'app/dependency_injection.dart';
 import 'resources/routes_manager.dart';
+int? selectedCaptain;
 
+void selectCaptain(int index){
+  print("selectCaptain");
+
+  selectedCaptain = index;
+}
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initOneSignal();

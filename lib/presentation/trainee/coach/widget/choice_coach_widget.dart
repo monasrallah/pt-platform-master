@@ -21,6 +21,8 @@ class ChoiceCoachWidget extends GetView<CoachController> {
       padding: EdgeInsets.symmetric(horizontal: 40.w),
       child: InkWell(
         onTap: () {
+          print(
+              "Test ${controller.coaches.map((e) => e.lastName.orEmpty()).toList()}");
           Get.bottomSheet(
             CustomWheelScrollWidget(
               data: controller.coachName,
@@ -38,12 +40,7 @@ class ChoiceCoachWidget extends GetView<CoachController> {
           controller.coachAvatar.value =
               controller.coaches[controller.coachIndex.value].logo.toString();
 
-          print(controller.coachAvatar.value);
-          instance<AppPreferences>().setCoachEntity([
-            controller.coaches[controller.coachIndex.value].id.toString(),
-            controller.coaches[controller.coachIndex.value].lastName.toString(),
-            controller.coaches[controller.coachIndex.value].logo.toString(),
-          ]);
+          print("testgetUserEntity${controller.coachAvatar.value}");
         },
         child: Stack(
           children: [

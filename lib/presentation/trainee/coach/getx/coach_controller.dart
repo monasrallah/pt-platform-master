@@ -1,14 +1,12 @@
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pt_platform/app/debug/log.dart';
 import 'package:pt_platform/app/extensions.dart';
 import 'package:pt_platform/data/coach/coach_repo/coach_repository.dart';
 import 'package:pt_platform/domain/core/entities/failure.dart';
 import 'package:pt_platform/domain/entities/coach_entities/personalized_entity.dart';
 import 'package:pt_platform/resources/strings_manager.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import '../../../../app/app_controller.dart';
 import '../../../../app/dependency_injection.dart';
 import '../../../../app/storage/app_prefs.dart';
@@ -17,10 +15,10 @@ import '../../../../data/profile/profile_repo/profile_repository.dart';
 import '../../../../domain/entities/auth_entities/coach_entity.dart';
 import '../../../../domain/entities/home_entities/banner_entity.dart';
 import '../../../../domain/parameters/coach_params/packege_payment_params.dart';
+import '../../../../main.dart';
 import '../../../../resources/assets_manager.dart';
 import '../../../../resources/routes_manager.dart';
 import '../../../widgets/toasts_messages.dart';
-import '../shop/widget/web_view_page.dart';
 
 class CoachController extends GetxController {
   final CarouselController carouselController = CarouselController();
@@ -109,18 +107,40 @@ class CoachController extends GetxController {
               showFlutterToast(message: failure.message.orEmpty())
             },
         (List<CoachEntity> data) => {
+              print("data lenght ${data.length}"),
               coaches = data,
               if (data.isNotEmpty)
-                {
-                  coachEntity.value = coaches[0],
+              if(selectedCaptain == null){
+
+                print(" selectCaptain ${data.length}"),
+
+                coachEntity.value = coaches[0],
+                coachName.value.isEmpty
+                    ? coachName.value = coaches[0].lastName.orEmpty()
+                    : coachName.value,
+                // coachId.value.isEmpty ?
+                coachId.value = coaches[0].id.toString(),
+                // : coachId.value,
+                coachAvatar.value.isEmpty
+                    ? coachAvatar.value = coaches[0].logo.toString()
+                    : coachAvatar.value,
+                instance<AppPreferences>().setCoachEntity([
+                  coachId.value,
+                  coachName.value,
+                  coachAvatar.value,
+                ]),
+              }else{
+                print("selectCaptain lenghtsssssss ${data.length}"),
+
+                {coachEntity.value = coaches[selectedCaptain!],
                   coachName.value.isEmpty
-                      ? coachName.value = coaches[0].lastName.orEmpty()
+                      ? coachName.value = coaches[selectedCaptain!].lastName.orEmpty()
                       : coachName.value,
                   // coachId.value.isEmpty ?
-                  coachId.value = coaches[0].id.toString(),
+                  coachId.value = coaches[selectedCaptain!].id.toString(),
                   // : coachId.value,
                   coachAvatar.value.isEmpty
-                      ? coachAvatar.value = coaches[0].logo.toString()
+                      ? coachAvatar.value = coaches[selectedCaptain!].logo.toString()
                       : coachAvatar.value,
                   instance<AppPreferences>().setCoachEntity([
                     coachId.value,
@@ -128,6 +148,8 @@ class CoachController extends GetxController {
                     coachAvatar.value,
                   ]),
                 }
+        }
+
               else if (coachName.value.isNotEmpty)
                 {
                   instance<AppPreferences>().setCoachEntity([
@@ -141,6 +163,7 @@ class CoachController extends GetxController {
                   Get.toNamed(Routes.trainersRoute),
                 }
             });
+
     isLoading = false;
   }
 
@@ -151,6 +174,14 @@ class CoachController extends GetxController {
   RxList<BannerEntity> banners = <BannerEntity>[].obs;
 
   getBanner() async {
+    print("testgetUserEntity 0getBanner");
+
+    print(
+        "testgetUserEntity 0getBanner ${instance<AppPreferences>().getCoachEntity()[0]} ");
+    print(
+        "testgetUserEntity 1getBanner ${instance<AppPreferences>().getCoachEntity()[1]} ");
+    print(
+        "testgetUserEntity 2getBanner ${instance<AppPreferences>().getCoachEntity()[2]} ");
     isLoading = true;
     (await baseHomeRepository.getBanner(coachId.value)).fold(
         (failure) => showFlutterToast(message: failure.message!.orEmpty()),
@@ -200,7 +231,8 @@ class CoachController extends GetxController {
             (data) {
       if (paymentMethod == "stripe") {
         launchUrl(Uri.parse(data.url));
-        // Route route =
+
+        //       Route route =
         //     MaterialPageRoute(builder: (_) => WebViewApp(url: data.url));
         //
         // Navigator.push(Get.context!, route);
@@ -238,6 +270,15 @@ class CoachController extends GetxController {
 
   @override
   void onInit() async {
+    print(
+        "testgetUserEntity 0 ${instance<AppPreferences>().getUserEntity()[0]} ");
+    print(
+        "testgetUserEntity 0 ${instance<AppPreferences>().getCoachEntity()[0]} ");
+    print(
+        "testgetUserEntity 1 ${instance<AppPreferences>().getCoachEntity()[1]} ");
+    print(
+        "testgetUserEntity 2 ${instance<AppPreferences>().getCoachEntity()[2]} ");
+
     userId.value = instance<AppPreferences>().getUserEntity().isNotEmpty
         ? instance<AppPreferences>().getUserEntity()[0]
         : "";
