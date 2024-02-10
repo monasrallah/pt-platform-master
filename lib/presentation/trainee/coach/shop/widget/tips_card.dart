@@ -60,11 +60,12 @@ class TipsCard extends GetView<CoachController> {
               backgroundColor: Colors.redAccent.withOpacity(0.3),
               borderRadius: BorderRadius.circular(22.r),
               onTap: () {
-                Get.dialog(PickPaymentMethodDialog(
-                  onTapCreditCard: () => controller.checkout(tip.id, "stripe"),
-                  onTapAppPurchase: () =>
-                      controller.checkout(tip.id, "purchase"),
-                ));
+                controller.checkout(tip.id, "stripe");
+                // Get.dialog(PickPaymentMethodDialog(
+                //   onTapCreditCard: () => controller.checkout(tip.id, "stripe"),
+                //   onTapAppPurchase: () =>
+                //       controller.checkout(tip.id, "purchase"),
+                // ));
                 // return ;
               },
             ),

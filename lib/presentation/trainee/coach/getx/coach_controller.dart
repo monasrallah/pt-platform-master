@@ -270,15 +270,6 @@ class CoachController extends GetxController {
 
   @override
   void onInit() async {
-    print(
-        "testgetUserEntity 0 ${instance<AppPreferences>().getUserEntity()[0]} ");
-    print(
-        "testgetUserEntity 0 ${instance<AppPreferences>().getCoachEntity()[0]} ");
-    print(
-        "testgetUserEntity 1 ${instance<AppPreferences>().getCoachEntity()[1]} ");
-    print(
-        "testgetUserEntity 2 ${instance<AppPreferences>().getCoachEntity()[2]} ");
-
     userId.value = instance<AppPreferences>().getUserEntity().isNotEmpty
         ? instance<AppPreferences>().getUserEntity()[0]
         : "";

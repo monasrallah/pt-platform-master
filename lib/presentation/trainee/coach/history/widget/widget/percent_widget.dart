@@ -42,8 +42,10 @@ class PercentWidget extends GetView<HistoryController> {
                         controller.foodEntity.value.user.targetProtein
                             .toDouble()
                     ? 1
-                    : controller.foodEntity.value.carb /
-                        controller.foodEntity.value.user.targetCarb.toDouble()),
+                    : (controller.foodEntity.value.carb /
+                        controller.foodEntity.value.user.targetCarb.toDouble())
+
+                            .clamp(0.0, 1.0)),
             CustomCircularPercentIndicator(
                 centers: [
                   Text(
@@ -67,8 +69,8 @@ class PercentWidget extends GetView<HistoryController> {
                         controller.foodEntity.value.user.targetProtein
                             .toDouble()
                     ? 1
-                    : controller.foodEntity.value.fat /
-                        controller.foodEntity.value.user.targetFat.toDouble()),
+                    : (controller.foodEntity.value.fat /
+                        controller.foodEntity.value.user.targetFat.toDouble()).clamp(0.0, 0.1)),
             CustomCircularPercentIndicator(
                 centers: [
                   Text(
@@ -92,9 +94,9 @@ class PercentWidget extends GetView<HistoryController> {
                         controller.foodEntity.value.user.targetProtein
                             .toDouble()
                     ? 1
-                    : controller.foodEntity.value.protein /
+                    : (controller.foodEntity.value.protein /
                         controller.foodEntity.value.user.targetProtein
-                            .toDouble())
+                            .toDouble()).clamp(0.0, 0.1))
           ],
         ),
       ],

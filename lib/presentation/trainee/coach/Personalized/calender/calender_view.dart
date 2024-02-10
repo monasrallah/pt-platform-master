@@ -12,6 +12,7 @@ import '../../../../../resources/color_manager.dart';
 import '../../../../../resources/strings_manager.dart';
 import '../../../../widgets/buttons/app_back_bar.dart';
 import '../../../main_bottom_navigation_bar/main_bottom_navigation_bar.dart';
+import '../../getx/coach_controller.dart';
 import 'getx/calender_controller.dart';
 
 class CalenderView extends GetView<CalenderController> {
@@ -80,13 +81,13 @@ class CalenderView extends GetView<CalenderController> {
                   width: 70.h,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(100.r),
-                    child: Image.network(controller.coachAvatar.value),
+                    child: Image.network(Get.find<CoachController>().coachAvatar.value),
                   ),
                 ),
                 20.horizontalSpace,
                 Obx(
                   () => Text(
-                    "${controller.coachName.value} ${AppStrings.availability.tr}",
+                    "${Get.find<CoachController>().coachName.value} ${AppStrings.availability.tr}",
                     style: Get.textTheme.bodySmall!.copyWith(fontSize: 20.sp),
                   ),
                 ),

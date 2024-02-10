@@ -115,6 +115,8 @@ class CalenderController extends GetxController {
 
   @override
   void onInit() async {
+
+
     coachName.value = instance<AppPreferences>().getCoachEntity().length > 1
         ? instance<AppPreferences>().getCoachEntity()[1]
         : "";
@@ -122,6 +124,8 @@ class CalenderController extends GetxController {
         ? instance<AppPreferences>().getCoachEntity()[2]
         : "";
     await getCoachCalendar();
+    log("test coachAvatar${coachAvatar}");
+    log("test coachAvatar${coachName}");
     super.onInit();
   }
 }

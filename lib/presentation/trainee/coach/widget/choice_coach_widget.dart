@@ -39,6 +39,14 @@ class ChoiceCoachWidget extends GetView<CoachController> {
               .toString();
           controller.coachAvatar.value =
               controller.coaches[controller.coachIndex.value].logo.toString();
+          instance<AppPreferences>().setCoachEntity([
+            controller.coaches[controller.coachIndex.value].id.toString(),
+            controller.coaches[controller.coachIndex.value].lastName.toString(),
+            controller.coaches[controller.coachIndex.value].logo.toString(),
+            controller.coaches[controller.coachIndex.value].avatar.toString(),
+
+          ]);
+          controller.getBanner();
 
           print("testgetUserEntity${controller.coachAvatar.value}");
         },
