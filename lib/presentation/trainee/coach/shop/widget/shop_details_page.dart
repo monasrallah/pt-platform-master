@@ -19,6 +19,8 @@ class ShopDetailsPage extends GetView<ShopController> {
   @override
   Widget build(BuildContext context) {
     Get.put(CoachController());
+    controller.discount = false.obs;
+
     return WillPopScope(
       onWillPop: () async {
         controller.discount.value = false;
@@ -41,6 +43,7 @@ class ShopDetailsPage extends GetView<ShopController> {
   }
 
   Widget buildBody() {
+
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -198,6 +201,7 @@ class ShopDetailsPage extends GetView<ShopController> {
   }
 
   Widget buildPromoCode() {
+    print("test ${controller.discount.value}");
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -209,38 +213,43 @@ class ShopDetailsPage extends GetView<ShopController> {
   }
 
   Widget promoCodeTextField() {
+
     return Row(
       children: [
         Expanded(
           flex: 3,
-          child: CustomTextField(
-            height: 60,
-            textEditingController: controller.codeController,
-            contentPadding: EdgeInsetsDirectional.symmetric(
-                horizontal: 1.5.h, vertical: 12.h),
-            hint: "",
-            prefix: Padding(
-              padding: const EdgeInsets.all(1.5),
-              child: Obx(
-                () => controller.isLoading
-                    ? const CircularProgressIndicator()
-                    : SizedBox(
-                        width: 100.w,
-                        child: CustomElevatedButton(
-                          title: AppStrings.apply.tr,
-                          height: 30.h,
-                          textStyle: Get.textTheme.bodyMedium!
-                              .copyWith(fontSize: 17.sp, height: 0.5),
-                          onTap: () async {
-                            await controller
-                                .checkPromoCode(personalTraining.id);
-                          },
+          child:    CustomTextField(
+              onChanged:(value){
+
+              },
+              height: 60,
+              textEditingController: controller.codeController,
+              contentPadding: EdgeInsetsDirectional.symmetric(
+                  horizontal: 1.5.h, vertical: 12.h),
+              hint: "",
+              prefix: Padding(
+                padding: const EdgeInsets.all(1.5),
+                child: Obx(
+                  () => controller.isLoading
+                      ? const CircularProgressIndicator()
+                      : SizedBox(
+                          width: 100.w,
+                          child: CustomElevatedButton(
+                            title: AppStrings.apply.tr,
+                            height: 30.h,
+                            textStyle: Get.textTheme.bodyMedium!
+                                .copyWith(fontSize: 17.sp, height: 0.5),
+                            onTap: () async {
+                              await controller
+                                  .checkPromoCode(personalTraining.id);
+                            },
+                          ),
                         ),
-                      ),
+                ),
               ),
             ),
           ),
-        ),
+
         // 12.horizontalSpace,
         // Expanded(
         //   flex: 1,

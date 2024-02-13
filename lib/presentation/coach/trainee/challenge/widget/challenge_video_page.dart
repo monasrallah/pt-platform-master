@@ -47,23 +47,21 @@ class ChallengeCoachVideoPage extends GetView<ChallengeCoachController> {
                   : Stack(
                       children: [
                         100.verticalSpace,
-                        SizedBox(
-                          child: PositionedDirectional(
-                            top: 30.h,
-                            child: Obx(
-                              () => MyVideoPlayer(
-                                fullScreen: false,
-                                videoUrl: controller
+                        PositionedDirectional(
+                          top: 30.h,
+                          child: Obx(
+                            () => MyVideoPlayer(
+                              fullScreen: false,
+                              videoUrl: controller
+                                  .videos[controller.videoIndex.value]
+                                  .video
+                                  .video,
+                              onVideoChanged: (newVideoUrl) {
+                                controller.videoUrl.value = controller
                                     .videos[controller.videoIndex.value]
                                     .video
-                                    .video,
-                                onVideoChanged: (newVideoUrl) {
-                                  controller.videoUrl.value = controller
-                                      .videos[controller.videoIndex.value]
-                                      .video
-                                      .video;
-                                },
-                              ),
+                                    .video;
+                              },
                             ),
                           ),
                         ),

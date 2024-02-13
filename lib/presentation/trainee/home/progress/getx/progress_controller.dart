@@ -156,10 +156,15 @@ class ProgressController extends GetxController {
     )))
         .fold(
             (failure) => showFlutterToast(message: failure.message!.orEmpty()),
-            (data) async => {await measurements(), Get.back()});
+            (data) async => {await measurements(), Get.back() , clearFiled()});
     isLoading = false;
   }
 
+  clearFiled(){
+    for(int index = 0 ; index < listOfMeasurementsController.length ; index ++){
+      listOfMeasurementsController[index].clear();
+    }
+  }
   RxList<ProgressEntity> progressAmount = [
     ProgressEntity.init(),
     ProgressEntity.init(),
