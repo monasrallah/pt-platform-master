@@ -48,6 +48,8 @@ class ProfileController extends GetxController {
 
   openSelectProductImageDialog() {
     Future.delayed(Duration.zero, () async {
+
+      print("Test ");
       Get.dialog(PickImageSourceDialog(
         onTap: setSelectedProductImage,
         isMultiSelect: false,

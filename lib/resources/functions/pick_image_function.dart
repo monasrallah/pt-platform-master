@@ -14,11 +14,16 @@ Future<File> pickImage(String source) async {
   switch (source) {
     case 'camera':
       if (await Permission.camera.status.isDenied) {
+        print("test granted isDenied");
+
         if (await Permission.camera.request().isGranted) granted = true;
       } else {
+        print("test granted isDenied!");
+
         granted = true;
       }
       if (granted) {
+        print("test granted $granted");
         XFile? pickedFile = await picker.pickImage(source: ImageSource.camera);
         if (pickedFile != null) {
           image = File(pickedFile.path);

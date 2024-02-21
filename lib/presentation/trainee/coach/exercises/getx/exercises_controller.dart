@@ -153,7 +153,7 @@ class ExercisesController extends GetxController {
         videoId: videoId,
             coachId: Get.find<CoachController>().coachId.value)))
         .fold((failure) => showFlutterToast(message: failure.message.orEmpty()),
-            (data) => {isWorkout.value = !isWorkout.value});
+            (data) => {isWorkout.value = !isWorkout.value ,showFlutterToast(message: "success")});
     isButtonLoading = false;
   }
 

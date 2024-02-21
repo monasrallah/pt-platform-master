@@ -18,12 +18,12 @@ import '../../../widgets/toasts_messages.dart';
 class LoginController extends GetxController {
   TextEditingController email =
       // TextEditingController();
-      TextEditingController(text: "omar_zebdah@hotmail.com");
+      TextEditingController();
   // TextEditingController(text: "yuri.fit@hotmail.com");
 
   TextEditingController password =
       // TextEditingController();
-      TextEditingController(text: "OmarZebdah@123");
+      TextEditingController();
   // TextEditingController(text: "Yuri3112");
 
   RxString userType = "".obs;

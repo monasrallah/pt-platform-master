@@ -17,7 +17,7 @@ class AssignedCoachCard extends StatelessWidget {
           height: 250.h,
           child: ClipRRect(
             borderRadius: BorderRadius.circular(12.r),
-            child: Image.asset(
+            child: Image.network(
               image,
               fit: BoxFit.cover,
             ),

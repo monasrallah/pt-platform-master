@@ -72,9 +72,7 @@ class UpdateBodyMeasurementsDialog extends StatelessWidget {
                     padding: EdgeInsets.only(bottom: 10.h),
                     child: CustomTextField(
                       hint: "", isPhone: false,
-                      textInputType: const TextInputType.numberWithOptions(
-                        decimal: true,
-                      ),
+                      textInputType:  TextInputType.numberWithOptions(signed: true ,decimal: true),
                       color: ColorManager.white,
                       cursorColor: ColorManager.white,
                       textEditingController: fieldsController[index],

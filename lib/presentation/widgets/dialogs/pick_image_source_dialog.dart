@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'package:image_picker/image_picker.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 import '../../../resources/functions/pick_image_function.dart';
 import '../../../resources/strings_manager.dart';
@@ -80,6 +81,8 @@ class PickImageSourceDialog extends StatelessWidget {
               ),
               ListTile(
                 onTap: () async {
+                await Permission.camera.request();
+                  print(isMultiSelect);
                   if (isMultiSelect) {
                     List<XFile> pickedImage = [];
                     await pickMultiImage("camera")
@@ -90,6 +93,7 @@ class PickImageSourceDialog extends StatelessWidget {
                       onTap!(pickedImage);
                     }
                   } else {
+
                     File pickedImage = File("");
                     await pickImage("camera")
                         .then((value) => pickedImage = value);

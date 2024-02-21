@@ -45,8 +45,7 @@ class TipsPage extends GetView<CoachController> {
                       child: SvgPicture.asset(IconsAssets.noData),
                     )
                   : SizedBox(
-                      height: 1.sh,
-                      width: 1.sw,
+
                       child: GridView.builder(
                         physics: const NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
