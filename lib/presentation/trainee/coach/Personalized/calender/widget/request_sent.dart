@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pt_platform/app/app_controller.dart';
 import 'package:pt_platform/presentation/trainee/coach/Personalized/calender/getx/calender_controller.dart';
+import 'package:pt_platform/presentation/trainee/coach/getx/coach_controller.dart';
 import 'package:pt_platform/presentation/widgets/buttons/custom_elevated_button.dart';
 import 'package:pt_platform/resources/color_manager.dart';
 import 'package:pt_platform/resources/strings_manager.dart';
@@ -45,6 +46,8 @@ class RequestSentPage extends StatelessWidget {
               width: 0.85.sw,
               textStyle: Get.textTheme.bodySmall!.copyWith(fontSize: 19.sp),
               onTap: () {
+                Get.find<CoachController>().getBanner();
+
                 Get.find<AppController>().onItemTapped(1);
               },
             ),

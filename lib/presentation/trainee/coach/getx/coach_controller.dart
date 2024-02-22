@@ -107,8 +107,8 @@ class CoachController extends GetxController {
               showFlutterToast(message: failure.message.orEmpty())
             },
         (List<CoachEntity> data) => {
-              print("data lenght ${data.length}"),
-              coaches = data,
+              print("data lenght ${data}"),
+              coaches.addAll(data.reversed) ,
               if (data.isNotEmpty)
               if(selectedCaptain == null){
 

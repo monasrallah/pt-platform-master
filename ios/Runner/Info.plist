@@ -37,6 +37,10 @@
 	<string>description</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>description</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+    <string>We need to activate location functionality in our application to accurately identify the locations of institutions, making them easily accessible for visits at any time.</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>We need to activate location functionality in our application to accurately identify the locations of institutions, making them easily accessible for visits at any time.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UIBackgroundModes</key>
