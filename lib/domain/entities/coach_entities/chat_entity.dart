@@ -9,7 +9,7 @@ class ChatEntity {
   DateTime? deletedAt;
   DateTime createdAt;
   DateTime updatedAt;
-  CoachTimeReservationEntity coachTimeReservation;
+  CoachTimeReservationEntity? coachTimeReservation;
 
   ChatEntity({
     required this.id,

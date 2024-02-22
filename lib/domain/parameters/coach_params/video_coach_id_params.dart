@@ -1,13 +1,13 @@
 class VideoCoachIdParams {
   int videoId;
   String coachId;
-  String? date;
+  String date;
 
-  VideoCoachIdParams({required this.videoId, required this.coachId ,this.date});
+  VideoCoachIdParams({required this.videoId, required this.coachId ,required this.date});
 
   Map<String, dynamic> toJson() => {
         "video_id": videoId,
         "coach_id": coachId,
-    if(date != null) "date" :date,
+     "date" :date,
       };
 }

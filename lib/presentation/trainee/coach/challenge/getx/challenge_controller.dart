@@ -39,7 +39,7 @@ class ChallengeController extends GetxController {
 
   List<ChallengeEntity> challenges = [];
 
-  getChallenges() async {
+  Future<void> getChallenges() async {
     isLoading = true;
     (await baseCoachRepository
             .getChallenges(Get.find<CoachController>().coachId.value))
@@ -58,7 +58,11 @@ class ChallengeController extends GetxController {
             .fold(
                 (failure) =>
                     showFlutterToast(message: failure.message.orEmpty()),
-                (data) => {})
+                (data) => {
+                      showFlutterToast(message: "success"),
+                      getChallenges()
+                          .then((value) => newChallengeAcceptedId?.clear()),
+                    })
         : null;
     isLoading = false;
   }
@@ -99,6 +103,8 @@ class ChallengeController extends GetxController {
   addFavouriteVideo(int videoId) async {
     isButtonLoading = true;
     (await baseCoachRepository.addFavouriteVideo(VideoCoachIdParams(
+            date:
+                "${DateTime.now().year}-${DateTime.now().month}-${(DateTime.now().day)}",
             videoId: videoId,
             coachId: Get.find<CoachController>().coachId.value)))
         .fold((failure) => showFlutterToast(message: failure.message.orEmpty()),
@@ -109,8 +115,8 @@ class ChallengeController extends GetxController {
   addTodayWorkOutVideo(int videoId) async {
     isButtonLoading = true;
     (await baseCoachRepository.addTodayWorkOutVideo(VideoCoachIdParams(
-
-            date:"${DateTime.now().year}-${DateTime.now().month}-${(DateTime.now().day)}" ,
+            date:
+                "${DateTime.now().year}-${DateTime.now().month}-${(DateTime.now().day)}",
             videoId: videoId,
             coachId: Get.find<CoachController>().coachId.value)))
         .fold((failure) => showFlutterToast(message: failure.message.orEmpty()),

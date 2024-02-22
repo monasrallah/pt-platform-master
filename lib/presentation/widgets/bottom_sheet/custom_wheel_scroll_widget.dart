@@ -52,9 +52,12 @@ class CustomWheelScrollWidget extends GetView<CoachController> {
                 print("test onValueChanged $value");
                 for (var i = 0; i < dataList.length; i++) {
                   if (controller.coaches[i].lastName == value) {
-                    print("heeeeeh");
+                    print("heeeeeh ${controller.coachId.value}");
                     controller.coachId.value = controller
                         .coaches[i].id
+                        .toString();
+                    controller.coachName.value = controller
+                        .coaches[i].firstName
                         .toString();
                     controller.coachAvatar.value = controller
                         .coaches[i].avatar.toString();
@@ -65,15 +68,19 @@ class CustomWheelScrollWidget extends GetView<CoachController> {
                   }
                 }
 
-                print("test onValueChanged ${controller.coachId}");
-                print("Test ${controller.coaches.map((e) => e.id).toList()}");
-                instance<AppPreferences>().setCoachEntity([
-                  controller.coaches[controller.coachIndex.value].id.toString(),
-                  controller.coaches[controller.coachIndex.value].lastName.toString(),
-                  controller.coaches[controller.coachIndex.value].logo.toString(),
-                  controller.coaches[controller.coachIndex.value].avatar.toString(),
 
+                print("test onValueChanged ${controller.coachId}");
+                print("test onValueChanged ${controller.coachIndex.value}");
+                print("Test ${controller.coaches.map((e) => e.id).toList()}");
+                print("testttsss  1 ${instance<AppPreferences>().getCoachEntity()[0]}");
+
+               await instance<AppPreferences>().setCoachEntity([
+                  controller.coachId.toString(),
+                  controller.coachName.value.toString(),
+                  controller.coachAvatar.toString(),
                 ]);
+                print("test onValueChanged ${instance<AppPreferences>().getCoachEntity()[0]}");
+
                 data.value = value;
               },
               datas: dataList,

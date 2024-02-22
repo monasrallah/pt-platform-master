@@ -23,7 +23,7 @@ class ChatModel {
  final  DateTime? deletedAt;
  final DateTime createdAt;
  final DateTime updatedAt;
- final CoachTimeReservationModel coachTimeReservation;
+ final CoachTimeReservationModel? coachTimeReservation;
 
   ChatModel({
     required this.id,
@@ -49,7 +49,7 @@ class ChatModel {
         createdAt: DateTime.parse(json["created_at"]),
         updatedAt: DateTime.parse(json["updated_at"]),
         coachTimeReservation:
-            CoachTimeReservationModel.fromJson(json["coach_time_reservation_accept"]),
+        json["coach_time_reservation_accept"]!= null? CoachTimeReservationModel.fromJson(json["coach_time_reservation_accept"]):null,
       );
 }
 

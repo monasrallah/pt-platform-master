@@ -168,7 +168,7 @@ extension ChatModelMapper on ChatModel {
         deletedAt: deletedAt,
         createdAt: createdAt,
         updatedAt: updatedAt,
-        coachTimeReservation: coachTimeReservation.toDomain());
+        coachTimeReservation: coachTimeReservation?.toDomain());
   }
 }
 

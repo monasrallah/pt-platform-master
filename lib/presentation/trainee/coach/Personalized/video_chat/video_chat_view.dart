@@ -102,7 +102,9 @@ class VideoChatView extends GetView<VideoChatController> {
               ? SizedBox(
                   height: 0.7.sh,
                   width: 1.sw,
-                  child: SvgPicture.asset(IconsAssets.noData),
+                  child: InkWell( onTap: () {
+                    print(controller.chats.length);
+                  },child: SvgPicture.asset(IconsAssets.noData)),
                 )
               : ListView.builder(
                   itemCount: controller.chats.length,
@@ -110,9 +112,11 @@ class VideoChatView extends GetView<VideoChatController> {
                     return VideoInfoRow(
                       chat: controller.chats[index],
                       onTapJoin: () {
+                        controller
+                            .chats[index].coachTimeReservation != null ?
                         launchUrl(Uri.parse(controller
-                            .chats[index].coachTimeReservation.zoom.data.joinUrl
-                            .toString()));
+                            .chats[index].coachTimeReservation!.zoom.data.joinUrl
+                            .toString())) : null;
                       },
                       onTapCancel: () async {
                         Get.dialog(ConfirmChoiceDialog(

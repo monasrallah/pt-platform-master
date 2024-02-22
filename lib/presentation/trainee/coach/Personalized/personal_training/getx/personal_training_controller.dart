@@ -116,7 +116,9 @@ class PersonalTrainingController extends GetxController {
   addFavouriteVideo(int videoId) async {
     isButtonLoading = true;
     (await baseCoachRepository.addFavouriteVideo(VideoCoachIdParams(
-            videoId: videoId,
+        date:"${DateTime.now().year}-${DateTime.now().month}-${(DateTime.now().day)}" ,
+
+        videoId: videoId,
             coachId: Get.find<CoachController>().coachId.value)))
         .fold((failure) => showFlutterToast(message: failure.message.orEmpty()),
             (data) => {isFavourite.value = !isFavourite.value});
@@ -126,7 +128,9 @@ class PersonalTrainingController extends GetxController {
   addTodayWorkOutVideo(int videoId) async {
     isButtonLoading = true;
     (await baseCoachRepository.addTodayWorkOutVideo(VideoCoachIdParams(
-            videoId: videoId,
+        date:"${DateTime.now().year}-${DateTime.now().month}-${(DateTime.now().day)}" ,
+
+        videoId: videoId,
             coachId: Get.find<CoachController>().coachId.value)))
         .fold((failure) => showFlutterToast(message: failure.message.orEmpty()),
             (data) => {isWorkout.value = !isWorkout.value});

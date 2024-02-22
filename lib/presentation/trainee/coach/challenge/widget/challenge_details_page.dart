@@ -81,11 +81,11 @@ class ChallengeDetailsPage extends GetView<ChallengeController> {
                                 );
                               },
                               child: buildContainerChallenge(
-                                  image: controller.videos[index].video.image,
-                                  title: controller.videos[index].video.title,
-                                  id: controller.videos[index].id,
-                                  check:
-                                      controller.videos[index].isComplete.obs),
+                                image: controller.videos[index].video.image,
+                                title: controller.videos[index].video.title,
+                                id: controller.videos[index].id,
+                                check: controller.videos[index].isComplete.obs,
+                              ),
                             );
                           },
                           gridDelegate:
@@ -101,6 +101,7 @@ class ChallengeDetailsPage extends GetView<ChallengeController> {
               title: AppStrings.finish.tr,
               onTap: () {
                 controller.completeChallenges();
+                Get.back();
               },
             ),
             20.verticalSpace,

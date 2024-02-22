@@ -108,50 +108,24 @@ class CoachController extends GetxController {
             },
         (List<CoachEntity> data) => {
               print("data lenght ${data}"),
-              coaches.addAll(data.reversed) ,
-              if (data.isNotEmpty)
-              if(selectedCaptain == null){
+        print("test onValueChanged ${selectedCaptain}"),
+              coaches.addAll(data.reversed),
 
-                print(" selectCaptain ${data.length}"),
-
-                coachEntity.value = coaches[0],
-                coachName.value.isEmpty
-                    ? coachName.value = coaches[0].lastName.orEmpty()
-                    : coachName.value,
-                // coachId.value.isEmpty ?
-                coachId.value = coaches[0].id.toString(),
-                // : coachId.value,
-                coachAvatar.value.isEmpty
-                    ? coachAvatar.value = coaches[0].logo.toString()
-                    : coachAvatar.value,
-                instance<AppPreferences>().setCoachEntity([
-                  coachId.value,
-                  coachName.value,
-                  coachAvatar.value,
-                ]),
-              }else{
-                print("selectCaptain lenghtsssssss ${data.length}"),
-
-                {coachEntity.value = coaches[selectedCaptain!],
+          if(instance<AppPreferences>().getCoachEntity().isEmpty){
+            if (data.isNotEmpty)
+              if (selectedCaptain == null)
+                {
+                  print(" selectCaptain ${data.length}"),
+                  coachEntity.value = coaches[0],
                   coachName.value.isEmpty
-                      ? coachName.value = coaches[selectedCaptain!].lastName.orEmpty()
+                      ? coachName.value = coaches[0].lastName.orEmpty()
                       : coachName.value,
                   // coachId.value.isEmpty ?
-                  coachId.value = coaches[selectedCaptain!].id.toString(),
+                  coachId.value = coaches[0].id.toString(),
                   // : coachId.value,
                   coachAvatar.value.isEmpty
-                      ? coachAvatar.value = coaches[selectedCaptain!].logo.toString()
+                      ? coachAvatar.value = coaches[0].logo.toString()
                       : coachAvatar.value,
-                  instance<AppPreferences>().setCoachEntity([
-                    coachId.value,
-                    coachName.value,
-                    coachAvatar.value,
-                  ]),
-                }
-        }
-
-              else if (coachName.value.isNotEmpty)
-                {
                   instance<AppPreferences>().setCoachEntity([
                     coachId.value,
                     coachName.value,
@@ -160,8 +134,41 @@ class CoachController extends GetxController {
                 }
               else
                 {
-                  Get.toNamed(Routes.trainersRoute),
+                  print("selectCaptain lenghtsssssss ${data.length}"),
+                  {
+                    coachEntity.value = coaches[selectedCaptain!],
+                    coachName.value.isEmpty
+                        ? coachName.value =
+                        coaches[selectedCaptain!].lastName.orEmpty()
+                        : coachName.value,
+                    // coachId.value.isEmpty ?
+                    coachId.value = coaches[selectedCaptain!].id.toString(),
+                    // : coachId.value,
+                    coachAvatar.value.isEmpty
+                        ? coachAvatar.value =
+                        coaches[selectedCaptain!].logo.toString()
+                        : coachAvatar.value,
+                    instance<AppPreferences>().setCoachEntity([
+                      coachId.value,
+                      coachName.value,
+                      coachAvatar.value,
+                    ]),
+                  }
                 }
+            else if (coachName.value.isNotEmpty)
+              {
+                instance<AppPreferences>().setCoachEntity([
+                  coachId.value,
+                  coachName.value,
+                  coachAvatar.value,
+                ]),
+              }
+            else
+              {
+                Get.toNamed(Routes.trainersRoute),
+              }
+          }
+
             });
 
     isLoading = false;
@@ -177,7 +184,7 @@ class CoachController extends GetxController {
     print("testgetUserEntity 0getBanner");
 
     print(
-        "testgetUserEntity 0getBanner ${instance<AppPreferences>().getCoachEntity()[0]} ");
+        "test onValueChanged ${instance<AppPreferences>().getCoachEntity()[0]} ");
     print(
         "testgetUserEntity 1getBanner ${instance<AppPreferences>().getCoachEntity()[1]} ");
     print(
@@ -283,12 +290,10 @@ class CoachController extends GetxController {
         ? instance<AppPreferences>().getCoachEntity()[2]
         : "";
 
-    // print(instance<AppPreferences>().getCoachEntity()[0]);
-    // print(instance<AppPreferences>().getCoachEntity()[1]);
-    // print(instance<AppPreferences>().getCoachEntity()[2]);
-
-    await getAssignedCoaches();
+    print(
+        "test onValueChanged ${instance<AppPreferences>().getCoachEntity()[0]}");
     await getBanner();
+    await getAssignedCoaches();
     // ever(_isLoading,(_)=> print("loading"));
     // ever(banners,(_)=> print("banners"));
     // ever(imageSliders,(_)=> print("imageSliders"));

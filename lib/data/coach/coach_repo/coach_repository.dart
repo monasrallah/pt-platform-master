@@ -512,7 +512,7 @@ class CoachRepositoryImpl extends BaseCoachRepository {
   @override
   Future<Either<Failure, List<ChatEntity>>> getVideoChat(String coachId) async {
     if (await _networkInfo.isConnected) {
-      try {
+
         final response = await _coachRemoteDataSource.getVideoChat(coachId);
 
         if (response.status!) {
@@ -521,9 +521,7 @@ class CoachRepositoryImpl extends BaseCoachRepository {
           return Left(Failure(ApiInternalStatus.FAILURE,
               response.message ?? ResponseMessage.DEFAULT));
         }
-      } catch (error) {
-        return Left(ErrorHandler.handle(error).failure);
-      }
+
     } else {
       return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
     }
