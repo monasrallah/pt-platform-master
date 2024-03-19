@@ -54,7 +54,8 @@ class DefaultFirebaseOptions {
     appId: '1:1065042722156:android:862ff20c5c491041d54749',
     messagingSenderId: '1065042722156',
     projectId: 'pt-platform-686d1',
-    databaseURL: 'https://pt-platform-686d1-default-rtdb.asia-southeast1.firebasedatabase.app',
+    databaseURL:
+        'https://pt-platform-686d1-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'pt-platform-686d1.appspot.com',
   );
 
@@ -63,7 +64,8 @@ class DefaultFirebaseOptions {
     appId: '1:1065042722156:ios:907ed6404585c01ed54749',
     messagingSenderId: '1065042722156',
     projectId: 'pt-platform-686d1',
-    databaseURL: 'https://pt-platform-686d1-default-rtdb.asia-southeast1.firebasedatabase.app',
+    databaseURL:
+        'https://pt-platform-686d1-default-rtdb.asia-southeast1.firebasedatabase.app',
     storageBucket: 'pt-platform-686d1.appspot.com',
     iosBundleId: 'com.smartedge.ptapp',
   );

@@ -1,4 +1,3 @@
-import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -48,38 +47,37 @@ class CustomWheelScrollWidget extends GetView<CoachController> {
                   Get.textTheme.labelLarge!.copyWith(fontSize: 17.sp),
               unSelectTextStyle:
                   Get.textTheme.headlineMedium!.copyWith(fontSize: 15.sp),
-              onValueChanged: (value) async{
+              onValueChanged: (value) async {
                 print("test onValueChanged $value");
                 for (var i = 0; i < dataList.length; i++) {
                   if (controller.coaches[i].lastName == value) {
                     print("heeeeeh ${controller.coachId.value}");
-                    controller.coachId.value = controller
-                        .coaches[i].id
-                        .toString();
-                    controller.coachName.value = controller
-                        .coaches[i].firstName
-                        .toString();
-                    controller.coachAvatar.value = controller
-                        .coaches[i].avatar.toString();
+                    controller.coachId.value =
+                        controller.coaches[i].id.toString();
+                    controller.coachName.value =
+                        controller.coaches[i].firstName.toString();
+                    controller.coachAvatar.value =
+                        controller.coaches[i].avatar.toString();
 
-                controller.getBanner();
+                    controller.getBanner();
                   } else {
                     print("heeeee h");
                   }
                 }
 
-
                 print("test onValueChanged ${controller.coachId}");
                 print("test onValueChanged ${controller.coachIndex.value}");
                 print("Test ${controller.coaches.map((e) => e.id).toList()}");
-                print("testttsss  1 ${instance<AppPreferences>().getCoachEntity()[0]}");
+                print(
+                    "testttsss  1 ${instance<AppPreferences>().getCoachEntity()[0]}");
 
-               await instance<AppPreferences>().setCoachEntity([
+                await instance<AppPreferences>().setCoachEntity([
                   controller.coachId.toString(),
                   controller.coachName.value.toString(),
                   controller.coachAvatar.toString(),
                 ]);
-                print("test onValueChanged ${instance<AppPreferences>().getCoachEntity()[0]}");
+                print(
+                    "test onValueChanged ${instance<AppPreferences>().getCoachEntity()[0]}");
 
                 data.value = value;
               },

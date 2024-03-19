@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -164,13 +162,13 @@ class ChallengeDetailsPage extends GetView<ChallengeController> {
                               ? null
                               : {
                                   controller.challengeAcceptedId.add(id),
-                                  controller.newChallengeAcceptedId?.add(id)
+                                  controller.newChallengeAcceptedId.add(id)
                                 }
                         }
                       : {
                           // controller.newChallengeAcceptedId.remove(id),
                           controller.challengeAcceptedId.remove(id),
-                          controller.newChallengeAcceptedId?.remove(id)
+                          controller.newChallengeAcceptedId.remove(id)
                         };
                 }
               },

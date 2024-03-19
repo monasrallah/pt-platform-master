@@ -89,7 +89,6 @@ class HomeRemoteDataSourceImpl implements BaseHomeRemoteDataSource {
     final data = answerQuestionnaireParams.toJson();
     data.removeWhere((key, value) => value == null || value == '');
 
-
     return await _appApiHelper.performPostRequest(
         AppUrls.answerQuestionnaire, data, EmptyModel.fromJson);
   }

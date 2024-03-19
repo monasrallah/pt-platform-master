@@ -92,9 +92,9 @@ class FoodController extends GetxController {
   addFood(String type) async {
     isLoading = true;
     (await baseHomeRepository.addFood(AddFoodsParams(
-        date:"${DateTime.now().year}-${DateTime.now().month}-${(DateTime.now().day)}" ,
-
-        food_id: foodId.value,
+            date:
+                "${DateTime.now().year}-${DateTime.now().month}-${(DateTime.now().day)}",
+            food_id: foodId.value,
             type: type,
             number: int.parse(counterString.text))))
         .fold((failure) => showFlutterToast(message: failure.message.orEmpty()),

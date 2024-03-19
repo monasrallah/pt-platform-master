@@ -44,7 +44,7 @@ bool isGreaterThanQuarterHour(String time, String date) {
   now.isAfter(output.add(const Duration(minutes: 15))) ||
       now.isBefore(output.subtract(const Duration(minutes: 15)));
 
-  return  now.isAfter(output.add(const Duration(minutes: 15))) ||
+  return now.isAfter(output.add(const Duration(minutes: 15))) ||
       now.isBefore(output.subtract(const Duration(minutes: 15)));
 }
 

@@ -84,7 +84,6 @@ class _MyVideoPlayerState extends State<MyVideoPlayer> {
     super.dispose();
   }
 
-
   @override
   Widget build(BuildContext context) {
     print("test ${widget.videoUrl}");

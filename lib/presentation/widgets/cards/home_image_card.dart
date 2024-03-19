@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
-import 'package:pt_platform/resources/color_manager.dart';
 
 class HomeImageCard extends StatelessWidget {
   const HomeImageCard({

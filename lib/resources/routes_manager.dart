@@ -67,7 +67,6 @@ import '../presentation/trainee/coach/live_chat/getx/live_chat_binding.dart';
 import '../presentation/trainee/coach/live_chat/live_chat_view.dart';
 import '../presentation/trainee/coach/shop/getx/shop_binding.dart';
 import '../presentation/trainee/coach/shop/shop_view.dart';
-import '../presentation/trainee/coach/shop/widget/shop_details_page.dart';
 import '../presentation/trainee/coach/today_work_out/getx/today_work_out_binding.dart';
 import '../presentation/trainee/coach/today_work_out/today_work_out_view.dart';
 import '../presentation/trainee/coach/workouts/getx/workout_binding.dart';

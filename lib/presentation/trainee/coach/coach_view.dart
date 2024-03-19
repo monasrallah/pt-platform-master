@@ -15,7 +15,6 @@ class CoachView extends GetView<CoachController> {
 
   @override
   Widget build(BuildContext context) {
-
     return WillPopScope(
       onWillPop: () async {
         return Get.find<AppController>().openConfirmationDialog();

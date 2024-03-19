@@ -6,14 +6,14 @@ class DeviceParams {
 
   DeviceParams(
       {required this.playerId,
-        required this.platform,
-        required this.timezone,
-        required this.appVersion});
+      required this.platform,
+      required this.timezone,
+      required this.appVersion});
 
   Map<String, dynamic> toJson() => {
-    "player_id": playerId,
-    "platform": platform,
-    "timezone": timezone,
-    "app_version": appVersion,
-  };
+        "player_id": playerId,
+        "platform": platform,
+        "timezone": timezone,
+        "app_version": appVersion,
+      };
 }

@@ -3,7 +3,6 @@ import 'package:flutter_calendar_carousel/classes/event.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pt_platform/presentation/trainee/coach/Personalized/calender/getx/calender_controller.dart';
-import 'package:pt_platform/presentation/trainee/coach/Personalized/calender/getx/calender_controller.dart';
 import 'package:pt_platform/presentation/widgets/buttons/custom_elevated_button.dart';
 import 'package:flutter_calendar_carousel/flutter_calendar_carousel.dart'
     show CalendarCarousel, EventList;
@@ -13,7 +12,6 @@ import '../../../../../resources/strings_manager.dart';
 import '../../../../widgets/buttons/app_back_bar.dart';
 import '../../../main_bottom_navigation_bar/main_bottom_navigation_bar.dart';
 import '../../getx/coach_controller.dart';
-import 'getx/calender_controller.dart';
 
 class CalenderView extends GetView<CalenderController> {
   CalenderView({Key? key}) : super(key: key);
@@ -81,7 +79,8 @@ class CalenderView extends GetView<CalenderController> {
                   width: 70.h,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(100.r),
-                    child: Image.network(Get.find<CoachController>().coachAvatar.value),
+                    child: Image.network(
+                        Get.find<CoachController>().coachAvatar.value),
                   ),
                 ),
                 20.horizontalSpace,
@@ -237,8 +236,10 @@ class CalenderView extends GetView<CalenderController> {
                                   onTap: controller.calenders[index].isAvailable
                                       ? () {
                                           controller.timeSelected.value = true;
-                                          controller.coachName.value = controller.coachName.value;
-                                          controller.selectedTime.value = controller.calenders[index].time;
+                                          controller.coachName.value =
+                                              controller.coachName.value;
+                                          controller.selectedTime.value =
+                                              controller.calenders[index].time;
                                           controller.timeIdSelected.value =
                                               controller.calenders[index].id;
                                         }

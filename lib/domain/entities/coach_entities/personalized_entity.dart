@@ -20,5 +20,4 @@ class DataEntity {
     required this.id,
     required this.value,
   });
-
 }

@@ -1,4 +1,3 @@
-
 import 'package:dio/dio.dart';
 import 'package:dio_logger/dio_logger.dart';
 import 'package:flutter/foundation.dart';
@@ -6,7 +5,6 @@ import 'package:flutter/foundation.dart';
 import '../../../app/constants.dart';
 import '../../../app/storage/app_prefs.dart';
 import 'api_routes/api_routes.dart';
-
 
 const String APPLICATION_JSON = "application/json";
 // const String APPLICATION_JSON = "application/json";
@@ -16,7 +14,6 @@ const String ACCEPT_LANGUAGE = "Accept-Language";
 const String LANGUAGE = "lang";
 const String AUTHORIZATION = "authorization";
 
-
 class DioFactory {
   final AppPreferences _appPreferences;
 
@@ -25,7 +22,7 @@ class DioFactory {
   Dio dio = Dio();
 
   Future<Dio> getDio() async {
-    String language =  _appPreferences.getAppLanguage();
+    String language = _appPreferences.getAppLanguage();
     // String? token;
     //  await _appPreferences.getToken().then((value) => token = value ?? null);
     Map<String, String> headers = {
@@ -59,7 +56,7 @@ class DioFactory {
   }
 
   refreshHeader() async {
-    String language =  _appPreferences.getAppLanguage();
+    String language = _appPreferences.getAppLanguage();
 
     Map<String, String> headers = {
       CONTENT_TYPE: APPLICATION_JSON,

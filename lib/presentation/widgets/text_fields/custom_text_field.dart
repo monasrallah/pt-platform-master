@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:intl_phone_field/phone_number.dart';
 import '../../../resources/color_manager.dart';
-import '../../../resources/functions/text_fiels_scalesfactors.dart';
 import '../../../resources/value_manager.dart';
 
 class CustomTextField extends StatelessWidget {
@@ -82,10 +81,11 @@ class CustomTextField extends StatelessWidget {
     print(MediaQuery.textScaleFactorOf(context));
     return MediaQuery(
       data: MediaQuery.of(context).copyWith(
-          // textScaler: TextScaler.linear(
-          //     getSuitableBigScale(MediaQuery.textScaleFactorOf(context)))
-          textScaleFactor: 0.8 * MediaQuery.textScaleFactorOf(context),
-          ),
+        // textScaler: TextScaler.linear(
+        //     getSuitableBigScale(MediaQuery.textScaleFactorOf(context)))
+        textScaler:
+            TextScaler.linear(0.8 * MediaQuery.textScaleFactorOf(context)),
+      ),
       child: Padding(
         padding: EdgeInsets.all(1.5.h),
         child: isPhone

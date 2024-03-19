@@ -3,7 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class PersonalTrainingCard extends StatelessWidget {
-  const PersonalTrainingCard({required this.title, required this.image, Key? key})
+  const PersonalTrainingCard(
+      {required this.title, required this.image, Key? key})
       : super(key: key);
   final String image;
   final String title;

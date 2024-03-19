@@ -33,8 +33,8 @@ class ForgetPasswordController extends GetxController {
       isLoading = true;
       (await authRepository.sendEmailForget(email.text)).fold(
           (failure) => showFlutterToast(message: failure.message.orEmpty()),
-          (data) =>
-              Get.toNamed(Routes.otpRoute, arguments: [userType.value, data,email.text]));
+          (data) => Get.toNamed(Routes.otpRoute,
+              arguments: [userType.value, data, email.text]));
       isLoading = false;
     } else {
       showFlutterToast(

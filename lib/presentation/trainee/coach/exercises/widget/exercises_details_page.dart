@@ -114,7 +114,6 @@ class ExercisesDetailsPage extends GetView<ExercisesController> {
                                                   .copyWith(fontSize: 14.sp),
                                               maxLines: 2,
                                               onTap: () async {
-
                                                 await controller
                                                     .addTodayWorkOutVideo(
                                                         controller

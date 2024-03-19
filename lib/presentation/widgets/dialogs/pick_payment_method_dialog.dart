@@ -1,12 +1,7 @@
-import 'dart:io';
-
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'package:image_picker/image_picker.dart';
-
-import '../../../resources/functions/pick_image_function.dart';
 import '../../../resources/strings_manager.dart';
 
 class PickPaymentMethodDialog extends StatelessWidget {

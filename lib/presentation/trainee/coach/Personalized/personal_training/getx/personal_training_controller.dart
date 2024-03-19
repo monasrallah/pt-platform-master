@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pt_platform/app/app_controller.dart';
 import 'package:pt_platform/app/extensions.dart';
@@ -9,9 +8,7 @@ import 'package:pt_platform/domain/entities/home_entities/recipe_entity.dart';
 import '../../../../../../app/dependency_injection.dart';
 import '../../../../../../data/coach/coach_repo/coach_repository.dart';
 import '../../../../../../domain/entities/coach_entities/video_entity.dart';
-import '../../../../../../domain/parameters/coach_params/add_video_to_log_params.dart';
 import '../../../../../../domain/parameters/coach_params/video_coach_id_params.dart';
-import '../../../../../widgets/dialogs/add_to_log_dialog.dart';
 import '../../../../../widgets/toasts_messages.dart';
 import '../../../getx/coach_controller.dart';
 
@@ -116,9 +113,9 @@ class PersonalTrainingController extends GetxController {
   addFavouriteVideo(int videoId) async {
     isButtonLoading = true;
     (await baseCoachRepository.addFavouriteVideo(VideoCoachIdParams(
-        date:"${DateTime.now().year}-${DateTime.now().month}-${(DateTime.now().day)}" ,
-
-        videoId: videoId,
+            date:
+                "${DateTime.now().year}-${DateTime.now().month}-${(DateTime.now().day)}",
+            videoId: videoId,
             coachId: Get.find<CoachController>().coachId.value)))
         .fold((failure) => showFlutterToast(message: failure.message.orEmpty()),
             (data) => {isFavourite.value = !isFavourite.value});
@@ -128,9 +125,9 @@ class PersonalTrainingController extends GetxController {
   addTodayWorkOutVideo(int videoId) async {
     isButtonLoading = true;
     (await baseCoachRepository.addTodayWorkOutVideo(VideoCoachIdParams(
-        date:"${DateTime.now().year}-${DateTime.now().month}-${(DateTime.now().day)}" ,
-
-        videoId: videoId,
+            date:
+                "${DateTime.now().year}-${DateTime.now().month}-${(DateTime.now().day)}",
+            videoId: videoId,
             coachId: Get.find<CoachController>().coachId.value)))
         .fold((failure) => showFlutterToast(message: failure.message.orEmpty()),
             (data) => {isWorkout.value = !isWorkout.value});

@@ -210,7 +210,8 @@ Map<String, String> ar = {
   "ok": "موافق",
   "cancelVideoChat": "الغاء محادثة الفيديو",
   "confirmCancelVideoChat": "هل أنت متأكد من الغاء محادثة الفيديو؟",
-  "passwordRoles":"يجب ان تحتوي كلمة المرور على حرف كبير وحرف صغير ورقم و رمز الخاص",
+  "passwordRoles":
+      "يجب ان تحتوي كلمة المرور على حرف كبير وحرف صغير ورقم و رمز الخاص",
   "DATE": "تاريخ",
   "NECK": "العنق",
   "CHEST": "الصدر",
@@ -225,5 +226,4 @@ Map<String, String> ar = {
   "RIGHT THIGH": "الفخذ الأيمن",
   "LEFT CALF": "الساق الأيسر",
   "RIGHT CALF": "الساق الأيمن"
-
 };

@@ -32,7 +32,7 @@ class SettingController extends GetxController {
     isNotification.value = instance<AppPreferences>().getUserEntity().isNotEmpty
         ? instance<AppPreferences>().getUserEntity()[2]
         : "";
-    pushNotification.value  = (isNotification.value == "1");
+    pushNotification.value = (isNotification.value == "1");
     super.onInit();
   }
 }

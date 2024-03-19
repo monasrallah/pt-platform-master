@@ -28,7 +28,8 @@ abstract class BaseCoachAppRemoteDataSource {
   Future<BaseResponse<AllChallengesVideoModel>> challengeVideo(
       ChallengeVideoParams challengeVideoParams);
 
-  Future<BaseResponse<AllExerciseLogsModel>> getExerciseLogs(int exerciseLogs ,String userId, String coachId);
+  Future<BaseResponse<AllExerciseLogsModel>> getExerciseLogs(
+      int exerciseLogs, String userId, String coachId);
 
   Future<BaseResponse<AllVideoModel>> getExerciseHistory(
       String userId, String coachId);
@@ -212,8 +213,8 @@ class CoachAppRemoteDataSourceImpl implements BaseCoachAppRemoteDataSource {
   Future<BaseResponse<AllChatsModel>> getVideoChat(String coachId) async {
     print("test responst else $coachId");
     final response = await _appApiHelper.performGetRequest(
-        AppUrls.videoChatCoachUrl, AllChatsModel.fromJson,
-        // queryParameters: {"user_id": coachId}
+      AppUrls.videoChatCoachUrl, AllChatsModel.fromJson,
+      // queryParameters: {"user_id": coachId}
     );
     print("test responst else ${response.data}");
 
@@ -236,9 +237,10 @@ class CoachAppRemoteDataSourceImpl implements BaseCoachAppRemoteDataSource {
 
   @override
   Future<BaseResponse<AllExerciseLogsModel>> getExerciseLogs(
-      int exerciseLogs , String userId, String coachId) async {
+      int exerciseLogs, String userId, String coachId) async {
     return await _appApiHelper.performGetRequest(
-        AppUrls.exerciseLogs(exerciseLogs,userId,coachId), AllExerciseLogsModel.fromJson);
+        AppUrls.exerciseLogs(exerciseLogs, userId, coachId),
+        AllExerciseLogsModel.fromJson);
   }
 
   @override

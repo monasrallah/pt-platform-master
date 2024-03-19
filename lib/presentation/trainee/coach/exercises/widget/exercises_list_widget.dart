@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import '../../../../../domain/entities/coach_entities/section_exercise_entity.dart';
-import '../../../../../resources/assets_manager.dart';
 import '../getx/exercises_controller.dart';
 import 'exercises_card.dart';
 import 'exercises_details_page.dart';

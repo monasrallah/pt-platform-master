@@ -23,8 +23,7 @@ class SectionModel {
     required this.category,
   });
 
-  factory SectionModel.fromJson(Map<String, dynamic> json) =>
-      SectionModel(
+  factory SectionModel.fromJson(Map<String, dynamic> json) => SectionModel(
         id: json["id"],
         title: json["title"],
         category: List<CategoryExercisesModel>.from(

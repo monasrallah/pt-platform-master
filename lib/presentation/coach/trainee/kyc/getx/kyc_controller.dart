@@ -22,7 +22,7 @@ class KycCoachController extends GetxController {
     isLoading = true;
     (await baseCoachAppRepository
             .kyc(Get.find<TraineeCoachController>().traineeId.value))
-            // .kyc("50"))
+        // .kyc("50"))
         .fold((failure) => showFlutterToast(message: failure.message.orEmpty()),
             (List<FaqsEntity> data) => {kyc.value = data});
     isLoading = false;

@@ -2,14 +2,14 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 
-class EditImageParams{
+class EditImageParams {
   File avatar;
 
   EditImageParams({required this.avatar});
 
   Map<String, dynamic> toJson() => {
-    "avatar": avatar,
-  };
+        "avatar": avatar,
+      };
 
   Future<FormData> toFormData() async {
     final multiPartData = FormData.fromMap(toJson());

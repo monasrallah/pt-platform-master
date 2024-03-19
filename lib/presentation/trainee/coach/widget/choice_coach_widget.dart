@@ -44,7 +44,6 @@ class ChoiceCoachWidget extends GetView<CoachController> {
             controller.coaches[controller.coachIndex.value].lastName.toString(),
             controller.coaches[controller.coachIndex.value].logo.toString(),
             controller.coaches[controller.coachIndex.value].avatar.toString(),
-
           ]);
           controller.getBanner();
 

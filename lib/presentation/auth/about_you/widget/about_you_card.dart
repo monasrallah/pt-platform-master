@@ -5,10 +5,10 @@ import 'package:pt_platform/resources/color_manager.dart';
 
 // ignore: must_be_immutable
 class AboutYouCard extends StatelessWidget {
-   AboutYouCard({required this.title, required this.selected, Key? key})
+  AboutYouCard({required this.title, required this.selected, Key? key})
       : super(key: key);
   final String title;
-   bool selected;
+  bool selected;
 
   @override
   Widget build(BuildContext context) {

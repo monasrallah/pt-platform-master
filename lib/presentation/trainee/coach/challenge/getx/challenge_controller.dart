@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pt_platform/app/extensions.dart';
 import 'package:pt_platform/domain/entities/coach_entities/challenge_entity.dart';
@@ -7,11 +6,9 @@ import 'package:pt_platform/presentation/trainee/coach/getx/coach_controller.dar
 import '../../../../../app/app_controller.dart';
 import '../../../../../app/dependency_injection.dart';
 import '../../../../../data/coach/coach_repo/coach_repository.dart';
-import '../../../../../domain/parameters/coach_params/add_video_to_log_params.dart';
 import '../../../../../domain/parameters/coach_params/challenge_video_params.dart';
 import '../../../../../domain/parameters/coach_params/complete_challenge_video_params.dart';
 import '../../../../../domain/parameters/coach_params/video_coach_id_params.dart';
-import '../../../../widgets/dialogs/add_to_log_dialog.dart';
 import '../../../../widgets/toasts_messages.dart';
 
 class ChallengeController extends GetxController {
@@ -53,7 +50,7 @@ class ChallengeController extends GetxController {
     newChallengeAcceptedId.isNotEmpty
         ? (await baseCoachRepository.completeChallengeVideo(
                 CompleteChallengeVideoParams(
-                    challenge_video_ids: newChallengeAcceptedId!,
+                    challenge_video_ids: newChallengeAcceptedId,
                     coachId: Get.find<CoachController>().coachId.value)))
             .fold(
                 (failure) =>
@@ -61,7 +58,7 @@ class ChallengeController extends GetxController {
                 (data) => {
                       showFlutterToast(message: "success"),
                       getChallenges()
-                          .then((value) => newChallengeAcceptedId?.clear()),
+                          .then((value) => newChallengeAcceptedId.clear()),
                     })
         : null;
     isLoading = false;
@@ -133,7 +130,7 @@ class ChallengeController extends GetxController {
 
   @override
   void onInit() async {
-    newChallengeAcceptedId?.clear();
+    newChallengeAcceptedId.clear();
     await getChallenges();
     super.onInit();
   }

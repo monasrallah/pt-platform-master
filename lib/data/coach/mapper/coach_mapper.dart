@@ -161,8 +161,8 @@ extension ChatModelMapper on ChatModel {
     return ChatEntity(
         id: id,
         userId: userId,
-        username: username??"",
-        time: time??"",
+        username: username ?? "",
+        time: time ?? "",
         isAutoAccept: isAutoAccept,
         date: date,
         deletedAt: deletedAt,

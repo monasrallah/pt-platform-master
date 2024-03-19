@@ -1,7 +1,6 @@
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter/material.dart';
 
-
 class CustomBackGroundContainer extends StatelessWidget {
   final Widget child;
   final double? horizontalPadding;
@@ -21,8 +20,7 @@ class CustomBackGroundContainer extends StatelessWidget {
     final theme = Theme.of(context);
     return Container(
       padding: EdgeInsets.symmetric(
-          horizontal: 2.w ,
-          vertical: (verticalPadding ?? 0) ),
+          horizontal: 2.w, vertical: (verticalPadding ?? 0)),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(3.w),
           color: backGroundColor ?? theme.primaryColor.withOpacity(0.1)),

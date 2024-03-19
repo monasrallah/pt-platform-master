@@ -38,7 +38,7 @@ class PersonalTrainingEntity {
     required this.purchaseAppleId,
     required this.purchaseAndroidId,
     required this.userPackage,
-     this.permissions,
+    this.permissions,
   });
 }
 

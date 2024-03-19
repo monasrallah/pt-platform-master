@@ -1,7 +1,11 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:pt_platform/data/coach/mapper/coach_mapper.dart';
 import 'package:pt_platform/data/home/mapper/home_mapper.dart';
 import 'package:pt_platform/domain/entities/coach_entities/chat_entity.dart';
+import 'package:pt_platform/domain/parameters/coach_params/get_apple_iap_id_prams.dart';
+import 'package:pt_platform/domain/parameters/coach_params/purchase_iap_success.dart';
 
 import '../../../domain/core/entities/failure.dart';
 import '../../../domain/core/utils/network/network_info.dart';
@@ -111,6 +115,12 @@ abstract class BaseCoachRepository {
 
   Future<Either<Failure, List<ExerciseLogsEntity>>> getExerciseLogs(
       int exerciseLogs, String? userId, String coachId);
+
+  Future<Either<Failure, Unit>> purchaseIAPSuccess(
+      PurchaseIapSuccessPrams purchaseIapSuccessPrams);
+
+  Future<Either<Failure, String?>> getAppleIAPId(
+      GetAppleIapIdParams getAppleIapIdParams);
 }
 
 class CoachRepositoryImpl extends BaseCoachRepository {
@@ -512,16 +522,14 @@ class CoachRepositoryImpl extends BaseCoachRepository {
   @override
   Future<Either<Failure, List<ChatEntity>>> getVideoChat(String coachId) async {
     if (await _networkInfo.isConnected) {
+      final response = await _coachRemoteDataSource.getVideoChat(coachId);
 
-        final response = await _coachRemoteDataSource.getVideoChat(coachId);
-
-        if (response.status!) {
-          return Right(response.data!.toDomain());
-        } else {
-          return Left(Failure(ApiInternalStatus.FAILURE,
-              response.message ?? ResponseMessage.DEFAULT));
-        }
-
+      if (response.status!) {
+        return Right(response.data!.toDomain());
+      } else {
+        return Left(Failure(ApiInternalStatus.FAILURE,
+            response.message ?? ResponseMessage.DEFAULT));
+      }
     } else {
       return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
     }
@@ -806,6 +814,33 @@ class CoachRepositoryImpl extends BaseCoachRepository {
       }
     } else {
       return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
+    }
+  }
+
+  @override
+  Future<Either<Failure, Unit>> purchaseIAPSuccess(
+      PurchaseIapSuccessPrams purchaseIapSuccessPrams) async {
+    try {
+      await _coachRemoteDataSource.purchaseIAPSuccess(purchaseIapSuccessPrams);
+
+      return const Right(unit);
+    } catch (e) {
+      return Left(ErrorHandler.handle(e).failure);
+    }
+  }
+
+  @override
+  Future<Either<Failure, String?>> getAppleIAPId(
+      GetAppleIapIdParams getAppleIapIdParams) async {
+    try {
+      final response =
+          await _coachRemoteDataSource.getAppleIapId(getAppleIapIdParams);
+      if (response == null) {
+        return Left(Failure(ApiInternalStatus.FAILURE, "Error"));
+      }
+      return Right(response);
+    } catch (e) {
+      return Left(ErrorHandler.handle(e).failure);
     }
   }
 }

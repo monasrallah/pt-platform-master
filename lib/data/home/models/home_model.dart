@@ -44,4 +44,3 @@ class CoachModel {
         "tips": List<TipModel>.from(tips.map((x) => x.toJson())),
       };
 }
-

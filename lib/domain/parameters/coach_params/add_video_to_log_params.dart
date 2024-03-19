@@ -20,13 +20,13 @@ class AddVideoToLogParams {
   });
 
   Map<String, dynamic> toJson() => {
-    "video_id": videoId,
-    "coach_id": coachId,
-    "number": number,
-    "weight": weight,
-    "weight_unit": weightUnit,
-    "repetition": repetition,
-    "note": note,
-    "type": type,
-  };
+        "video_id": videoId,
+        "coach_id": coachId,
+        "number": number,
+        "weight": weight,
+        "weight_unit": weightUnit,
+        "repetition": repetition,
+        "note": note,
+        "type": type,
+      };
 }

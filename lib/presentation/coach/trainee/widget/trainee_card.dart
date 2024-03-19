@@ -3,9 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pt_platform/resources/strings_manager.dart';
 
-import '../../../../resources/color_manager.dart';
-import '../getx/trainee_controller.dart';
-
 class TraineeCard extends StatelessWidget {
   const TraineeCard(
       {required this.title,

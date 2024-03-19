@@ -1,6 +1,5 @@
 // ignore_for_file: must_be_immutable
 
-import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localization/flutter_localization.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -30,7 +29,6 @@ class MyApp extends StatelessWidget {
         minTextAdapt: true,
         splitScreenMode: false,
         builder: (BuildContext context, Widget? child) {
-
           return GetMaterialApp(
             title: 'Flutter Demo',
             getPages: AppPages.pages,

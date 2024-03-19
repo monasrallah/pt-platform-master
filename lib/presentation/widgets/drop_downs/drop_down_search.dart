@@ -42,7 +42,7 @@ class CustomDropDownSearch extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: vertical ?? 0),
         child: DropdownSearch<String>(
           validator: (String? value) {
-            if (value == null ) {
+            if (value == null) {
               return errorText;
             }
             return null;
@@ -70,19 +70,24 @@ class CustomDropDownSearch extends StatelessWidget {
             dropdownSearchDecoration: InputDecoration(
               prefixIcon: prefixIcon,
               contentPadding: EdgeInsets.symmetric(horizontal: 20.w),
-              border: kUnderlinedBorderGrey,//theme.inputDecorationTheme.border,
+              border:
+                  kUnderlinedBorderGrey, //theme.inputDecorationTheme.border,
 
               // enabled border
-              enabledBorder: kUnderlinedBorderGrey,//theme.inputDecorationTheme.enabledBorder,
+              enabledBorder:
+                  kUnderlinedBorderGrey, //theme.inputDecorationTheme.enabledBorder,
 
               // focused border
-              focusedBorder: kUnderlinedBorderGrey,//theme.inputDecorationTheme.focusedBorder,
+              focusedBorder:
+                  kUnderlinedBorderGrey, //theme.inputDecorationTheme.focusedBorder,
 
               // error border
-              errorBorder: kUnderlinedBorderRed,//theme.inputDecorationTheme.errorBorder,
+              errorBorder:
+                  kUnderlinedBorderRed, //theme.inputDecorationTheme.errorBorder,
 
               // focused error border
-              focusedErrorBorder: kUnderlinedBorderRed,//theme.inputDecorationTheme.focusedErrorBorder,
+              focusedErrorBorder:
+                  kUnderlinedBorderRed, //theme.inputDecorationTheme.focusedErrorBorder,
             ),
           ),
         ),

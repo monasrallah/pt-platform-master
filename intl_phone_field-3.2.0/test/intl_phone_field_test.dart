@@ -3,7 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 
 class TestWidget extends StatelessWidget {
-  const TestWidget({Key? key, required this.phoneNumber, this.countryCode}) : super(key: key);
+  const TestWidget({Key? key, required this.phoneNumber, this.countryCode})
+      : super(key: key);
 
   final String phoneNumber;
   final String? countryCode;
@@ -23,7 +24,8 @@ class TestWidget extends StatelessWidget {
 }
 
 void main() {
-  testWidgets('Test intl_phone_field setup with completeNumber', (WidgetTester tester) async {
+  testWidgets('Test intl_phone_field setup with completeNumber',
+      (WidgetTester tester) async {
     await tester.pumpWidget(const TestWidget(
       phoneNumber: '+447891234467',
     ));
@@ -35,7 +37,8 @@ void main() {
     expect(numberFinder, findsOneWidget);
   });
 
-  testWidgets('Test intl_phone_field setup with Guernsey number: +441481960194', (WidgetTester tester) async {
+  testWidgets('Test intl_phone_field setup with Guernsey number: +441481960194',
+      (WidgetTester tester) async {
     await tester.pumpWidget(const TestWidget(
       phoneNumber: '+441481960194',
       countryCode: 'GG',
@@ -48,7 +51,8 @@ void main() {
     expect(numberFinder, findsOneWidget);
   });
 
-  testWidgets('Test intl_phone_field setup with UK number: +447891244567', (WidgetTester tester) async {
+  testWidgets('Test intl_phone_field setup with UK number: +447891244567',
+      (WidgetTester tester) async {
     await tester.pumpWidget(const TestWidget(
       phoneNumber: '+447891244567',
       countryCode: 'GB',

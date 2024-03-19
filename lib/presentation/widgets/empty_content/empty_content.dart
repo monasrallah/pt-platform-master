@@ -47,8 +47,8 @@ class CustomEmptyContent extends StatelessWidget {
 
   SizedBox buildTextWithRefreshIcon() {
     return SizedBox(
-      width: width ?? 0.3.sw ,
-      height: height ?? 0.3.sh ,
+      width: width ?? 0.3.sw,
+      height: height ?? 0.3.sh,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         // mainAxisAlignment: MainAxisAlignment.center,
@@ -65,7 +65,6 @@ class CustomEmptyContent extends StatelessWidget {
             ),
           ),
           Expanded(
-
             child: IconButton(
                 onPressed: () {
                   onRefresh!();

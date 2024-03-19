@@ -1,12 +1,12 @@
 // ignore_for_file: non_constant_identifier_names
 
 class UpdateProgressParams {
-  double weight;
-  double muscle;
-  double fat;
-  double water;
-  double active_calories;
-  double steps;
+  double? weight;
+  double? muscle;
+  double? fat;
+  double? water;
+  double? active_calories;
+  double? steps;
 
   UpdateProgressParams({
     required this.weight,

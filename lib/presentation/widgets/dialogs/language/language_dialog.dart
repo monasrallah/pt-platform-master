@@ -92,46 +92,45 @@ class LanguageDialog extends GetView<LanguageController> {
 
   Widget buildLangTile({required RxBool selected, required String title}) {
     return Obx(
-          () =>
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              InkWell(
-                onTap: () =>
-                    controller.changeLanguage(isEnglish: title == "English"),
-                child: Container(
-                  height: 20.h,
-                  width: 20.h,
-                  decoration: BoxDecoration(
-                    color: ColorManager.white,
-                    border: Border.all(color: ColorManager.primary),
-                    borderRadius: BorderRadius.circular(100.r),
-                  ),
-                  child: Container(
-                    height: 17.h,
-                    width: 17.h,
-                    margin: EdgeInsets.all(1.h),
-                    decoration: BoxDecoration(
-                      color: selected.value
-                          ? ColorManager.primary
-                          : ColorManager.white,
-                      borderRadius: BorderRadius.circular(100.r),
-                    ),
-                  ),
+      () => Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          InkWell(
+            onTap: () =>
+                controller.changeLanguage(isEnglish: title == "English"),
+            child: Container(
+              height: 20.h,
+              width: 20.h,
+              decoration: BoxDecoration(
+                color: ColorManager.white,
+                border: Border.all(color: ColorManager.primary),
+                borderRadius: BorderRadius.circular(100.r),
+              ),
+              child: Container(
+                height: 17.h,
+                width: 17.h,
+                margin: EdgeInsets.all(1.h),
+                decoration: BoxDecoration(
+                  color: selected.value
+                      ? ColorManager.primary
+                      : ColorManager.white,
+                  borderRadius: BorderRadius.circular(100.r),
                 ),
               ),
-              8.horizontalSpace,
-              InkWell(
-                onTap: () =>
-                    controller.changeLanguage(isEnglish: title == "English"),
-                child: Text(
-                  title,
-                  textAlign: TextAlign.center,
-                  style: Get.textTheme.bodySmall?.copyWith(fontSize: 20.sp),
-                ),
-              ),
-            ],
+            ),
           ),
+          8.horizontalSpace,
+          InkWell(
+            onTap: () =>
+                controller.changeLanguage(isEnglish: title == "English"),
+            child: Text(
+              title,
+              textAlign: TextAlign.center,
+              style: Get.textTheme.bodySmall?.copyWith(fontSize: 20.sp),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

@@ -41,5 +41,6 @@ TextStyle? getSemiBoldStyle({double? fontSize, required Color color}) {
 
 TextStyle? getSemiBoldUnderLineStyle({double? fontSize, required Color color}) {
   return _getTextStyle(fontSize ?? FontSize.s14, FontConstants.fontFamilyJost,
-      FontWeightManager.semiBold, color,textDecoration: TextDecoration.underline);
+      FontWeightManager.semiBold, color,
+      textDecoration: TextDecoration.underline);
 }

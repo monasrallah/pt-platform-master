@@ -2,11 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-    <key>FirebaseDynamicLinksCustomDomains</key>
-    <array>
-        <string>https:com.smartedge.ptapp</string>
-        <string>https:com.smartedge.ptapp</string>
-    </array>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
@@ -19,6 +14,11 @@
 	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
+	<key>CFBundleLocalizations</key>
+	<array>
+		<string>en</string>
+		<string>ar</string>
+	</array>
 	<key>CFBundleName</key>
 	<string>PT Platform</string>
 	<key>CFBundlePackageType</key>
@@ -29,18 +29,27 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>FirebaseDynamicLinksCustomDomains</key>
+	<array>
+		<string>https:com.smartedge.ptapp</string>
+		<string>https:com.smartedge.ptapp</string>
+	</array>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCalendarsUsageDescription</key>
+	<string>We need the permission to remind you in your appointments</string>
 	<key>NSCameraUsageDescription</key>
 	<string>description</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We need to activate location functionality in our application to accurately identify the locations of institutions, making them easily accessible for visits at any time.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need to activate location functionality in our application to accurately identify the locations of institutions, making them easily accessible for visits at any time.</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>description</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>description</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-    <string>We need to activate location functionality in our application to accurately identify the locations of institutions, making them easily accessible for visits at any time.</string>
-    <key>NSLocationWhenInUseUsageDescription</key>
-    <string>We need to activate location functionality in our application to accurately identify the locations of institutions, making them easily accessible for visits at any time.</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UIBackgroundModes</key>
@@ -63,13 +72,6 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>NSCalendarsUsageDescription</key>
-	<string>We need the permission to remind you in your appointments</string>	
-	<key>CFBundleLocalizations</key>
-	<array>
-		<string>en</string>
-		<string>ar</string>
 	</array>
 </dict>
 </plist>

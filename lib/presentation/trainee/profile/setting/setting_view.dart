@@ -40,7 +40,7 @@ class SettingView extends GetView<SettingController> {
                         child: CircularProgressIndicator(),
                       )
                     : Switch.adaptive(
-                        value:  controller.pushNotification.value  ,
+                        value: controller.pushNotification.value,
                         onChanged: (value) async {
                           await controller
                               .notification(!controller.pushNotification.value);

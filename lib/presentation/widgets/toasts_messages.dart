@@ -3,7 +3,6 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 import '../../resources/color_manager.dart';
 
-
 showFlutterToast({required String message}) {
   return Fluttertoast.showToast(
       backgroundColor: ColorManager.darkGrey,

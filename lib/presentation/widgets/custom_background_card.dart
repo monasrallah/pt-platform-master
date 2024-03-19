@@ -16,7 +16,8 @@ class CustomBackGroundCard extends StatelessWidget {
       this.width,
       this.onTap,
       required this.child,
-      this.backGroundColor, this.onDoubleTap})
+      this.backGroundColor,
+      this.onDoubleTap})
       : super(key: key);
 
   @override

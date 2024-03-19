@@ -24,7 +24,8 @@ abstract class AppApiHelper {
 
   Future<BaseResponse<T>> performDeleteRequest<T>(String endpoint,
       {required T Function(Map<String, dynamic>) fromJson,
-      Map<String, dynamic> data,Map<String, dynamic>? queryParameters});
+      Map<String, dynamic> data,
+      Map<String, dynamic>? queryParameters});
 
   Future<BaseResponse<T>> performPostRequestWithFormData<T>(String endpoint,
       d.FormData data, T Function(Map<String, dynamic>) fromJson);

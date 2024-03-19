@@ -90,7 +90,8 @@ class ImageCoachAssets {
   static const String VIDEOCHAT = "$IMAGE_COACH_PATH/VIDEO-CHAT.png";
   static const String workoutPlan = "$IMAGE_COACH_PATH/workout-plan.png";
 
-  static const String calorieCalculator = "$IMAGE_COACH_PATH/calorie-calculator.png";
+  static const String calorieCalculator =
+      "$IMAGE_COACH_PATH/calorie-calculator.png";
   static const String food = "$IMAGE_COACH_PATH/food.png";
   static const String recipe = "$IMAGE_COACH_PATH/recipe-and-diet-plan.png";
   static const String supplements = "$IMAGE_COACH_PATH/supplements.png";

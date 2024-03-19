@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -48,7 +46,6 @@ class PercentWidget extends GetView<UserHistoryCoachController> {
                               .toDouble())
                       .clamp(0.0, 1.0),
             ),
-
             CustomCircularPercentIndicator(
               centers: [
                 Text(

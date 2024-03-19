@@ -1,4 +1,3 @@
-
 class ChatEntity {
   int id;
   int userId;

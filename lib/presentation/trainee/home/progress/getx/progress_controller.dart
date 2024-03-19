@@ -140,31 +140,32 @@ class ProgressController extends GetxController {
   updateMeasurements() async {
     isLoading = true;
     (await baseHomeRepository.updateMeasurements(UpdateMeasurementsParams(
-      neck: double.parse(listOfMeasurementsController[0].text),
-      chest: double.parse(listOfMeasurementsController[1].text),
-      left_arm: double.parse(listOfMeasurementsController[2].text),
-      right_arm: double.parse(listOfMeasurementsController[3].text),
-      waist: double.parse(listOfMeasurementsController[4].text),
-      belly: double.parse(listOfMeasurementsController[5].text),
-      lower_belly: double.parse(listOfMeasurementsController[6].text),
-      upper_belly: double.parse(listOfMeasurementsController[7].text),
-      hips: double.parse(listOfMeasurementsController[8].text),
-      left_thigh: double.parse(listOfMeasurementsController[9].text),
-      right_thigh: double.parse(listOfMeasurementsController[10].text),
-      lift_calf: double.parse(listOfMeasurementsController[11].text),
-      right_calf: double.parse(listOfMeasurementsController[12].text),
+      neck: double.tryParse(listOfMeasurementsController[0].text),
+      chest: double.tryParse(listOfMeasurementsController[1].text),
+      left_arm: double.tryParse(listOfMeasurementsController[2].text),
+      right_arm: double.tryParse(listOfMeasurementsController[3].text),
+      waist: double.tryParse(listOfMeasurementsController[4].text),
+      belly: double.tryParse(listOfMeasurementsController[5].text),
+      lower_belly: double.tryParse(listOfMeasurementsController[6].text),
+      upper_belly: double.tryParse(listOfMeasurementsController[7].text),
+      hips: double.tryParse(listOfMeasurementsController[8].text),
+      left_thigh: double.tryParse(listOfMeasurementsController[9].text),
+      right_thigh: double.tryParse(listOfMeasurementsController[10].text),
+      lift_calf: double.tryParse(listOfMeasurementsController[11].text),
+      right_calf: double.tryParse(listOfMeasurementsController[12].text),
     )))
         .fold(
             (failure) => showFlutterToast(message: failure.message!.orEmpty()),
-            (data) async => {await measurements(), Get.back() , clearFiled()});
+            (data) async => {await measurements(), Get.back(), clearFiled()});
     isLoading = false;
   }
 
-  clearFiled(){
-    for(int index = 0 ; index < listOfMeasurementsController.length ; index ++){
+  clearFiled() {
+    for (int index = 0; index < listOfMeasurementsController.length; index++) {
       listOfMeasurementsController[index].clear();
     }
   }
+
   RxList<ProgressEntity> progressAmount = [
     ProgressEntity.init(),
     ProgressEntity.init(),
@@ -195,12 +196,12 @@ class ProgressController extends GetxController {
   updateProgress() async {
     isLoading = true;
     (await baseHomeRepository.updateProgress(UpdateProgressParams(
-      weight: double.parse(listOfController[0].text),
-      muscle: double.parse(listOfController[1].text),
-      fat: double.parse(listOfController[2].text),
-      water: double.parse(listOfController[3].text),
-      active_calories: double.parse(listOfController[4].text),
-      steps: double.parse(listOfController[5].text),
+      weight: double.tryParse(listOfController[0].text),
+      muscle: double.tryParse(listOfController[1].text),
+      fat: double.tryParse(listOfController[2].text),
+      water: double.tryParse(listOfController[3].text),
+      active_calories: double.tryParse(listOfController[4].text),
+      steps: double.tryParse(listOfController[5].text),
     )))
         .fold(
             (failure) => showFlutterToast(message: failure.message!.orEmpty()),

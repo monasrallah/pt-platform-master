@@ -18,7 +18,6 @@ List<dynamic> getEntityList(
   List<dynamic> allData = [];
   switch (paginationType) {
     case PaginationTypes.notifications:
-
     default:
       return allData;
   }

@@ -26,8 +26,7 @@ class AboutYouView extends GetView<AboutYouController> {
               height: 1.sh,
               child: ColorFiltered(
                 colorFilter: ColorFilter.mode(
-                    Colors.grey.shade800.withOpacity(0.95),
-                    BlendMode.modulate),
+                    Colors.grey.shade800.withOpacity(0.95), BlendMode.modulate),
                 child: Image.asset(
                   ImageAssets.manBackground,
                   fit: BoxFit.cover,
@@ -91,7 +90,8 @@ class AboutYouView extends GetView<AboutYouController> {
                   title: AppStrings.next.tr,
                   width: 1.sw,
                   onTap: () {
-                    instance<AppPreferences>().setLoginUser(controller.selectedTrainee.value);
+                    instance<AppPreferences>()
+                        .setLoginUser(controller.selectedTrainee.value);
                     Get.toNamed(Routes.loginRoute,
                         arguments: controller.selectedTrainee.value
                             ? "Trainee"

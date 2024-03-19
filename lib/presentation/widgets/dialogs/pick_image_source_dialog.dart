@@ -27,8 +27,7 @@ class PickImageSourceDialog extends StatelessWidget {
           Expanded(
             child: Text(
               AppStrings.chooseOption.tr,
-              style: theme.textTheme.headlineMedium
-                  ?.copyWith(fontSize: 23.sp),
+              style: theme.textTheme.headlineMedium?.copyWith(fontSize: 23.sp),
             ),
           ),
         ],
@@ -68,8 +67,8 @@ class PickImageSourceDialog extends StatelessWidget {
                 },
                 title: Text(
                   AppStrings.gallery.tr,
-                  style: theme.textTheme.headlineMedium
-                      ?.copyWith(fontSize: 23.sp),
+                  style:
+                      theme.textTheme.headlineMedium?.copyWith(fontSize: 23.sp),
                 ),
                 leading: Icon(Icons.account_box, color: theme.primaryColor
                     //     color: black,
@@ -81,7 +80,7 @@ class PickImageSourceDialog extends StatelessWidget {
               ),
               ListTile(
                 onTap: () async {
-                await Permission.camera.request();
+                  await Permission.camera.request();
                   print(isMultiSelect);
                   if (isMultiSelect) {
                     List<XFile> pickedImage = [];
@@ -93,7 +92,6 @@ class PickImageSourceDialog extends StatelessWidget {
                       onTap!(pickedImage);
                     }
                   } else {
-
                     File pickedImage = File("");
                     await pickImage("camera")
                         .then((value) => pickedImage = value);
@@ -105,8 +103,8 @@ class PickImageSourceDialog extends StatelessWidget {
                 },
                 title: Text(
                   AppStrings.camera.tr,
-                  style: theme.textTheme.headlineMedium
-                      ?.copyWith(fontSize: 23.sp),
+                  style:
+                      theme.textTheme.headlineMedium?.copyWith(fontSize: 23.sp),
                 ),
                 leading:
                     Icon(Icons.camera_alt_outlined, color: theme.primaryColor

@@ -29,21 +29,18 @@ class CalenderCoachModel {
     required this.status,
   });
 
-  factory CalenderCoachModel.fromJson(Map<String, dynamic> json) => CalenderCoachModel(
-    id: json["id"],
-    date: DateTime.parse(json["date"]),
-    time: json["time"],
-    isAutoAccept: json["is_auto_accept"],
-    userName: json["user_name"],
-    status: statusValues.map[json["status"]]!,
-  );
+  factory CalenderCoachModel.fromJson(Map<String, dynamic> json) =>
+      CalenderCoachModel(
+        id: json["id"],
+        date: DateTime.parse(json["date"]),
+        time: json["time"],
+        isAutoAccept: json["is_auto_accept"],
+        userName: json["user_name"],
+        status: statusValues.map[json["status"]]!,
+      );
 }
 
-enum Status {
-  ACCEPT,
-  PENDING,
-  WAITING
-}
+enum Status { ACCEPT, PENDING, WAITING }
 
 final statusValues = EnumValues({
   "accept": Status.ACCEPT,

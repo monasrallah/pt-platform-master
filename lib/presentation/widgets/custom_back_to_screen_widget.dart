@@ -40,10 +40,10 @@ class CustomBackIcon extends StatelessWidget {
           width: AppSize.s46,
           child: Padding(
             padding: EdgeInsets.only(
-                left: leftPadding != null ? leftPadding! : AppPadding.p4,
-               ),
+              left: leftPadding != null ? leftPadding! : AppPadding.p4,
+            ),
             child: Transform.rotate(
-              angle:  math.pi,
+              angle: math.pi,
               child: Icon(
                 icon ?? Icons.arrow_back_ios,
                 color: iconColor ?? theme.primaryColorLight,

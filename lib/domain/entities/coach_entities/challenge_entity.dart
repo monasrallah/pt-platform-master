@@ -24,6 +24,4 @@ class ChallengeVideoEntity {
     required this.isComplete,
     required this.video,
   });
-  
 }
-

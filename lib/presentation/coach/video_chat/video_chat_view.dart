@@ -100,11 +100,11 @@ class VideoChatCoachView extends GetView<VideoChatCoachController> {
                     return VideoInfoRow(
                       chat: controller.chats[index],
                       onTapJoin: () {
-                        controller
-                            .chats[index].coachTimeReservation != null ?
-                        launchUrl(Uri.parse(controller.chats[index]
-                            .coachTimeReservation!.zoom.data.joinUrl
-                            .toString())) : null;
+                        controller.chats[index].coachTimeReservation != null
+                            ? launchUrl(Uri.parse(controller.chats[index]
+                                .coachTimeReservation!.zoom.data.joinUrl
+                                .toString()))
+                            : null;
                       },
                     );
                   },

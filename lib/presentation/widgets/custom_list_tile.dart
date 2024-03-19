@@ -46,7 +46,6 @@ class CustomListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return ListTile(
-
       tileColor: Colors.transparent,
       shape: shape,
       onTap: onTap != null ? () => onTap!() : null,

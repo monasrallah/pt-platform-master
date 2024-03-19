@@ -5,7 +5,6 @@ import 'package:pt_platform/presentation/widgets/text_fields/custom_text_field.d
 
 import '../../../../resources/color_manager.dart';
 import '../../../../resources/strings_manager.dart';
-import '../buttons/custom_elevated_button.dart';
 
 class DeleteAccountDialog extends StatelessWidget {
   final Function toDo;

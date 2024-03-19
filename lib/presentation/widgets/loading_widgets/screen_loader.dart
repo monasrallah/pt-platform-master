@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 
 import '../../../app/debug/log.dart';
 
-class  ScreenLoader extends StatelessWidget  {
+class ScreenLoader extends StatelessWidget {
 //  bool isLoading = false;
   static Widget? _globalLoader;
   static double? _globalLoadingBgBlur = 5.0;
   Widget screen;
 
-  ScreenLoader({required this.screen,Key? key}) : super(key: key);
+  ScreenLoader({required this.screen, Key? key}) : super(key: key);
 
   /// starts the [loader]
   // void startLoading() {
@@ -47,19 +47,17 @@ class  ScreenLoader extends StatelessWidget  {
   }
 
   Widget _buildLoader() {
-   // if (isLoading) {
-      return Container(
-        color: Colors.transparent,
-        child: Center(
-          child: _loader(),
-        ),
-      );
+    // if (isLoading) {
+    return Container(
+      color: Colors.transparent,
+      child: Center(
+        child: _loader(),
+      ),
+    );
     // } else {
     //   return Container();
     // }
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -68,17 +66,17 @@ class  ScreenLoader extends StatelessWidget  {
       children: <Widget>[
         //screen(context),
         screen,
-       // if (!isLoading)
-          _buildLoader(),
+        // if (!isLoading)
+        _buildLoader(),
 
-     //   if (isLoading)
-          BackdropFilter(
-            filter: ImageFilter.blur(
-              sigmaX: _loadingBgBlur(),
-              sigmaY: _loadingBgBlur(),
-            ),
-            child: _buildLoader(),
+        //   if (isLoading)
+        BackdropFilter(
+          filter: ImageFilter.blur(
+            sigmaX: _loadingBgBlur(),
+            sigmaY: _loadingBgBlur(),
           ),
+          child: _buildLoader(),
+        ),
       ],
     );
   }

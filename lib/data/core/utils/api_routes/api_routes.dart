@@ -1,5 +1,7 @@
 class AppUrls {
-  static const String domain = "https://ptplatform.smartedge.me/public/";
+  // https://ptplatform.app/
+  // static const String domain = "https://ptplatform.smartedge.me/public/";
+  static const String domain = "https://ptplatform.app/";
 
   static const String baseUrl = "${domain}api/v1";
 
@@ -140,4 +142,7 @@ class AppUrls {
 
   static const String calenderCoachUrl = "/coach-calendar/calendar";
   static const String videoChatCoachUrl = "/coach-calendar/coach";
+
+  static const String purchaseIapSuccessUrl = "/packages/checkout-purchase";
+  static const String getAppleIapIdUrl = "/packages";
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:pt_platform/app/extensions.dart';
 import 'package:pt_platform/presentation/widgets/buttons/custom_elevated_button.dart';
 
 import '../../../../domain/entities/coach_entities/chat_entity.dart';

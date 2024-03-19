@@ -1,3 +1,1 @@
-class CategoryParameter{
-
-}
+class CategoryParameter {}

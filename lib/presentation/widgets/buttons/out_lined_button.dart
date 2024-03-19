@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../../resources/value_manager.dart';
 
-
 class OutLinedButton extends StatelessWidget {
   final String title;
   final Function onPress;
@@ -47,7 +46,6 @@ class OutLinedButton extends StatelessWidget {
         child: Text(
           title,
           style: textStyle,
-
         ),
       ),
     );

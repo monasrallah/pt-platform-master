@@ -107,68 +107,68 @@ class CoachController extends GetxController {
               showFlutterToast(message: failure.message.orEmpty())
             },
         (List<CoachEntity> data) => {
-              print("data lenght ${data}"),
-        print("test onValueChanged ${selectedCaptain}"),
+              print("data lenght $data"),
+              print("test onValueChanged $selectedCaptain"),
               coaches.addAll(data.reversed),
-
-          if(instance<AppPreferences>().getCoachEntity().isEmpty){
-            if (data.isNotEmpty)
-              if (selectedCaptain == null)
+              if (instance<AppPreferences>().getCoachEntity().isEmpty)
                 {
-                  print(" selectCaptain ${data.length}"),
-                  coachEntity.value = coaches[0],
-                  coachName.value.isEmpty
-                      ? coachName.value = coaches[0].lastName.orEmpty()
-                      : coachName.value,
-                  // coachId.value.isEmpty ?
-                  coachId.value = coaches[0].id.toString(),
-                  // : coachId.value,
-                  coachAvatar.value.isEmpty
-                      ? coachAvatar.value = coaches[0].logo.toString()
-                      : coachAvatar.value,
-                  instance<AppPreferences>().setCoachEntity([
-                    coachId.value,
-                    coachName.value,
-                    coachAvatar.value,
-                  ]),
+                  if (data.isNotEmpty)
+                    if (selectedCaptain == null)
+                      {
+                        print(" selectCaptain ${data.length}"),
+                        coachEntity.value = coaches[0],
+                        coachName.value.isEmpty
+                            ? coachName.value = coaches[0].lastName.orEmpty()
+                            : coachName.value,
+                        // coachId.value.isEmpty ?
+                        coachId.value = coaches[0].id.toString(),
+                        // : coachId.value,
+                        coachAvatar.value.isEmpty
+                            ? coachAvatar.value = coaches[0].logo.toString()
+                            : coachAvatar.value,
+                        instance<AppPreferences>().setCoachEntity([
+                          coachId.value,
+                          coachName.value,
+                          coachAvatar.value,
+                        ]),
+                      }
+                    else
+                      {
+                        print("selectCaptain lenghtsssssss ${data.length}"),
+                        {
+                          coachEntity.value = coaches[selectedCaptain!],
+                          coachName.value.isEmpty
+                              ? coachName.value =
+                                  coaches[selectedCaptain!].lastName.orEmpty()
+                              : coachName.value,
+                          // coachId.value.isEmpty ?
+                          coachId.value =
+                              coaches[selectedCaptain!].id.toString(),
+                          // : coachId.value,
+                          coachAvatar.value.isEmpty
+                              ? coachAvatar.value =
+                                  coaches[selectedCaptain!].logo.toString()
+                              : coachAvatar.value,
+                          instance<AppPreferences>().setCoachEntity([
+                            coachId.value,
+                            coachName.value,
+                            coachAvatar.value,
+                          ]),
+                        }
+                      }
+                  else if (coachName.value.isNotEmpty)
+                    {
+                      instance<AppPreferences>().setCoachEntity([
+                        coachId.value,
+                        coachName.value,
+                        coachAvatar.value,
+                      ]),
+                    }
+                  else
+                    {
+                      Get.toNamed(Routes.trainersRoute),
+                    }
                 }
-              else
-                {
-                  print("selectCaptain lenghtsssssss ${data.length}"),
-                  {
-                    coachEntity.value = coaches[selectedCaptain!],
-                    coachName.value.isEmpty
-                        ? coachName.value =
-                        coaches[selectedCaptain!].lastName.orEmpty()
-                        : coachName.value,
-                    // coachId.value.isEmpty ?
-                    coachId.value = coaches[selectedCaptain!].id.toString(),
-                    // : coachId.value,
-                    coachAvatar.value.isEmpty
-                        ? coachAvatar.value =
-                        coaches[selectedCaptain!].logo.toString()
-                        : coachAvatar.value,
-                    instance<AppPreferences>().setCoachEntity([
-                      coachId.value,
-                      coachName.value,
-                      coachAvatar.value,
-                    ]),
-                  }
-                }
-            else if (coachName.value.isNotEmpty)
-              {
-                instance<AppPreferences>().setCoachEntity([
-                  coachId.value,
-                  coachName.value,
-                  coachAvatar.value,
-                ]),
-              }
-            else
-              {
-                Get.toNamed(Routes.trainersRoute),
-              }
-          }
-
             });
 
     isLoading = false;

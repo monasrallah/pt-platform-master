@@ -7,7 +7,8 @@ import 'package:path_provider/path_provider.dart';
 class PDFScreen extends StatefulWidget {
   final String pdfURL;
 
-  const PDFScreen({required this.pdfURL, super.key}); // Replace with your PDF URL
+  const PDFScreen(
+      {required this.pdfURL, super.key}); // Replace with your PDF URL
 
   @override
   _PDFScreenState createState() => _PDFScreenState();

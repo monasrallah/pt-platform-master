@@ -54,8 +54,7 @@ class PinPutWidget extends GetView<OtpController> {
                 width: 40.w,
                 height: 40.h,
                 decoration: BoxDecoration(
-                    color: ColorManager.primary,
-                    shape: BoxShape.circle),
+                    color: ColorManager.primary, shape: BoxShape.circle),
                 textStyle: Theme.of(context).textTheme.titleLarge!,
                 margin: EdgeInsets.symmetric(horizontal: 5.w),
                 padding: const EdgeInsets.all(0),
@@ -64,9 +63,11 @@ class PinPutWidget extends GetView<OtpController> {
                 width: 40.w,
                 height: 40.h,
                 decoration: BoxDecoration(
-                    color: ColorManager.primary,
-                    shape: BoxShape.circle),
-                textStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(fontSize: 18.sp),
+                    color: ColorManager.primary, shape: BoxShape.circle),
+                textStyle: Theme.of(context)
+                    .textTheme
+                    .bodyLarge!
+                    .copyWith(fontSize: 18.sp),
                 margin: EdgeInsets.symmetric(horizontal: 5.w),
                 padding: const EdgeInsets.all(0),
               ),

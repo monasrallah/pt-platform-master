@@ -1,3 +1,6 @@
+import 'package:pt_platform/data/coach/models/get_apple_iap_id_model.dart';
+import 'package:pt_platform/domain/parameters/coach_params/get_apple_iap_id_prams.dart';
+import 'package:pt_platform/domain/parameters/coach_params/purchase_iap_success.dart';
 import 'package:pt_platform/domain/parameters/home_params/answer_questionnaire_params.dart';
 import 'package:pt_platform/resources/functions/date_format_function.dart';
 
@@ -106,6 +109,11 @@ abstract class BaseCoachRemoteDataSource {
       int exerciseLogs, String? userId, String coachId);
 
   Future<BaseResponse<AllVideoModel>> getExerciseHistory(String coachId);
+
+  Future<void> purchaseIAPSuccess(
+      PurchaseIapSuccessPrams purchaseIapSuccessPrams);
+
+  Future<String?> getAppleIapId(GetAppleIapIdParams getAppleIapIdParams);
 }
 
 class CoachRemoteDataSourceImpl implements BaseCoachRemoteDataSource {
@@ -361,5 +369,30 @@ class CoachRemoteDataSourceImpl implements BaseCoachRemoteDataSource {
     return await _appApiHelper.performGetRequest(
         AppUrls.exerciseHistory, AllVideoModel.fromJson,
         queryParameters: {"coach_id": coachId});
+  }
+
+  @override
+  Future<void> purchaseIAPSuccess(
+      PurchaseIapSuccessPrams purchaseIapSuccessPrams) async {
+    final result = await _appApiHelper.performPostRequest(
+      AppUrls.purchaseIapSuccessUrl,
+      purchaseIapSuccessPrams.toJson(),
+      EmptyModel.fromJson,
+    );
+    // if (result. == 200) {
+    return;
+    // } else {
+    // throw Exception("Error while purchasing IAP. Please try again.");
+    // }
+  }
+
+  @override
+  Future<String?> getAppleIapId(GetAppleIapIdParams getAppleIapIdParams) async {
+    final result = await _appApiHelper.performPostRequest(
+      AppUrls.getAppleIapIdUrl,
+      getAppleIapIdParams.toJson(),
+      GetAppleIapIdModel.fromJson,
+    );
+    return result.data!.productAppleId;
   }
 }

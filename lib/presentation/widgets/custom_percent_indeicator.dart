@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
-import 'package:pt_platform/app/extensions.dart';
 import 'package:pt_platform/resources/color_manager.dart';
 
 class CustomCircularPercentIndicator extends StatelessWidget {

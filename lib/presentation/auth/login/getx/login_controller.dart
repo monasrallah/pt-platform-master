@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:pt_platform/app/app_controller.dart';
 import 'package:pt_platform/app/extensions.dart';
 import 'package:pt_platform/domain/entities/auth_entities/auth_entity.dart';
-import 'package:pt_platform/main.dart';
 import 'package:pt_platform/providers/notifications_provider.dart';
 
 import '../../../../app/dependency_injection.dart';

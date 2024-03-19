@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_timezone/flutter_timezone.dart';
 import 'package:get/get.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:pt_platform/app/dependency_injection.dart';
 import 'package:pt_platform/app/extensions.dart';
 import 'package:pt_platform/app/storage/app_prefs.dart';
 import 'package:pt_platform/resources/routes_manager.dart';
-import 'package:timezone/timezone.dart' as tz;
-import 'package:timezone/data/latest.dart' as tz;
+
+// import 'package:timezone/data/latest.dart' as tz;
+// import 'package:timezone/timezone.dart' as tz;
+
 import '../data/coach/coach_repo/coach_repository.dart';
 import '../domain/entities/auth_entities/coach_entity.dart';
 import '../domain/parameters/coach_params/add_video_to_log_params.dart';
@@ -116,7 +119,7 @@ class AppController extends GetxController {
             (data) => {});
   }
 
-  late Map<String, tz.Location> locations;
+  // late Map<String, tz.Location> locations;
   String timeZone = "";
   String version = "";
 
@@ -129,7 +132,6 @@ class AppController extends GetxController {
   // print(locations.keys.first); // => "Africa/Abidjan"
   // print(locations.keys.last); // => "US/Pacific"
 
-
   String lang = "";
 
   String getLang() {
@@ -140,9 +142,10 @@ class AppController extends GetxController {
   @override
   Future<void> onInit() async {
     lang = getLang();
-    tz.initializeTimeZones();
-    locations = tz.timeZoneDatabase.locations;
-    timeZone = locations.keys.first;
+    // tz.initializeTimeZones();
+    // locations = tz.timeZoneDatabase.locations;
+    final localTimeZone = await FlutterTimezone.getLocalTimezone();
+    timeZone = localTimeZone;
     await _initPackageInfo();
     super.onInit();
 

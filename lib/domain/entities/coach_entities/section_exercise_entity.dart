@@ -22,8 +22,6 @@ class CategoryExercisesEntity {
   });
 }
 
-
-
 class ExercisesEntity {
   int id;
   String title;

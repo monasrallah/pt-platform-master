@@ -4,7 +4,7 @@ class AllChatsModel {
   AllChatsModel({required this.chats});
 
   factory AllChatsModel.fromJson(Map<String, dynamic> json) {
-    print("test loginParams ${json}");
+    print("test loginParams $json");
     List<ChatModel> all = [];
     for (var element in (json['chats'] as List<dynamic>)) {
       all.add(ChatModel.fromJson(element as Map<String, dynamic>));
@@ -14,16 +14,16 @@ class AllChatsModel {
 }
 
 class ChatModel {
- final int id;
- final int userId;
- final String ?username;
- final String? time;
- final int isAutoAccept;
- final String date;
- final  DateTime? deletedAt;
- final DateTime createdAt;
- final DateTime updatedAt;
- final CoachTimeReservationModel? coachTimeReservation;
+  final int id;
+  final int userId;
+  final String? username;
+  final String? time;
+  final int isAutoAccept;
+  final String date;
+  final DateTime? deletedAt;
+  final DateTime createdAt;
+  final DateTime updatedAt;
+  final CoachTimeReservationModel? coachTimeReservation;
 
   ChatModel({
     required this.id,
@@ -41,15 +41,17 @@ class ChatModel {
   factory ChatModel.fromJson(Map<String, dynamic> json) => ChatModel(
         id: json["id"],
         userId: json["user_id"],
-        username: json["username"]??"",
-        time: json["time"]??"",
+        username: json["username"] ?? "",
+        time: json["time"] ?? "",
         isAutoAccept: json["is_auto_accept"],
         date: json["date"],
         deletedAt: json["deleted_at"],
         createdAt: DateTime.parse(json["created_at"]),
         updatedAt: DateTime.parse(json["updated_at"]),
-        coachTimeReservation:
-        json["coach_time_reservation_accept"]!= null? CoachTimeReservationModel.fromJson(json["coach_time_reservation_accept"]):null,
+        coachTimeReservation: json["coach_time_reservation_accept"] != null
+            ? CoachTimeReservationModel.fromJson(
+                json["coach_time_reservation_accept"])
+            : null,
       );
 }
 
@@ -148,7 +150,7 @@ class ZoomDataModel {
   });
 
   factory ZoomDataModel.fromJson(Map<String, dynamic> json) => ZoomDataModel(
-        uuid: json["uuid"]??"",
+        uuid: json["uuid"] ?? "",
         id: json["id"],
         hostId: json["host_id"],
         hostEmail: json["host_email"],

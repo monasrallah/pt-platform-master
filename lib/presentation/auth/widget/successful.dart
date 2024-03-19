@@ -30,13 +30,11 @@ class SuccessfulView extends StatelessWidget {
               children: [
                 Text(
                   "Thank you!",
-                  style:
-                      Get.textTheme.displayLarge!.copyWith(fontSize: 40.sp),
+                  style: Get.textTheme.displayLarge!.copyWith(fontSize: 40.sp),
                 ),
                 Text(
                   "Our team will get back to you soon!",
-                  style:
-                      Get.textTheme.displayLarge!.copyWith(fontSize: 30.sp),
+                  style: Get.textTheme.displayLarge!.copyWith(fontSize: 30.sp),
                 ),
               ],
             ),

@@ -12,7 +12,7 @@ class FollowUsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 25.w,vertical: 12.h),
+      padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 12.h),
       child: Container(
         padding: EdgeInsets.all(15.h),
         decoration: BoxDecoration(

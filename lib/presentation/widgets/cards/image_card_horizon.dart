@@ -58,7 +58,8 @@ class ImageCardHorizon extends StatelessWidget {
                       width: 0.5.sw,
                       child: Text(
                         des!,
-                        style: Get.textTheme.bodySmall!.copyWith(fontSize: 15.sp),
+                        style:
+                            Get.textTheme.bodySmall!.copyWith(fontSize: 15.sp),
                       ),
                     ),
                 ],

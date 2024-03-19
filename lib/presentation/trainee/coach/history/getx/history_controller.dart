@@ -9,7 +9,6 @@ import '../../../../../data/home/home_repo/home_repository.dart';
 import '../../../../../domain/entities/coach_entities/video_entity.dart';
 import '../../../../../domain/entities/home_entities/food_entity.dart';
 import '../../../../../resources/functions/date_format_function.dart';
-import '../../../../coach/trainee/getx/trainee_controller.dart';
 import '../../../../widgets/toasts_messages.dart';
 import '../../getx/coach_controller.dart';
 
@@ -71,9 +70,7 @@ class HistoryController extends GetxController {
   getExerciseLogs(int exerciseLogId) async {
     isLoadingLogs = true;
     (await baseCoachRepository.getExerciseLogs(
-            exerciseLogId,
-           null,
-            Get.find<CoachController>().coachId.value))
+            exerciseLogId, null, Get.find<CoachController>().coachId.value))
         .fold((failure) => showFlutterToast(message: failure.message.orEmpty()),
             (List<ExerciseLogsEntity> data) => {logs = data});
     isLoadingLogs = false;
@@ -86,10 +83,5 @@ class HistoryController extends GetxController {
         (failure) => showFlutterToast(message: failure.message.orEmpty()),
         (FoodEntity data) => {foodEntity.value = data});
     isLoading = false;
-  }
-
-  @override
-  void onInit() async {
-    super.onInit();
   }
 }

@@ -1,9 +1,14 @@
+import 'dart:developer';
+
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:pt_platform/app/extensions.dart';
 import 'package:pt_platform/app/storage/app_prefs.dart';
 import 'package:pt_platform/domain/entities/coach_entities/personalized_entity.dart';
 import 'package:pt_platform/domain/entities/coach_entities/shop_entity.dart';
+import 'package:pt_platform/domain/parameters/coach_params/get_apple_iap_id_prams.dart';
+import 'package:pt_platform/domain/parameters/coach_params/purchase_iap_success.dart';
+import 'package:pt_platform/presentation/trainee/coach/shop/util/in_app_purchase.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../../app/app_controller.dart';
@@ -12,8 +17,6 @@ import '../../../../../data/coach/coach_repo/coach_repository.dart';
 import '../../../../../domain/parameters/coach_params/check_promo_code_params.dart';
 import '../../../../../domain/parameters/coach_params/packege_payment_params.dart';
 import '../../../../widgets/toasts_messages.dart';
-import '../../getx/coach_controller.dart';
-import '../widget/web_view_page.dart';
 
 class ShopController extends GetxController {
   TextEditingController codeController = TextEditingController();
@@ -106,5 +109,86 @@ class ShopController extends GetxController {
     // coachIdPassed?.value = Get.arguments ?? Get.arguments["coachId"];
     await getShop();
     super.onInit();
+  }
+
+  String? _productAppleId;
+
+  Future<void> iApCheckOut({
+    required String productAppleId,
+    required int id,
+    required VoidCallback onSuccess,
+  }) async {
+    try {
+      InAppPurchaseService iap = InAppPurchaseService();
+      final productDetailsList = await iap.initialize(
+        kProductIds: [productAppleId],
+      );
+      iap.listenToPurchaseUpdated(
+        onSuccessPurchase: (purchaseDetails) async {
+          log('success');
+          await baseCoachRepository.purchaseIAPSuccess(
+            PurchaseIapSuccessPrams(
+              id: id,
+              coachId: coachId.value,
+              txnId: purchaseDetails.purchaseID!,
+              promotionCode:
+                  codeController.text.isNotEmpty ? codeController.text : null,
+            ),
+          );
+          onSuccess();
+        },
+        onErrorPurchase: (error) {
+          log('error');
+          showFlutterToast(message: error);
+        },
+        onPendingPurchase: () {
+          log('pending');
+        },
+        onRestoredPurchase: (purchaseDetails) {
+          log('restored');
+        },
+        onCanceledPurchase: () {
+          log('canceled');
+        },
+      );
+      final result = await iap.buyNonConsumable(
+        productDetails: productDetailsList[0],
+      );
+      if (!result) throw Exception("Error in purchase");
+    } catch (e) {
+      showFlutterToast(message: e.toString());
+    }
+  }
+
+  Future<void> getAppleIAPId({
+    required int id,
+  }) async {
+    final result = await baseCoachRepository.getAppleIAPId(
+      GetAppleIapIdParams(
+        id: id,
+        coachId: coachId.value,
+        paymentMethod: "purchase",
+      ),
+    );
+
+    result.fold((l) {}, (r) {
+      _productAppleId = r;
+    });
+  }
+
+  appleCheckout({
+    required int id,
+    required VoidCallback onSuccess,
+  }) async {
+    isLoading = true;
+    await getAppleIAPId(id: id);
+    if (_productAppleId != null) {
+      await iApCheckOut(
+        productAppleId: _productAppleId!,
+        id: id,
+        onSuccess: onSuccess,
+      );
+    }
+    isLoading = false;
   }
 }

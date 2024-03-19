@@ -20,5 +20,4 @@ class UserEntity {
     required this.type,
     required this.style,
   });
-
 }

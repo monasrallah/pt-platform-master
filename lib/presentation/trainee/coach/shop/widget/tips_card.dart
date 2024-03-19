@@ -5,7 +5,6 @@ import 'package:pt_platform/presentation/widgets/buttons/custom_elevated_button.
 
 import '../../../../../domain/entities/coach_entities/personalized_entity.dart';
 import '../../../../../resources/strings_manager.dart';
-import '../../../../widgets/dialogs/pick_payment_method_dialog.dart';
 import '../../getx/coach_controller.dart';
 
 class TipsCard extends GetView<CoachController> {

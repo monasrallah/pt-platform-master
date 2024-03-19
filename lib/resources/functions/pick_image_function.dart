@@ -51,7 +51,7 @@ Future<File> pickImage(String source) async {
 
 Future<List<XFile>> pickMultiImage(String source) async {
   final picker = ImagePicker();
-  List<XFile> imagefiles=[];
+  List<XFile> imagefiles = [];
   print("update clicked");
   bool granted = false;
   switch (source) {
@@ -65,7 +65,7 @@ Future<List<XFile>> pickMultiImage(String source) async {
         var pickedfiles = await picker.pickMultiImage();
         //you can use ImageCourse.camera for Camera capture
         imagefiles = pickedfiles;
-            }
+      }
       Get.back();
       break;
     case 'gallery':
@@ -78,7 +78,7 @@ Future<List<XFile>> pickMultiImage(String source) async {
         var pickedfiles = await picker.pickMultiImage();
         //you can use ImageCourse.camera for Camera capture
         imagefiles = pickedfiles;
-            }
+      }
       Get.back();
       break;
   }

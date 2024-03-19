@@ -50,7 +50,6 @@ class CustomElevatedButton extends StatelessWidget {
           ),
           onPressed: onTap != null
               ? () {
-                
                   onTap!();
                 }
               : null,

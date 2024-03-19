@@ -19,7 +19,6 @@ import '../data/home/home_repo/home_repository.dart';
 import '../data/profile/profile_data_source/profile_remote_data_source.dart';
 import '../data/profile/profile_repo/profile_repository.dart';
 import '../domain/core/utils/network/network_info.dart';
-import '../presentation/trainee/coach/getx/coach_controller.dart';
 import '../presentation/trainee/main_bottom_navigation_bar/getx/main_bottom_navigation_bar_controller.dart';
 import 'app_controller.dart';
 import 'storage/app_prefs.dart';

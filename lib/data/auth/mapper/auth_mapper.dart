@@ -42,7 +42,7 @@ extension CoachModelMapper on CoachModel {
         logo: logo,
         phoneNumber: phoneNumber,
         description: description,
-        isSubscription:isSubscription,
+        isSubscription: isSubscription,
         // linkSocialMedia: linkSocialMedia,
         // potentialClients: potentialClients,
         categories: categories.map((e) => e.toDomain()).toList(),

@@ -4,5 +4,9 @@ class BasePaginationEntity {
   final int? currentPage;
   final int? lastPage;
 
-  BasePaginationEntity({required this.data, required this.total,  this.currentPage=1,  this.lastPage});
+  BasePaginationEntity(
+      {required this.data,
+      required this.total,
+      this.currentPage = 1,
+      this.lastPage});
 }

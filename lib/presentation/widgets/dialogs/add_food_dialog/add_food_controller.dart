@@ -30,8 +30,8 @@ class AddFoodController extends GetxController {
         .fold(
             (failure) => showFlutterToast(message: failure.message.orEmpty()),
             (List<AddFoodEntity> data) => {
-              searchList.clear(),
-              searchList.value = data,
+                  searchList.clear(),
+                  searchList.value = data,
                 });
     isLoading = false;
     // search.clear();

@@ -1,17 +1,17 @@
 class UpdateMeasurementsParams {
-  double neck;
-  double chest;
-  double left_arm;
-  double right_arm;
-  double waist;
-  double belly;
-  double lower_belly;
-  double upper_belly;
-  double hips;
-  double left_thigh;
-  double right_thigh;
-  double lift_calf;
-  double right_calf;
+  double? neck;
+  double? chest;
+  double? left_arm;
+  double? right_arm;
+  double? waist;
+  double? belly;
+  double? lower_belly;
+  double? upper_belly;
+  double? hips;
+  double? left_thigh;
+  double? right_thigh;
+  double? lift_calf;
+  double? right_calf;
 
   UpdateMeasurementsParams({
     required this.neck,

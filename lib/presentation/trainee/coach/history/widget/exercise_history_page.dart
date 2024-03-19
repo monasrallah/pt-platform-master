@@ -54,8 +54,8 @@ class ExerciseHistoryPage extends GetView<HistoryController> {
                           controller.visible.value = false;
                           controller.visible.value = !controller.visible.value;
                           controller.selected.value = index;
-                          controller.getExerciseLogs(
-                              controller.videos[index].id);
+                          controller
+                              .getExerciseLogs(controller.videos[index].id);
 
                           // showAdaptiveDialog(
                           //   barrierDismissible: false,
@@ -157,8 +157,8 @@ class ExerciseHistoryPage extends GetView<HistoryController> {
               backgroundColor: ColorManager.white,
               textStyle: Get.textTheme.displaySmall,
               onTap: () {
-                Get.dialog(
-                    InformationDialog(header: AppStrings.note.tr, coachDesc: note));
+                Get.dialog(InformationDialog(
+                    header: AppStrings.note.tr, coachDesc: note));
               },
             ),
           ),

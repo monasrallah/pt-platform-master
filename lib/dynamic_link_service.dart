@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:get/get.dart';
 import 'package:pt_platform/resources/routes_manager.dart';
@@ -32,7 +31,6 @@ class DynamicLinkService {
         if (serviceId.isNotEmpty) {
           // _navigationService.navigateTo(CreatePostViewRoute, arguments: title);
           Get.toNamed(Routes.splashRoute);
-
         }
       } else {
         Get.toNamed(Routes.splashRoute);
@@ -41,10 +39,7 @@ class DynamicLinkService {
   }
 
   Future<String> createStarLink(
-      {
-      String? title,
-      String? description,
-      Uri? uri}) async {
+      {String? title, String? description, Uri? uri}) async {
     final DynamicLinkParameters parameters = DynamicLinkParameters(
       uriPrefix: 'https://ptplatform.page.link',
       //uriPrefix: 'https://nbeplatinumapp.page.link',

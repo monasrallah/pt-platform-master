@@ -65,8 +65,7 @@ class AssignedCoachView extends GetView<AssignedCoachController> {
                                 Get.find<AppController>().onItemTapped(1);
                               },
                               child: AssignedCoachCard(
-                                title:
-                                    "${controller.coaches[index].lastName}",
+                                title: "${controller.coaches[index].lastName}",
                                 image: controller.coaches[index].logo != null
                                     ? controller.coaches[index].logo!
                                     : Get.find<AppController>().defaultImage,

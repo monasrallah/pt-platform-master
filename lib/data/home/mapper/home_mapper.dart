@@ -63,7 +63,8 @@ extension AllSurveysModelMapper on AllSurveysModel {
 
 extension FaqsModelMapper on FaqsModel {
   FaqsEntity toDomain() {
-    return FaqsEntity(id: id, question: question, answer: answer.orEmpty(), video: video);
+    return FaqsEntity(
+        id: id, question: question, answer: answer.orEmpty(), video: video);
   }
 }
 

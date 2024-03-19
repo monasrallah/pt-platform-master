@@ -12,7 +12,6 @@ import '../../../../app/storage/app_prefs.dart';
 import '../../../../main.dart';
 import '../../../../resources/strings_manager.dart';
 import '../../../widgets/dialogs/filter_category_coach/filter_category_coach_dialog.dart';
-import '../../coach/getx/coach_controller.dart';
 import '../../main_bottom_navigation_bar/main_bottom_navigation_bar.dart';
 import 'getx/trainer_controller.dart';
 import 'widget/trainer_card.dart';
@@ -176,8 +175,10 @@ class TrainerView extends GetView<TrainerController> {
                     itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () async {
-                          print("tessss ${controller.coaches[index].isSubscription}");
-                          print("tessss ${controller.coaches[index].id.toString()}");
+                          print(
+                              "tessss ${controller.coaches[index].isSubscription}");
+                          print(
+                              "tessss ${controller.coaches[index].id.toString()}");
 
                           if (controller.coaches[index].isSubscription!) {
                             selectCaptain(index);
@@ -188,9 +189,12 @@ class TrainerView extends GetView<TrainerController> {
                               controller.coaches[index].logo.toString(),
                             ]);
 
-                            print("tessss ${instance<AppPreferences>().getCoachEntity()[0]}");
-                            print("tessss ${instance<AppPreferences>().getCoachEntity()[1]}");
-                            print("tessss ${instance<AppPreferences>().getCoachEntity()[2]}");
+                            print(
+                                "tessss ${instance<AppPreferences>().getCoachEntity()[0]}");
+                            print(
+                                "tessss ${instance<AppPreferences>().getCoachEntity()[1]}");
+                            print(
+                                "tessss ${instance<AppPreferences>().getCoachEntity()[2]}");
                             controller.appController.onItemTapped(1);
                           } else {
                             instance<AppPreferences>().setCoachEntity([

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class CustomNavigatorObserver extends RouteObserver<PageRoute<dynamic>> {
   final List<PageRoute<dynamic>> _history = [];
   final Widget screenName;

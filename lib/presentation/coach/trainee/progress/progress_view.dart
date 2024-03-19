@@ -270,7 +270,7 @@ class ProgressCoachView extends GetView<ProgressCoachController> {
               child: SizedBox(
                 width: 1.sw,
                 child: Text(
-                  "${controller.progressAmount[1].muscle!} ",
+                  "${controller.progressAmount[1].muscle} ",
                   textAlign: TextAlign.center,
                   style: Get.textTheme.bodyMedium?.copyWith(fontSize: 18.sp),
                 ),
@@ -303,7 +303,7 @@ class ProgressCoachView extends GetView<ProgressCoachController> {
               child: SizedBox(
                 width: 1.sw,
                 child: Text(
-                  "${controller.progressAmount[2].fat!.toDouble()}",
+                  "${controller.progressAmount[2].fat.toDouble()}",
                   textAlign: TextAlign.center,
                   style: Get.textTheme.bodyMedium?.copyWith(fontSize: 18.sp),
                 ),
@@ -336,7 +336,7 @@ class ProgressCoachView extends GetView<ProgressCoachController> {
               child: SizedBox(
                 width: 1.sw,
                 child: Text(
-                  "${controller.progressAmount[3].water!.toDouble()}",
+                  "${controller.progressAmount[3].water.toDouble()}",
                   textAlign: TextAlign.center,
                   style: Get.textTheme.bodyMedium?.copyWith(fontSize: 18.sp),
                 ),
@@ -369,7 +369,7 @@ class ProgressCoachView extends GetView<ProgressCoachController> {
               child: SizedBox(
                 width: 1.sw,
                 child: Text(
-                  "${controller.progressAmount[4].activeCalories!.toDouble()}",
+                  "${controller.progressAmount[4].activeCalories.toDouble()}",
                   textAlign: TextAlign.center,
                   style: Get.textTheme.bodyMedium?.copyWith(fontSize: 18.sp),
                 ),
@@ -402,7 +402,7 @@ class ProgressCoachView extends GetView<ProgressCoachController> {
               child: SizedBox(
                 width: 1.sw,
                 child: Text(
-                  "${controller.progressAmount[5].steps!.toDouble()}",
+                  "${controller.progressAmount[5].steps.toDouble()}",
                   textAlign: TextAlign.center,
                   style: Get.textTheme.bodyMedium?.copyWith(fontSize: 18.sp),
                 ),

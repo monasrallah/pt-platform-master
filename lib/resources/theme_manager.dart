@@ -291,8 +291,7 @@ ThemeData getDarkTheme() {
       fontFamily: FontConstants.fontFamilyJost,
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
         backgroundColor: ColorManager.black,
-        unselectedIconTheme:
-            const IconThemeData(color: Colors.grey, size: 20),
+        unselectedIconTheme: const IconThemeData(color: Colors.grey, size: 20),
         unselectedItemColor: ColorManager.grey,
         unselectedLabelStyle: TextStyle(
             fontSize: 13,

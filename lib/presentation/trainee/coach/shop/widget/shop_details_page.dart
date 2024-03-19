@@ -1,8 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pt_platform/presentation/trainee/coach/getx/coach_controller.dart';
 import 'package:pt_platform/presentation/widgets/buttons/custom_elevated_button.dart';
+import 'package:pt_platform/resources/routes_manager.dart';
 import 'package:pt_platform/resources/strings_manager.dart';
 
 import '../../../../../domain/entities/coach_entities/shop_entity.dart';
@@ -43,7 +46,6 @@ class ShopDetailsPage extends GetView<ShopController> {
   }
 
   Widget buildBody() {
-
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -159,20 +161,25 @@ class ShopDetailsPage extends GetView<ShopController> {
                         ),
                 ),
                 20.verticalSpace,
-                Obx(
-                  () => controller.isLoading
-                      ? SizedBox(
-                          width: 1.sw,
-                          height: 50.h,
-                        )
-                      : CustomElevatedButton(
-                          title: AppStrings.payWithInAppPurchase.tr,
-                          onTap: () {
-                            controller.checkout(
-                                personalTraining.id, "purchase");
-                          },
-                        ),
-                ),
+                if (Platform.isIOS)
+                  Obx(
+                    () => controller.isLoading
+                        ? SizedBox(
+                            width: 1.sw,
+                            height: 50.h,
+                          )
+                        : CustomElevatedButton(
+                            title: AppStrings.payWithInAppPurchase.tr,
+                            onTap: () {
+                              controller.appleCheckout(
+                                id: personalTraining.id,
+                                onSuccess: () {
+                                  Get.offAllNamed(Routes.homeRoute);
+                                },
+                              );
+                            },
+                          ),
+                  ),
               ],
             ),
           ),
@@ -213,42 +220,39 @@ class ShopDetailsPage extends GetView<ShopController> {
   }
 
   Widget promoCodeTextField() {
-
     return Row(
       children: [
         Expanded(
           flex: 3,
-          child:    CustomTextField(
-              onChanged:(value){
-
-              },
-              height: 60,
-              textEditingController: controller.codeController,
-              contentPadding: EdgeInsetsDirectional.symmetric(
-                  horizontal: 1.5.h, vertical: 12.h),
-              hint: "",
-              prefix: Padding(
-                padding: const EdgeInsets.all(1.5),
-                child: Obx(
-                  () => controller.isLoading
-                      ? const CircularProgressIndicator()
-                      : SizedBox(
-                          width: 100.w,
-                          child: CustomElevatedButton(
-                            title: AppStrings.apply.tr,
-                            height: 30.h,
-                            textStyle: Get.textTheme.bodyMedium!
-                                .copyWith(fontSize: 17.sp, height: 0.5),
-                            onTap: () async {
-                              await controller
-                                  .checkPromoCode(personalTraining.id);
-                            },
-                          ),
+          child: CustomTextField(
+            onChanged: (value) {},
+            height: 60,
+            textEditingController: controller.codeController,
+            contentPadding: EdgeInsetsDirectional.symmetric(
+                horizontal: 1.5.h, vertical: 12.h),
+            hint: "",
+            prefix: Padding(
+              padding: const EdgeInsets.all(1.5),
+              child: Obx(
+                () => controller.isLoading
+                    ? const CircularProgressIndicator()
+                    : SizedBox(
+                        width: 100.w,
+                        child: CustomElevatedButton(
+                          title: AppStrings.apply.tr,
+                          height: 30.h,
+                          textStyle: Get.textTheme.bodyMedium!
+                              .copyWith(fontSize: 17.sp, height: 0.5),
+                          onTap: () async {
+                            await controller
+                                .checkPromoCode(personalTraining.id);
+                          },
                         ),
-                ),
+                      ),
               ),
             ),
           ),
+        ),
 
         // 12.horizontalSpace,
         // Expanded(

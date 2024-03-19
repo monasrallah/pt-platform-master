@@ -130,8 +130,7 @@ class EditTargetPage extends GetView<FoodController> {
                             Get.textTheme.bodyLarge!.copyWith(fontSize: 16.sp),
                         children: [
                           TextSpan(
-                            text:
-                            AppStrings.editTargetDes2.tr,
+                            text: AppStrings.editTargetDes2.tr,
                             style: Get.textTheme.bodySmall!
                                 .copyWith(fontSize: 15.sp),
                           )

@@ -30,7 +30,7 @@ class QuestionnaireView extends GetView<QuestionnaireController> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-             Text(AppStrings.enterYourDetails.tr),
+            Text(AppStrings.enterYourDetails.tr),
             20.verticalSpace,
             Obx(
               () => controller.isLoading

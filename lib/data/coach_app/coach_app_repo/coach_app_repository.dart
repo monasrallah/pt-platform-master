@@ -62,7 +62,7 @@ abstract class BaseCoachAppRepository {
       String userId, String coachId);
 
   Future<Either<Failure, List<ExerciseLogsEntity>>> getExerciseLogs(
-      int exerciseLogs,String userId, String coachId);
+      int exerciseLogs, String userId, String coachId);
 
   Future<Either<Failure, FoodEntity>> getFoodHistory(
       String dateTime, String userId);
@@ -336,20 +336,16 @@ class CoachAppRepositoryImpl extends BaseCoachAppRepository {
   @override
   Future<Either<Failure, List<ChatEntity>>> getVideoChat(String coachId) async {
     if (await _networkInfo.isConnected) {
+      final response = await _coachAppRemoteDataSource.getVideoChat(coachId);
+      print("test responst else $response");
 
-
-        final response = await _coachAppRemoteDataSource.getVideoChat(coachId);
-        print("test responst else $response");
-
-        if (response.status!) {
-          return Right(response.data!.toDomain());
-        } else {
-          return Left(Failure(ApiInternalStatus.FAILURE,
-              response.message ?? ResponseMessage.DEFAULT));
-        }
-
+      if (response.status!) {
+        return Right(response.data!.toDomain());
+      } else {
+        return Left(Failure(ApiInternalStatus.FAILURE,
+            response.message ?? ResponseMessage.DEFAULT));
+      }
     } else {
-
       return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
     }
   }
@@ -378,13 +374,13 @@ class CoachAppRepositoryImpl extends BaseCoachAppRepository {
 
   @override
   Future<Either<Failure, List<ExerciseLogsEntity>>> getExerciseLogs(
-      int exerciseLogs,String userId, String coachId) async {
+      int exerciseLogs, String userId, String coachId) async {
     if (await _networkInfo.isConnected) {
       print("kos ");
 
       try {
-        final response =
-            await _coachAppRemoteDataSource.getExerciseLogs(exerciseLogs ,userId ,coachId);
+        final response = await _coachAppRemoteDataSource.getExerciseLogs(
+            exerciseLogs, userId, coachId);
 
         if (response.status!) {
           return Right(response.data!.toDomain());

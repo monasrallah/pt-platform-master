@@ -1,7 +1,7 @@
 String dateFormat({DateTime? date}) {
   String result = "";
   if (date != null) {
-    date=date.add(const Duration(hours: 3));
+    date = date.add(const Duration(hours: 3));
     result =
         "${date.year}/${date.month}/${date.day}  "; /*,${timeFormat(date)}*/
   }
@@ -11,7 +11,7 @@ String dateFormat({DateTime? date}) {
 String timeFormat({DateTime? dateTime, bool isArabic = false}) {
   String time = "";
   if (dateTime != null) {
-    dateTime=dateTime.add(const Duration(hours: 3));
+    dateTime = dateTime.add(const Duration(hours: 3));
     if (dateTime.hour > 12) {
       time = isArabic
           ? "${dateTime.hour - 12}:${minutesFormat(dateTime)} م "

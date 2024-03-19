@@ -209,7 +209,7 @@ class StripeModel {
   });
 
   factory StripeModel.fromJson(Map<String, dynamic> json) => StripeModel(
-    status: json["status"],
-    url: json["url"],
-  );
+        status: json["status"],
+        url: json["url"],
+      );
 }

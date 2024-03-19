@@ -156,8 +156,8 @@ class ExerciseUserHistoryCoachPage extends GetView<UserHistoryCoachController> {
               backgroundColor: ColorManager.white,
               textStyle: Get.textTheme.displaySmall,
               onTap: () {
-                Get.dialog(
-                    InformationDialog(header: AppStrings.note.tr, coachDesc: note));
+                Get.dialog(InformationDialog(
+                    header: AppStrings.note.tr, coachDesc: note));
               },
             ),
           ),

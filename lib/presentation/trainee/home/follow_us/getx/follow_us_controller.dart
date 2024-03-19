@@ -2,7 +2,8 @@ import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class FollowUsController extends GetxController {
-  String facebookUrl = "https://web.facebook.com/profile.php?id=100083373336595";
+  String facebookUrl =
+      "https://web.facebook.com/profile.php?id=100083373336595";
   String instagramUrl = "https://www.instagram.com/pt.platform/";
 
   Future<void> launchFacebook(String facebookUrl) async {
@@ -24,5 +25,4 @@ class FollowUsController extends GetxController {
       await launchUrl(Uri.parse(fallbackUrl));
     }
   }
-
 }

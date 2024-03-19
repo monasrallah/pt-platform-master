@@ -42,7 +42,8 @@ class UserModel {
         startDate: json["start_date"],
         endDate: json["end_date"],
         packageName: json["package_name"],
-        type: json["type"], style: styleValues.map[json["package_style"]]!,
+        type: json["type"],
+        style: styleValues.map[json["package_style"]]!,
       );
 
   Map<String, dynamic> toJson() => {

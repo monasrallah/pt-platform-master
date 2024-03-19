@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:pt_platform/presentation/widgets/text_fields/custom_text_field.dart';
 import 'package:pt_platform/resources/color_manager.dart';
 
-import '../../../resources/functions/date_format_function.dart';
 import '../../../resources/strings_manager.dart';
 import '../buttons/custom_elevated_button.dart';
 import '../toasts_messages.dart';
@@ -72,7 +71,8 @@ class UpdateBodyMeasurementsDialog extends StatelessWidget {
                     padding: EdgeInsets.only(bottom: 10.h),
                     child: CustomTextField(
                       hint: "", isPhone: false,
-                      textInputType:  TextInputType.numberWithOptions(signed: true ,decimal: true),
+                      textInputType: const TextInputType.numberWithOptions(
+                          signed: true, decimal: true),
                       color: ColorManager.white,
                       cursorColor: ColorManager.white,
                       textEditingController: fieldsController[index],
@@ -129,20 +129,20 @@ class UpdateBodyMeasurementsDialog extends StatelessWidget {
                   width: 150,
                   backgroundColor: ColorManager.white,
                   onTap: () {
-                    bool valid = true;
-                    for (int i = 0; i < fieldsController.length - 1; i++) {
-                      if (fieldsController[i].text.isEmpty) {
-                        valid = false;
-                        break;
-                      }
-                    }
-                    if (valid) {
+                    // bool valid = true;
+                    // for (int i = 0; i < fieldsController.length - 1; i++) {
+                    //   if (fieldsController[i].text.isEmpty) {
+                    //     valid = false;
+                    //     break;
+                    //   }
+                    // }
+                    // if (valid) {
                       onTap();
-                    } else {
-                      showFlutterToast(
-                        message: AppStrings.pleaseEnterTheValues.tr,
-                      );
-                    }
+                    // } else {
+                      // showFlutterToast(
+                      //   message: AppStrings.pleaseEnterTheValues.tr,
+                      // );
+                    // }
                   },
                 ),
               )

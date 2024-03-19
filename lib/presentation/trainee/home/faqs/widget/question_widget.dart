@@ -18,7 +18,6 @@ class QuestionWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-
           Text(
             question,
             style: Get.textTheme.bodyMedium!.copyWith(fontSize: 20.sp),

@@ -40,7 +40,6 @@ class CoachEntity {
   }
 }
 
-
 class TipEntity {
   int id;
   int value;
@@ -51,14 +50,14 @@ class TipEntity {
   });
 
   factory TipEntity.fromJson(Map<String, dynamic> json) => TipEntity(
-    id: json["id"],
-    value: json["value"],
-  );
+        id: json["id"],
+        value: json["value"],
+      );
 
   Map<String, dynamic> toJson() => {
-    "id": id,
-    "value": value,
-  };
+        "id": id,
+        "value": value,
+      };
 }
 
 // class CategoryEntity {

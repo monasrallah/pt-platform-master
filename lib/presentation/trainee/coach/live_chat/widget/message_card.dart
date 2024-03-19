@@ -5,7 +5,8 @@ import 'package:get/get.dart';
 import '../../../../../resources/color_manager.dart';
 
 class MessageCard extends StatelessWidget {
-  const MessageCard({required this.color, Key? key, required this.message}) : super(key: key);
+  const MessageCard({required this.color, Key? key, required this.message})
+      : super(key: key);
   final Color color;
   final String message;
 

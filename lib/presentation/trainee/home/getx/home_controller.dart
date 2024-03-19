@@ -1,9 +1,7 @@
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart' as http;
 import 'package:pt_platform/app/extensions.dart';
-import 'package:pt_platform/data/core/utils/api_routes/api_routes.dart';
 import 'package:pt_platform/data/home/home_repo/home_repository.dart';
 import 'package:pt_platform/domain/entities/home_entities/banner_entity.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -85,8 +83,6 @@ class HomeController extends GetxController {
   bool get isLoading => _isLoading.value;
 
   RxList<BannerEntity> banners = <BannerEntity>[].obs;
-
- 
 
   @override
   void onInit() async {

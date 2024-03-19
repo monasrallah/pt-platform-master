@@ -56,7 +56,6 @@ class AllChallengesVideoModel {
   }
 }
 
-
 class ChallengeVideoModel {
   int id;
   bool isComplete;
