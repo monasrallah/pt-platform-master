@@ -7,9 +7,9 @@ import 'package:pt_platform/resources/color_manager.dart';
 import 'package:pt_platform/resources/strings_manager.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../../widgets/bottom_sheet/custom_wheel_scroll_widget.dart';
 import '../../../../widgets/buttons/app_back_bar.dart';
 import '../../../../widgets/custom_check_box.dart';
-import '../../../../widgets/bottom_sheet/custom_wheel_scroll_widget.dart';
 import '../../../main_bottom_navigation_bar/main_bottom_navigation_bar.dart';
 import 'getx/calorie_calculator_controller.dart';
 
@@ -149,8 +149,10 @@ class CalorieCalculatorView extends GetView<CalorieCalculatorController> {
                     CustomWheelScrollWidget(
                       data: controller.active,
                       dataList: controller.actives,
+                      onChanged: (value) {
+                        controller.active.value = value;
+                      },
                     ),
-                    // buildWheelScroll(),
                   );
                 },
                 suffixIcon: Icon(

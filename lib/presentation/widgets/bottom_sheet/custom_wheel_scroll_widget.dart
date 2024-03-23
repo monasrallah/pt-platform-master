@@ -1,19 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:pt_platform/app/dependency_injection.dart';
+import 'package:pt_platform/app/storage/app_prefs.dart';
 import 'package:pt_platform/resources/color_manager.dart';
 import 'package:wheel_chooser/wheel_chooser.dart';
 
-import '../../../app/dependency_injection.dart';
-import '../../../app/storage/app_prefs.dart';
 import '../../trainee/coach/getx/coach_controller.dart';
+
+typedef OnChangedCallback = void Function(dynamic value);
 
 class CustomWheelScrollWidget extends GetView<CoachController> {
   const CustomWheelScrollWidget(
-      {Key? key, required this.data, required this.dataList, this.index})
+      {Key? key,
+      required this.data,
+      required this.dataList,
+      this.index,
+      required this.onChanged})
       : super(key: key);
   final RxString data;
   final RxInt? index;
+  final OnChangedCallback onChanged;
 
   final List<String> dataList;
 
@@ -47,7 +54,9 @@ class CustomWheelScrollWidget extends GetView<CoachController> {
                   Get.textTheme.labelLarge!.copyWith(fontSize: 17.sp),
               unSelectTextStyle:
                   Get.textTheme.headlineMedium!.copyWith(fontSize: 15.sp),
+              // onValueChanged: onChanged,
               onValueChanged: (value) async {
+                onChanged(value);
                 print("test onValueChanged $value");
                 for (var i = 0; i < dataList.length; i++) {
                   if (controller.coaches[i].lastName == value) {

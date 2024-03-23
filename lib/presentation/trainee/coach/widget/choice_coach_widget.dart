@@ -25,6 +25,7 @@ class ChoiceCoachWidget extends GetView<CoachController> {
               "Test ${controller.coaches.map((e) => e.lastName.orEmpty()).toList()}");
           Get.bottomSheet(
             CustomWheelScrollWidget(
+              onChanged: (value) {},
               data: controller.coachName,
               index: controller.coachIndex,
               dataList:
