@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -61,15 +63,14 @@ class QuestionnaireView extends GetView<QuestionnaireController> {
                                   .questionnaire[index].questions[indexQu].obs,
                               onSubmit: (value) {
                                 controller.questionnaire[index]
-                                        .questions[indexQu] =
-                                    FaqsEntity.copyWith(FaqsEntity(
-                                        id: controller.questionnaire[index]
-                                            .questions[indexQu].id,
-                                        question: controller
-                                            .questionnaire[index]
-                                            .questions[indexQu]
-                                            .question,
-                                        answer: value));
+                                    .questions[indexQu] = FaqsEntity.copyWith(
+                                  FaqsEntity(
+                                      id: controller.questionnaire[index]
+                                          .questions[indexQu].id,
+                                      question: controller.questionnaire[index]
+                                          .questions[indexQu].question,
+                                      answer: value),
+                                );
                               },
                             );
                           },

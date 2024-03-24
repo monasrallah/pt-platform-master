@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -31,12 +33,18 @@ class QuestionWidget extends StatelessWidget {
             hint: "",
             style: Get.textTheme.bodySmall,
             textEditingController: answer,
-            onSubmit: (value) {
-              onSubmit(value);
+            onChanged: (value) {
+              faqsEntity.update((val) {
+                val!.answer = value;
+              });
             },
-            onTapOutside: () {
-              onSubmit(answer.text);
-            },
+            // onSubmit: (value) {
+            //   onSubmit(value);
+            // },
+            // onTapOutside: () {
+           
+            //   onSubmit(answer.text);
+            // },
           ),
           20.verticalSpace,
           Container(
