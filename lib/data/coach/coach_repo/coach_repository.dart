@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:dartz/dartz.dart';
 import 'package:pt_platform/data/coach/mapper/coach_mapper.dart';
 import 'package:pt_platform/data/home/mapper/home_mapper.dart';

@@ -17,7 +17,7 @@ class _WebViewAppState extends State<WebViewApp> {
     super.initState();
     controller = WebViewController()
       ..loadRequest(
-        Uri.parse("${AppUrls.domain}app/terms-concdditions"),
+        Uri.parse("${AppUrls.domain}app/privacy-policy"),
       );
   }
 

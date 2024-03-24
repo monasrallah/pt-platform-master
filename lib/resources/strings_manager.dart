@@ -153,7 +153,7 @@ class AppStrings {
   static String submitFeedback = "submitFeedback";
   static String fAQs = "fAQs";
   static String followUs = "followUs";
-  static String pTPlatform = "pTPlatform";
+  static String pTPlatform = "PT Platform";
   static String news = "news";
   static String caloriesCalculator = "caloriesCalculator";
   static String age = "age";

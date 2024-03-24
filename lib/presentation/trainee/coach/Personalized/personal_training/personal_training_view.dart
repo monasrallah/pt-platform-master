@@ -254,7 +254,7 @@ class PersonalTrainingView extends GetView<PersonalTrainingController> {
                             data: controller.personalized.video,
                             onTap: (index) {
                               Get.to(() => MyVideoPlayer(
-                                    fullScreen: true,
+                                    fullScreen: false,
                                     videoUrl: controller
                                         .personalized.video[index].value,
                                     onVideoChanged: (newVideoUrl) {
