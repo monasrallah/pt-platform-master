@@ -1,10 +1,9 @@
-import 'package:intl/intl.dart';
-
 String dateFormat({DateTime? date}) {
   String result = "";
   if (date != null) {
-    DateTime now = DateTime.now();
-    result = DateFormat('yyyy/MM/dd').format(now); /*,${timeFormat(date)}*/
+    // date = date.add(const Duration(hours: 3));
+    result =
+        "${date.year}/${date.month}/${date.day}  "; /*,${timeFormat(date)}*/
   }
   return result;
 }

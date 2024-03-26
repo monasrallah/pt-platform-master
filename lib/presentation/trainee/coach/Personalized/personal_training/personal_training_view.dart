@@ -1,14 +1,16 @@
+import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:pt_platform/presentation/trainee/home/nutrition/recipes/widget/recipes_details_page.dart';
 import 'package:pt_platform/resources/assets_manager.dart';
 import 'package:pt_platform/resources/color_manager.dart';
+import 'package:video_player/video_player.dart';
 
 import '../../../../../app/app_controller.dart';
 import '../../../../../resources/strings_manager.dart';
-import '../../../../widgets/custom_video_player_widget.dart';
 import '../../../../widgets/dialogs/view_image_dialog.dart';
 import '../../../home/nutrition/recipes/getx/recipes_controller.dart';
 import '../../../main_bottom_navigation_bar/main_bottom_navigation_bar.dart';
@@ -253,7 +255,7 @@ class PersonalTrainingView extends GetView<PersonalTrainingController> {
                             image: ImageAssets.videoPlaceHolder,
                             data: controller.personalized.video,
                             onTap: (index) {
-                              Get.to(() => MyVideoPlayer(
+                              Get.to(() => MyCustomVideoPlayer(
                                     fullScreen: false,
                                     videoUrl: controller
                                         .personalized.video[index].value,
@@ -345,5 +347,103 @@ class PersonalTrainingView extends GetView<PersonalTrainingController> {
         ),
       ),
     );
+  }
+}
+
+class MyCustomVideoPlayer extends StatefulWidget {
+  final bool fullScreen;
+  final String videoUrl;
+  final Function(String) onVideoChanged;
+
+  const MyCustomVideoPlayer({
+    Key? key,
+    this.fullScreen = false,
+    required this.videoUrl,
+    required this.onVideoChanged,
+  }) : super(key: key);
+
+  @override
+  State<MyCustomVideoPlayer> createState() => _MyCustomVideoPlayerState();
+}
+
+class _MyCustomVideoPlayerState extends State<MyCustomVideoPlayer> {
+  late VideoPlayerController _videoController;
+  late ChewieController _chewieController;
+
+  @override
+  void initState() {
+    super.initState();
+    _initializePlayer();
+  }
+
+  void _initializePlayer() {
+    _videoController = VideoPlayerController.network(widget.videoUrl)
+      ..initialize().then((_) {
+        _chewieController = ChewieController(
+          videoPlayerController: _videoController,
+          aspectRatio: _videoController.value.aspectRatio,
+          autoPlay: true,
+          looping: true,
+          fullScreenByDefault: widget.fullScreen,
+          showControlsOnInitialize: false,
+          materialProgressColors: ChewieProgressColors(
+            playedColor: Colors.lightGreen,
+            handleColor: Colors.blue,
+            backgroundColor: Colors.grey,
+            bufferedColor: Colors.grey,
+          ),
+          placeholder: SizedBox(
+            width: 1.sw,
+            child: const Center(child: CircularProgressIndicator()),
+          ),
+        );
+        setState(() {}); // Refresh the UI once the player is initialized
+      });
+  }
+
+  @override
+  void didUpdateWidget(covariant MyCustomVideoPlayer oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.videoUrl != widget.videoUrl) {
+      _videoController.dispose();
+      _chewieController.dispose();
+      _initializePlayer();
+      widget.onVideoChanged(widget.videoUrl);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (_videoController.value.isInitialized) {
+      return Scaffold(
+        appBar: AppBar(
+          leading: BackButton(onPressed: () {
+            Navigator.of(context).pop();
+            SystemChrome.setPreferredOrientations([
+              DeviceOrientation.portraitUp,
+              DeviceOrientation.portraitDown,
+            ]);
+          }),
+        ),
+        body: Center(
+          child: Chewie(
+            controller: _chewieController,
+          ),
+        ),
+      );
+    } else {
+      return const Scaffold(
+        body: Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+    }
+  }
+
+  @override
+  void dispose() {
+    _videoController.dispose();
+    _chewieController.dispose();
+    super.dispose();
   }
 }
