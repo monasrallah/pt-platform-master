@@ -1,6 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pt_platform/presentation/widgets/text_fields/custom_text_field.dart';
 import 'package:pt_platform/resources/color_manager.dart';
@@ -46,7 +46,7 @@ class AddToLogDialog extends StatelessWidget {
                   Expanded(
                     flex: 2,
                     child: Text(
-                      "Sets",
+                      "sets".tr,
                       style: Get.textTheme.bodySmall,
                     ),
                   ),

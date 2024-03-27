@@ -230,4 +230,6 @@ Map<String, String> en = {
   "RIGHT THIGH": "Right Thigh",
   "LEFT CALF": "Left Calf",
   "RIGHT CALF": "Right Calf",
+  "month":"month",
+  "days":"days",
 };

@@ -115,7 +115,7 @@ Map<String, String> ar = {
   "confirm": "تأكيد",
   "availableTimes": "الأوقات المتاحة",
   "noAvailableTimes": "لا توجد أوقات متاحة",
-  "sets": "المجموعات",
+  "sets": "الجولات",
   "repetition": "التكرار",
   "home": "الصفحة الرئيسية",
   "personalised": "مخصص",
@@ -226,4 +226,6 @@ Map<String, String> ar = {
   "THIGH_RIGHT": "الفخذ الأيمن",
   "CALF_LEFT": "الساق الأيسر",
   "CALF_RIGHT": "الساق الأيمن",
+  "month": "شهر",
+  "addToFavourites": "إضافة إلى المفضلة",
 };

@@ -208,6 +208,8 @@ class AppStrings {
   static String ok = "ok";
   static String cancelVideoChat = "cancelVideoChat";
   static String confirmCancelVideoChat = "confirmCancelVideoChat";
+  static String month = "month";
+  static String days = "days";
   static String passwordRoles =
       "The password most contain upper latter, lower latter, number and special character";
 }

@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:pt_platform/resources/strings_manager.dart';
 
 import '../../../../../resources/assets_manager.dart';
 import '../../../../../resources/routes_manager.dart';
@@ -11,9 +12,9 @@ class PersonalizedController extends GetxController {
   ];
 
   List<String> gridTileList = [
-    'Calendar',
-    "Video Call",
-    "Personal Training",
+    AppStrings.calendar.tr,
+    AppStrings.videoCall.tr,
+    AppStrings.personalTraining.tr,
   ];
 
   List<Function> gridOnTapList = [

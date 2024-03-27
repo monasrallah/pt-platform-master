@@ -66,8 +66,8 @@ class ShopCard extends GetView<ShopController> {
             width: 0.5.sw,
             child: Text(
               personalTraining.style != Style.STYLE_FREE
-                  ? "${personalTraining.date} month"
-                  : "7 days",
+                  ? "${personalTraining.date} ${AppStrings.month.tr}"
+                  : "7 ${AppStrings.days.tr}",
               maxLines: 2,
               textAlign: TextAlign.center,
               overflow: TextOverflow.ellipsis,
