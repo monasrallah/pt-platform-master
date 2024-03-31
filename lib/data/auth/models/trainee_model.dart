@@ -22,17 +22,23 @@ class TraineeModel {
     // required this.categories,
   });
 
-  factory TraineeModel.fromJson(Map<String, dynamic> json) => TraineeModel(
-        id: json["id"],
-        firstName: json["first_name"],
-        lastName: json["last_name"],
-        email: json["email"],
-        status: json["status"],
-        avatar: json["avatar"],
-        role: json["role"],
-        isSendNotification: json["is_send_notification"],
-        // categories: List<dynamic>.from(json["categories"].map((x) => x)),
-      );
+  factory TraineeModel.fromJson(Map<String, dynamic> json) {
+    if (json['role'] == 'coach') {
+      throw Exception('This is a coach account, not a trainee account.-');
+    }
+
+    return TraineeModel(
+      id: json["id"],
+      firstName: json["first_name"],
+      lastName: json["last_name"],
+      email: json["email"],
+      status: json["status"],
+      avatar: json["avatar"],
+      role: json["role"],
+      isSendNotification: json["is_send_notification"],
+      // categories: List<dynamic>.from(json["categories"].map((x) => x)),
+    );
+  }
 
   Map<String, dynamic> toJson() => {
         "id": id,

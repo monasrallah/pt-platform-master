@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:pt_platform/data/auth/models/coach_model.dart';
 import 'package:pt_platform/data/auth/models/trainee_model.dart';
 
@@ -54,15 +56,19 @@ class AuthRemoteDataSourceImpl implements BaseAuthRemoteDataSource {
   @override
   Future<BaseResponse<AuthModel<TraineeModel>>> loginTrainee(
       LoginParams loginParams) async {
-    return await _appApiHelper.performPostUserRequest(
+    final result = await _appApiHelper.performPostUserRequest(
         AppUrls.loginUrl, loginParams.toJson(), TraineeModel.fromJson);
+    log(result.data!.user!.toJson().toString());
+
+    return result;
   }
 
   @override
   Future<BaseResponse<AuthModel<CoachModel>>> loginCoach(
       LoginParams loginParams) async {
-    return await _appApiHelper.performPostUserRequest(
+    final result = await _appApiHelper.performPostUserRequest(
         AppUrls.loginUrl, loginParams.toJson(), CoachModel.fromJson);
+    return result;
   }
 
   @override

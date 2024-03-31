@@ -46,7 +46,7 @@ dependencies:
   get_storage: ^2.1.1
   html: ^0.15.4
   http: ^1.2.0
-  image_picker: ^1.0.4
+  image_picker: ^1.0.7
   in_app_purchase: ^3.1.13
   internet_connection_checker: ^1.0.0+1
   intl: ^0.18.0

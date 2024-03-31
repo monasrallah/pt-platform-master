@@ -102,7 +102,7 @@ class VideoChatCoachView extends GetView<VideoChatCoachController> {
                       onTapJoin: () {
                         controller.chats[index].coachTimeReservation != null
                             ? launchUrl(Uri.parse(controller.chats[index]
-                                .coachTimeReservation!.zoom.data.joinUrl
+                                .coachTimeReservation!.zoom.data.startUrl
                                 .toString()))
                             : null;
                       },

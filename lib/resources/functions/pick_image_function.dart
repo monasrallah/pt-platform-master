@@ -1,5 +1,4 @@
 import 'dart:core';
-
 import 'dart:io';
 
 import 'package:get/get.dart';
@@ -69,16 +68,18 @@ Future<List<XFile>> pickMultiImage(String source) async {
       Get.back();
       break;
     case 'gallery':
-      if (await Permission.storage.isDenied) {
-        if (await Permission.storage.request().isGranted) granted = true;
-      } else {
-        granted = true;
+      // if (await Permission.storage.isDenied) {
+      //   if (await Permission.storage.request().isGranted) granted = true;
+      // } else {
+      //   granted = true;
+      // }
+      // if (granted) {
+      var pickedfiles = await picker.pickImage(source: ImageSource.gallery);
+      //you can use ImageCourse.camera for Camera capture
+      if (pickedfiles != null) {
+        imagefiles = [pickedfiles];
       }
-      if (granted) {
-        var pickedfiles = await picker.pickMultiImage();
-        //you can use ImageCourse.camera for Camera capture
-        imagefiles = pickedfiles;
-      }
+      // }
       Get.back();
       break;
   }

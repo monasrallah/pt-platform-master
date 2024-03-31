@@ -102,7 +102,7 @@ class AuthRepositoryImpl extends BaseAuthRepository {
     print("test loginParams${loginParams.device.toJson()}");
 
     if (await _networkInfo.isConnected) {
-      // try {
+      try {
       final response = await _authRemoteDataSource.loginCoach(loginParams);
 
       if (response.status!) {
@@ -117,9 +117,9 @@ class AuthRepositoryImpl extends BaseAuthRepository {
         return Left(Failure(ApiInternalStatus.FAILURE,
             response.message ?? ResponseMessage.DEFAULT));
       }
-      // } catch (error) {
-      //   return Left(ErrorHandler.handle(error).failure);
-      // }
+      } catch (error) {
+        return Left(ErrorHandler.handle(error).failure);
+      }
     } else {
       return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
     }
