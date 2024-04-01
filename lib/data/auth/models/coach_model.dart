@@ -40,9 +40,6 @@ class CoachModel {
   });
 
   factory CoachModel.fromJson(Map<String, dynamic> json) {
-    if (json['role'] != 'coach') {
-      throw Exception('This is a trainee account, not a coach account.');
-    }
     return CoachModel(
       id: json["id"],
       fullName: json["full_name"],
