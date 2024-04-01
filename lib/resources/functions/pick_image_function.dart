@@ -2,6 +2,7 @@ import 'dart:core';
 import 'dart:io';
 
 import 'package:get/get.dart';
+import 'package:image_gallery_saver/image_gallery_saver.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -12,36 +13,38 @@ Future<File> pickImage(String source) async {
   bool granted = false;
   switch (source) {
     case 'camera':
-      if (await Permission.camera.status.isDenied) {
-        print("test granted isDenied");
+      // if (await Permission.camera.status.isDenied) {
+      //   print("test granted isDenied");
 
-        if (await Permission.camera.request().isGranted) granted = true;
-      } else {
-        print("test granted isDenied!");
+      //   if (await Permission.camera.request().isGranted) granted = true;
+      // } else {
+      //   print("test granted isDenied!");
 
-        granted = true;
+      //   granted = true;
+      // }
+      // if (granted) {
+      print("test granted $granted");
+      XFile? pickedFile = await picker.pickImage(source: ImageSource.camera);
+      if (pickedFile != null) {
+        image = File(pickedFile.path);
+        // save image to local gallery
+        await ImageGallerySaver.saveFile(image.path);
       }
-      if (granted) {
-        print("test granted $granted");
-        XFile? pickedFile = await picker.pickImage(source: ImageSource.camera);
-        if (pickedFile != null) {
-          image = File(pickedFile.path);
-        }
-      }
+      // }
       Get.back();
       break;
     case 'gallery':
-      if (await Permission.storage.isDenied) {
-        if (await Permission.storage.request().isGranted) granted = true;
-      } else {
-        granted = true;
+      // if (await Permission.storage.isDenied) {
+      //   if (await Permission.storage.request().isGranted) granted = true;
+      // } else {
+      //   granted = true;
+      // }
+      // if (granted) {
+      XFile? pickedFile = await picker.pickImage(source: ImageSource.gallery);
+      if (pickedFile != null) {
+        image = File(pickedFile.path);
       }
-      if (granted) {
-        XFile? pickedFile = await picker.pickImage(source: ImageSource.gallery);
-        if (pickedFile != null) {
-          image = File(pickedFile.path);
-        }
-      }
+      // }
       Get.back();
       break;
   }
