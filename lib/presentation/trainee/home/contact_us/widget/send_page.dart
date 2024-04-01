@@ -72,7 +72,7 @@ class SendPage extends StatelessWidget {
                   ? const CircularProgressIndicator()
                   : CustomElevatedButton(
                       height: 75.h,
-                      title: "Send",
+                      title: "send".tr,
                       onTap: () => onTapSend(),
                     ),
             ),

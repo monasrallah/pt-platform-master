@@ -12,10 +12,10 @@ class NutritionController extends GetxController {
   ];
 
   List<String> gridTileList = [
-    "Food",
-    "Supplements",
-    "Calories Calculator",
-    'Recipes and Diet Plans',
+    "food".tr,
+    "supplements".tr,
+    "caloriesCalculator".tr,
+    'recipesAndDietPlans'.tr,
   ];
 
   List<Function> gridOnTapList = [

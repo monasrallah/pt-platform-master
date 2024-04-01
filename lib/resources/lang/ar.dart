@@ -228,4 +228,13 @@ Map<String, String> ar = {
   "CALF_RIGHT": "الساق الأيمن",
   "month": "شهر",
   "addToFavourites": "إضافة إلى المفضلة",
+  "LEFT ARM": "الذراع الأيسر",
+  "RIGHT ARM": "الذراع الأيمن",
+  "LOWER BELLY": "تحت البطن ٥سم",
+  "UPPER BELLY": "فوق البطن ٥سم",
+  "LEFT THIGH": "الفخذ الأيسر",
+  "RIGHT THIGH": "الفخذ الأيمن",
+  "LEFT CALF": "الساق الأيسر",
+  "RIGHT CALF": "الساق الأيمن",
+  "fAQs": "الأسئلة الشائعة",
 };
