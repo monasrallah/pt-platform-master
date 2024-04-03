@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:html/parser.dart';
 
 import '../../../../../resources/strings_manager.dart';
 import '../../../../widgets/buttons/app_back_bar.dart';
@@ -23,6 +24,7 @@ class NewsDetailsPage extends StatelessWidget {
   }
 
   Widget buildBody() {
+    final des = parse(this.des).documentElement!.text;
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -43,7 +45,7 @@ class NewsDetailsPage extends StatelessWidget {
                 ),
                 20.verticalSpace,
                 Text(
-                  title,
+                  des,
                   style: Get.textTheme.bodySmall!.copyWith(fontSize: 18.sp),
                 ),
               ],
