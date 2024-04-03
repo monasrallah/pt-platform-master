@@ -97,8 +97,8 @@ class ExerciseUserHistoryCoachPage extends GetView<UserHistoryCoachController> {
                                                         .logs[index].createdAt,
                                                     stone:
                                                         "${controller.logs[index].weight} ${controller.logs[index].weightUnit}",
-                                                    num:
-                                                        "${controller.logs[index].number}",
+                                                    number:
+                                                        "${controller.logs[index].repetition}",
                                                     note: controller
                                                         .logs[index].note
                                                         .orEmpty());
@@ -121,7 +121,7 @@ class ExerciseUserHistoryCoachPage extends GetView<UserHistoryCoachController> {
   Widget historyRow(
       {required String date,
       required String stone,
-      required String num,
+      required String number,
       required String note}) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 12.h),
@@ -144,7 +144,7 @@ class ExerciseUserHistoryCoachPage extends GetView<UserHistoryCoachController> {
           Expanded(
             flex: 1,
             child: Text(
-              num,
+              number,
               style: Get.textTheme.bodySmall,
             ),
           ),
