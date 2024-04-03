@@ -48,9 +48,8 @@ class ChatModel {
         deletedAt: json["deleted_at"],
         createdAt: DateTime.parse(json["created_at"]),
         updatedAt: DateTime.parse(json["updated_at"]),
-        coachTimeReservation: json["coach_time_reservation_accept"] != null
-            ? CoachTimeReservationModel.fromJson(
-                json["coach_time_reservation_accept"])
+        coachTimeReservation: json["coach_time_reservation"] != null
+            ? CoachTimeReservationModel.fromJson(json["coach_time_reservation"])
             : null,
       );
 }
