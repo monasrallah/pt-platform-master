@@ -130,7 +130,7 @@ Map<String, String> ar = {
   "workoutSchedule": "جدول التمارين",
   "foodPlan": "خطة الطعام",
   "buyNow": "اشتري الآن",
-  "ptPackages": "حزم التدريب الشخصي",
+  "pTPackages": "حزم التدريب الشخصي",
   "packageFeatures": "ميزات الحزمة",
   "paymentMethod": "طريقة الدفع",
   "duration": "المدة",
