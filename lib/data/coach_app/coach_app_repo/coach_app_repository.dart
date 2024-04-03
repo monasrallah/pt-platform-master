@@ -376,8 +376,6 @@ class CoachAppRepositoryImpl extends BaseCoachAppRepository {
   Future<Either<Failure, List<ExerciseLogsEntity>>> getExerciseLogs(
       int exerciseLogs, String userId, String coachId) async {
     if (await _networkInfo.isConnected) {
-      print("kos ");
-
       try {
         final response = await _coachAppRemoteDataSource.getExerciseLogs(
             exerciseLogs, userId, coachId);
