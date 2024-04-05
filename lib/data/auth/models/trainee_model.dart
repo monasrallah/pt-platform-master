@@ -24,7 +24,7 @@ class TraineeModel {
 
   factory TraineeModel.fromJson(Map<String, dynamic> json) {
     if (json['role'] == 'coach') {
-      throw Exception('This is a coach account, not a trainee account.-');
+      throw Exception('you are trying to login with a different account type , back and change the account type');
     }
 
     return TraineeModel(

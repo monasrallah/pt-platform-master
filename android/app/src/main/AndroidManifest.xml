@@ -19,6 +19,8 @@
         </intent>
     </queries>
     <application
+        android:enableOnBackInvokedCallback="true"
+
         android:label="PT Platform"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">

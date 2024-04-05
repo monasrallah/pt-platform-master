@@ -51,7 +51,7 @@ class DynamicLinkService {
       ),
       // Other things to add as an example. We don't need it now
       iosParameters: const IOSParameters(
-        bundleId: 'com.smartedge.ptapp',
+        bundleId: 'com.qtechnetworks.gyms',
         minimumVersion: '1',
         appStoreId: '123456789',
       ),

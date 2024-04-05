@@ -40,6 +40,10 @@ class CoachModel {
   });
 
   factory CoachModel.fromJson(Map<String, dynamic> json) {
+    if (json['role'] == 'user') {
+      throw Exception(
+          'you are trying to login with a different account type , back and change the account type');
+    }
     return CoachModel(
       id: json["id"],
       fullName: json["full_name"],

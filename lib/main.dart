@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 import 'package:pt_platform/firebase_options.dart';
-
 import 'app/app.dart';
 import 'app/dependency_injection.dart';
 
@@ -12,7 +11,6 @@ int? selectedCaptain;
 
 void selectCaptain(int index) {
   print("selectCaptain");
-
   selectedCaptain = index;
 }
 

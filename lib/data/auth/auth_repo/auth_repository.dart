@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:pt_platform/app/extensions.dart';
 import 'package:pt_platform/data/auth/mapper/auth_mapper.dart';
 import 'package:pt_platform/domain/entities/auth_entities/auth_entity.dart';
 
@@ -84,11 +85,15 @@ class AuthRepositoryImpl extends BaseAuthRepository {
           ]);
           return Right(response.data!.toDomainTrainee());
         } else {
-          return Left(Failure(ApiInternalStatus.FAILURE,
-              response.message ?? ResponseMessage.DEFAULT));
+          return Left(Failure(
+              ApiInternalStatus.FAILURE,
+              response.data!.user!.role == "coach"
+                  ? "tests"
+                  : response.message ?? ResponseMessage.DEFAULT));
         }
-      } catch (error) {
-        return Left(ErrorHandler.handle(error).failure);
+      } on Exception catch (error) {
+        return Left(
+            Failure(ApiInternalStatus.FAILURE, error.toString().substring(11)));
       }
     } else {
       return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
@@ -103,22 +108,23 @@ class AuthRepositoryImpl extends BaseAuthRepository {
 
     if (await _networkInfo.isConnected) {
       try {
-      final response = await _authRemoteDataSource.loginCoach(loginParams);
+        final response = await _authRemoteDataSource.loginCoach(loginParams);
 
-      if (response.status!) {
-        instance<AppPreferences>().setAccessToken(response.data!.token);
-        instance<AppPreferences>().setCoachEntity([
-          response.data!.user!.id.toString(),
-          response.data!.user!.nickName.toString(),
-          response.data!.user!.logo.toString(),
-        ]);
-        return Right(response.data!.toDomainCoach());
-      } else {
-        return Left(Failure(ApiInternalStatus.FAILURE,
-            response.message ?? ResponseMessage.DEFAULT));
-      }
-      } catch (error) {
-        return Left(ErrorHandler.handle(error).failure);
+        if (response.status!) {
+          instance<AppPreferences>().setAccessToken(response.data!.token);
+          instance<AppPreferences>().setCoachEntity([
+            response.data!.user!.id.toString(),
+            response.data!.user!.nickName.toString(),
+            response.data!.user!.logo.toString(),
+          ]);
+          return Right(response.data!.toDomainCoach());
+        } else {
+          return Left(Failure(ApiInternalStatus.FAILURE,
+              response.message ?? ResponseMessage.DEFAULT));
+        }
+      } on Exception catch (error) {
+        return Left(
+            Failure(ApiInternalStatus.FAILURE, error.toString().substring(11)));
       }
     } else {
       return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());

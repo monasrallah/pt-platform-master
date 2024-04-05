@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -100,9 +102,11 @@ class VideoChatCoachView extends GetView<VideoChatCoachController> {
                     return VideoInfoRow(
                       chat: controller.chats[index],
                       onTapJoin: () {
+                        
+
                         controller.chats[index].coachTimeReservation != null
                             ? launchUrl(Uri.parse(controller.chats[index]
-                                .coachTimeReservation!.zoom.data.startUrl
+                                .coachTimeReservation!.zoom.data.joinUrl
                                 .toString()))
                             : null;
                       },
