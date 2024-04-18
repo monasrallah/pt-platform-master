@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:pt_platform/app/extensions.dart';
 import 'package:pt_platform/data/auth/mapper/auth_mapper.dart';
 import 'package:pt_platform/domain/entities/auth_entities/auth_entity.dart';
@@ -92,8 +93,11 @@ class AuthRepositoryImpl extends BaseAuthRepository {
                   : response.message ?? ResponseMessage.DEFAULT));
         }
       } on Exception catch (error) {
-        return Left(
-            Failure(ApiInternalStatus.FAILURE, error.toString().substring(11)));
+        print("errortes ${error is DioErrorType}");
+        return error.toString().substring(11) =="you are trying to login with a different account type , back and change the account type"?  Left(
+            Failure(ApiInternalStatus.FAILURE, error.toString().substring(11))):          Left(ErrorHandler.handle(error).failure);
+
+
       }
     } else {
       return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
@@ -123,8 +127,12 @@ class AuthRepositoryImpl extends BaseAuthRepository {
               response.message ?? ResponseMessage.DEFAULT));
         }
       } on Exception catch (error) {
-        return Left(
-            Failure(ApiInternalStatus.FAILURE, error.toString().substring(11)));
+        print("errortes ${error is DioErrorType}");
+        return error.toString().substring(11) ==
+                "you are trying to login with a different account type , back and change the account type"
+            ? Left(Failure(
+                ApiInternalStatus.FAILURE, error.toString().substring(11)))
+            : Left(ErrorHandler.handle(error).failure);
       }
     } else {
       return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
