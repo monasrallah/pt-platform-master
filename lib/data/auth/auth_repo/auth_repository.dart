@@ -97,7 +97,6 @@ class AuthRepositoryImpl extends BaseAuthRepository {
         return error.toString().substring(11) =="you are trying to login with a different account type , back and change the account type"?  Left(
             Failure(ApiInternalStatus.FAILURE, error.toString().substring(11))):          Left(ErrorHandler.handle(error).failure);
 
-
       }
     } else {
       return Left(DataSource.NO_INTERNET_CONNECTION.getFailure());
